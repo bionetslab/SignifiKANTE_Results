@@ -1,0 +1,1441 @@
+	Top N Predictions	True Positives	Precision	comparison	thresholds	dataset	data_configuration
+0	0	0	0.0	$\alpha$=0.05	0.5	data_0	5_sources
+1	1	0	0.0	$\alpha$=0.05	1.0	data_0	5_sources
+2	2	0	0.0	$\alpha$=0.05	2.0	data_0	5_sources
+3	3	0	0.0	$\alpha$=0.05	3.0	data_0	5_sources
+4	5	2	0.4	$\alpha$=0.05	4.0	data_0	5_sources
+5	6	2	0.3333333333333333	$\alpha$=0.05	5.0	data_0	5_sources
+6	7	3	0.42857142857142855	$\alpha$=0.05	6.0	data_0	5_sources
+7	9	4	0.4444444444444444	$\alpha$=0.05	7.0	data_0	5_sources
+8	10	4	0.4	$\alpha$=0.05	8.0	data_0	5_sources
+9	11	5	0.45454545454545453	$\alpha$=0.05	9.0	data_0	5_sources
+10	12	5	0.4166666666666667	$\alpha$=0.05	10.0	data_0	5_sources
+11	19	8	0.42105263157894735	$\alpha$=0.05	15.0	data_0	5_sources
+12	25	13	0.52	$\alpha$=0.05	20.0	data_0	5_sources
+13	64	21	0.328125	$\alpha$=0.05	50.0	data_0	5_sources
+14	96	30	0.3125	$\alpha$=0.05	75.0	data_0	5_sources
+15	129	35	0.2713178294573643	$\alpha$=0.05	100.0	data_0	5_sources
+0	0	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_0	5_sources
+1	0	0	0.0	$\alpha$=0.05 (BH-adj)	1.0	data_0	5_sources
+2	1	0	0.0	$\alpha$=0.05 (BH-adj)	2.0	data_0	5_sources
+3	2	0	0.0	$\alpha$=0.05 (BH-adj)	3.0	data_0	5_sources
+4	3	0	0.0	$\alpha$=0.05 (BH-adj)	4.0	data_0	5_sources
+5	4	1	0.25	$\alpha$=0.05 (BH-adj)	5.0	data_0	5_sources
+6	5	2	0.4	$\alpha$=0.05 (BH-adj)	6.0	data_0	5_sources
+7	6	2	0.3333333333333333	$\alpha$=0.05 (BH-adj)	7.0	data_0	5_sources
+8	6	2	0.3333333333333333	$\alpha$=0.05 (BH-adj)	8.0	data_0	5_sources
+9	7	3	0.42857142857142855	$\alpha$=0.05 (BH-adj)	9.0	data_0	5_sources
+10	8	3	0.375	$\alpha$=0.05 (BH-adj)	10.0	data_0	5_sources
+11	13	5	0.38461538461538464	$\alpha$=0.05 (BH-adj)	15.0	data_0	5_sources
+12	17	7	0.4117647058823529	$\alpha$=0.05 (BH-adj)	20.0	data_0	5_sources
+13	43	19	0.4418604651162791	$\alpha$=0.05 (BH-adj)	50.0	data_0	5_sources
+14	65	22	0.3384615384615385	$\alpha$=0.05 (BH-adj)	75.0	data_0	5_sources
+15	87	28	0.3218390804597701	$\alpha$=0.05 (BH-adj)	100.0	data_0	5_sources
+0	1	0	0.0	unfiltered	0.5	data_0	5_sources
+1	2	0	0.0	unfiltered	1.0	data_0	5_sources
+2	5	2	0.4	unfiltered	2.0	data_0	5_sources
+3	8	3	0.375	unfiltered	3.0	data_0	5_sources
+4	11	5	0.45454545454545453	unfiltered	4.0	data_0	5_sources
+5	13	5	0.38461538461538464	unfiltered	5.0	data_0	5_sources
+6	16	7	0.4375	unfiltered	6.0	data_0	5_sources
+7	19	8	0.42105263157894735	unfiltered	7.0	data_0	5_sources
+8	22	11	0.5	unfiltered	8.0	data_0	5_sources
+9	24	13	0.5416666666666666	unfiltered	9.0	data_0	5_sources
+10	27	14	0.5185185185185185	unfiltered	10.0	data_0	5_sources
+11	41	19	0.4634146341463415	unfiltered	15.0	data_0	5_sources
+12	55	20	0.36363636363636365	unfiltered	20.0	data_0	5_sources
+13	138	36	0.2608695652173913	unfiltered	50.0	data_0	5_sources
+14	207	45	0.21739130434782608	unfiltered	75.0	data_0	5_sources
+15	276	64	0.2318840579710145	unfiltered	100.0	data_0	5_sources
+0	0	0	0.0	$\alpha$=0.05	0.5	data_1	5_sources
+1	1	0	0.0	$\alpha$=0.05	1.0	data_1	5_sources
+2	3	0	0.0	$\alpha$=0.05	2.0	data_1	5_sources
+3	5	0	0.0	$\alpha$=0.05	3.0	data_1	5_sources
+4	7	0	0.0	$\alpha$=0.05	4.0	data_1	5_sources
+5	9	0	0.0	$\alpha$=0.05	5.0	data_1	5_sources
+6	10	0	0.0	$\alpha$=0.05	6.0	data_1	5_sources
+7	12	0	0.0	$\alpha$=0.05	7.0	data_1	5_sources
+8	14	0	0.0	$\alpha$=0.05	8.0	data_1	5_sources
+9	16	0	0.0	$\alpha$=0.05	9.0	data_1	5_sources
+10	18	0	0.0	$\alpha$=0.05	10.0	data_1	5_sources
+11	27	3	0.1111111111111111	$\alpha$=0.05	15.0	data_1	5_sources
+12	36	8	0.2222222222222222	$\alpha$=0.05	20.0	data_1	5_sources
+13	91	21	0.23076923076923078	$\alpha$=0.05	50.0	data_1	5_sources
+14	136	28	0.20588235294117646	$\alpha$=0.05	75.0	data_1	5_sources
+15	182	32	0.17582417582417584	$\alpha$=0.05	100.0	data_1	5_sources
+0	0	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_1	5_sources
+1	1	0	0.0	$\alpha$=0.05 (BH-adj)	1.0	data_1	5_sources
+2	3	0	0.0	$\alpha$=0.05 (BH-adj)	2.0	data_1	5_sources
+3	5	0	0.0	$\alpha$=0.05 (BH-adj)	3.0	data_1	5_sources
+4	6	0	0.0	$\alpha$=0.05 (BH-adj)	4.0	data_1	5_sources
+5	8	0	0.0	$\alpha$=0.05 (BH-adj)	5.0	data_1	5_sources
+6	10	0	0.0	$\alpha$=0.05 (BH-adj)	6.0	data_1	5_sources
+7	12	0	0.0	$\alpha$=0.05 (BH-adj)	7.0	data_1	5_sources
+8	13	0	0.0	$\alpha$=0.05 (BH-adj)	8.0	data_1	5_sources
+9	15	0	0.0	$\alpha$=0.05 (BH-adj)	9.0	data_1	5_sources
+10	17	0	0.0	$\alpha$=0.05 (BH-adj)	10.0	data_1	5_sources
+11	25	2	0.08	$\alpha$=0.05 (BH-adj)	15.0	data_1	5_sources
+12	34	7	0.20588235294117646	$\alpha$=0.05 (BH-adj)	20.0	data_1	5_sources
+13	86	19	0.22093023255813954	$\alpha$=0.05 (BH-adj)	50.0	data_1	5_sources
+14	129	27	0.20930232558139536	$\alpha$=0.05 (BH-adj)	75.0	data_1	5_sources
+15	173	32	0.18497109826589594	$\alpha$=0.05 (BH-adj)	100.0	data_1	5_sources
+0	1	0	0.0	unfiltered	0.5	data_1	5_sources
+1	2	0	0.0	unfiltered	1.0	data_1	5_sources
+2	4	0	0.0	unfiltered	2.0	data_1	5_sources
+3	7	0	0.0	unfiltered	3.0	data_1	5_sources
+4	9	0	0.0	unfiltered	4.0	data_1	5_sources
+5	12	0	0.0	unfiltered	5.0	data_1	5_sources
+6	14	0	0.0	unfiltered	6.0	data_1	5_sources
+7	17	0	0.0	unfiltered	7.0	data_1	5_sources
+8	19	0	0.0	unfiltered	8.0	data_1	5_sources
+9	22	1	0.045454545454545456	unfiltered	9.0	data_1	5_sources
+10	24	2	0.08333333333333333	unfiltered	10.0	data_1	5_sources
+11	36	8	0.2222222222222222	unfiltered	15.0	data_1	5_sources
+12	49	10	0.20408163265306123	unfiltered	20.0	data_1	5_sources
+13	122	27	0.22131147540983606	unfiltered	50.0	data_1	5_sources
+14	183	32	0.17486338797814208	unfiltered	75.0	data_1	5_sources
+15	245	39	0.15918367346938775	unfiltered	100.0	data_1	5_sources
+0	0	0	0.0	$\alpha$=0.05	0.5	data_2	5_sources
+1	0	0	0.0	$\alpha$=0.05	1.0	data_2	5_sources
+2	1	1	1.0	$\alpha$=0.05	2.0	data_2	5_sources
+3	2	1	0.5	$\alpha$=0.05	3.0	data_2	5_sources
+4	3	1	0.3333333333333333	$\alpha$=0.05	4.0	data_2	5_sources
+5	3	1	0.3333333333333333	$\alpha$=0.05	5.0	data_2	5_sources
+6	4	1	0.25	$\alpha$=0.05	6.0	data_2	5_sources
+7	5	1	0.2	$\alpha$=0.05	7.0	data_2	5_sources
+8	6	2	0.3333333333333333	$\alpha$=0.05	8.0	data_2	5_sources
+9	6	2	0.3333333333333333	$\alpha$=0.05	9.0	data_2	5_sources
+10	7	2	0.2857142857142857	$\alpha$=0.05	10.0	data_2	5_sources
+11	11	3	0.2727272727272727	$\alpha$=0.05	15.0	data_2	5_sources
+12	15	5	0.3333333333333333	$\alpha$=0.05	20.0	data_2	5_sources
+13	38	9	0.23684210526315788	$\alpha$=0.05	50.0	data_2	5_sources
+14	57	13	0.22807017543859648	$\alpha$=0.05	75.0	data_2	5_sources
+15	76	16	0.21052631578947367	$\alpha$=0.05	100.0	data_2	5_sources
+0	0	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_2	5_sources
+1	0	0	0.0	$\alpha$=0.05 (BH-adj)	1.0	data_2	5_sources
+2	0	0	0.0	$\alpha$=0.05 (BH-adj)	2.0	data_2	5_sources
+3	1	1	1.0	$\alpha$=0.05 (BH-adj)	3.0	data_2	5_sources
+4	1	1	1.0	$\alpha$=0.05 (BH-adj)	4.0	data_2	5_sources
+5	2	1	0.5	$\alpha$=0.05 (BH-adj)	5.0	data_2	5_sources
+6	2	1	0.5	$\alpha$=0.05 (BH-adj)	6.0	data_2	5_sources
+7	3	1	0.3333333333333333	$\alpha$=0.05 (BH-adj)	7.0	data_2	5_sources
+8	3	1	0.3333333333333333	$\alpha$=0.05 (BH-adj)	8.0	data_2	5_sources
+9	4	1	0.25	$\alpha$=0.05 (BH-adj)	9.0	data_2	5_sources
+10	4	1	0.25	$\alpha$=0.05 (BH-adj)	10.0	data_2	5_sources
+11	7	2	0.2857142857142857	$\alpha$=0.05 (BH-adj)	15.0	data_2	5_sources
+12	9	3	0.3333333333333333	$\alpha$=0.05 (BH-adj)	20.0	data_2	5_sources
+13	24	7	0.2916666666666667	$\alpha$=0.05 (BH-adj)	50.0	data_2	5_sources
+14	36	8	0.2222222222222222	$\alpha$=0.05 (BH-adj)	75.0	data_2	5_sources
+15	48	12	0.25	$\alpha$=0.05 (BH-adj)	100.0	data_2	5_sources
+0	0	0	0.0	unfiltered	0.5	data_2	5_sources
+1	1	1	1.0	unfiltered	1.0	data_2	5_sources
+2	3	1	0.3333333333333333	unfiltered	2.0	data_2	5_sources
+3	5	1	0.2	unfiltered	3.0	data_2	5_sources
+4	7	2	0.2857142857142857	unfiltered	4.0	data_2	5_sources
+5	9	3	0.3333333333333333	unfiltered	5.0	data_2	5_sources
+6	11	3	0.2727272727272727	unfiltered	6.0	data_2	5_sources
+7	13	4	0.3076923076923077	unfiltered	7.0	data_2	5_sources
+8	15	5	0.3333333333333333	unfiltered	8.0	data_2	5_sources
+9	17	6	0.35294117647058826	unfiltered	9.0	data_2	5_sources
+10	19	6	0.3157894736842105	unfiltered	10.0	data_2	5_sources
+11	29	7	0.2413793103448276	unfiltered	15.0	data_2	5_sources
+12	39	9	0.23076923076923078	unfiltered	20.0	data_2	5_sources
+13	97	18	0.18556701030927836	unfiltered	50.0	data_2	5_sources
+14	146	20	0.136986301369863	unfiltered	75.0	data_2	5_sources
+15	195	26	0.13333333333333333	unfiltered	100.0	data_2	5_sources
+0	1	0	0.0	$\alpha$=0.05	0.5	data_3	5_sources
+1	3	0	0.0	$\alpha$=0.05	1.0	data_3	5_sources
+2	6	0	0.0	$\alpha$=0.05	2.0	data_3	5_sources
+3	9	1	0.1111111111111111	$\alpha$=0.05	3.0	data_3	5_sources
+4	13	3	0.23076923076923078	$\alpha$=0.05	4.0	data_3	5_sources
+5	16	4	0.25	$\alpha$=0.05	5.0	data_3	5_sources
+6	19	4	0.21052631578947367	$\alpha$=0.05	6.0	data_3	5_sources
+7	22	5	0.22727272727272727	$\alpha$=0.05	7.0	data_3	5_sources
+8	26	7	0.2692307692307692	$\alpha$=0.05	8.0	data_3	5_sources
+9	29	7	0.2413793103448276	$\alpha$=0.05	9.0	data_3	5_sources
+10	32	9	0.28125	$\alpha$=0.05	10.0	data_3	5_sources
+11	48	13	0.2708333333333333	$\alpha$=0.05	15.0	data_3	5_sources
+12	65	18	0.27692307692307694	$\alpha$=0.05	20.0	data_3	5_sources
+13	162	45	0.2777777777777778	$\alpha$=0.05	50.0	data_3	5_sources
+14	243	57	0.2345679012345679	$\alpha$=0.05	75.0	data_3	5_sources
+15	325	67	0.20615384615384616	$\alpha$=0.05	100.0	data_3	5_sources
+0	1	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_3	5_sources
+1	2	0	0.0	$\alpha$=0.05 (BH-adj)	1.0	data_3	5_sources
+2	5	0	0.0	$\alpha$=0.05 (BH-adj)	2.0	data_3	5_sources
+3	8	1	0.125	$\alpha$=0.05 (BH-adj)	3.0	data_3	5_sources
+4	10	2	0.2	$\alpha$=0.05 (BH-adj)	4.0	data_3	5_sources
+5	13	3	0.23076923076923078	$\alpha$=0.05 (BH-adj)	5.0	data_3	5_sources
+6	16	4	0.25	$\alpha$=0.05 (BH-adj)	6.0	data_3	5_sources
+7	19	4	0.21052631578947367	$\alpha$=0.05 (BH-adj)	7.0	data_3	5_sources
+8	21	4	0.19047619047619047	$\alpha$=0.05 (BH-adj)	8.0	data_3	5_sources
+9	24	6	0.25	$\alpha$=0.05 (BH-adj)	9.0	data_3	5_sources
+10	27	7	0.25925925925925924	$\alpha$=0.05 (BH-adj)	10.0	data_3	5_sources
+11	40	10	0.25	$\alpha$=0.05 (BH-adj)	15.0	data_3	5_sources
+12	54	14	0.25925925925925924	$\alpha$=0.05 (BH-adj)	20.0	data_3	5_sources
+13	136	38	0.27941176470588236	$\alpha$=0.05 (BH-adj)	50.0	data_3	5_sources
+14	204	53	0.25980392156862747	$\alpha$=0.05 (BH-adj)	75.0	data_3	5_sources
+15	273	59	0.21611721611721613	$\alpha$=0.05 (BH-adj)	100.0	data_3	5_sources
+0	2	0	0.0	unfiltered	0.5	data_3	5_sources
+1	5	0	0.0	unfiltered	1.0	data_3	5_sources
+2	10	2	0.2	unfiltered	2.0	data_3	5_sources
+3	16	4	0.25	unfiltered	3.0	data_3	5_sources
+4	21	4	0.19047619047619047	unfiltered	4.0	data_3	5_sources
+5	27	7	0.25925925925925924	unfiltered	5.0	data_3	5_sources
+6	32	9	0.28125	unfiltered	6.0	data_3	5_sources
+7	38	10	0.2631578947368421	unfiltered	7.0	data_3	5_sources
+8	43	11	0.2558139534883721	unfiltered	8.0	data_3	5_sources
+9	49	14	0.2857142857142857	unfiltered	9.0	data_3	5_sources
+10	54	14	0.25925925925925924	unfiltered	10.0	data_3	5_sources
+11	81	23	0.2839506172839506	unfiltered	15.0	data_3	5_sources
+12	109	30	0.27522935779816515	unfiltered	20.0	data_3	5_sources
+13	272	59	0.21691176470588236	unfiltered	50.0	data_3	5_sources
+14	408	79	0.19362745098039216	unfiltered	75.0	data_3	5_sources
+15	545	94	0.1724770642201835	unfiltered	100.0	data_3	5_sources
+0	1	0	0.0	$\alpha$=0.05	0.5	data_4	5_sources
+1	3	0	0.0	$\alpha$=0.05	1.0	data_4	5_sources
+2	7	1	0.14285714285714285	$\alpha$=0.05	2.0	data_4	5_sources
+3	11	2	0.18181818181818182	$\alpha$=0.05	3.0	data_4	5_sources
+4	15	5	0.3333333333333333	$\alpha$=0.05	4.0	data_4	5_sources
+5	19	7	0.3684210526315789	$\alpha$=0.05	5.0	data_4	5_sources
+6	23	10	0.43478260869565216	$\alpha$=0.05	6.0	data_4	5_sources
+7	27	11	0.4074074074074074	$\alpha$=0.05	7.0	data_4	5_sources
+8	31	12	0.3870967741935484	$\alpha$=0.05	8.0	data_4	5_sources
+9	35	13	0.37142857142857144	$\alpha$=0.05	9.0	data_4	5_sources
+10	39	13	0.3333333333333333	$\alpha$=0.05	10.0	data_4	5_sources
+11	59	24	0.4067796610169492	$\alpha$=0.05	15.0	data_4	5_sources
+12	79	29	0.3670886075949367	$\alpha$=0.05	20.0	data_4	5_sources
+13	197	59	0.29949238578680204	$\alpha$=0.05	50.0	data_4	5_sources
+14	296	72	0.24324324324324326	$\alpha$=0.05	75.0	data_4	5_sources
+15	395	86	0.21772151898734177	$\alpha$=0.05	100.0	data_4	5_sources
+0	1	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_4	5_sources
+1	3	0	0.0	$\alpha$=0.05 (BH-adj)	1.0	data_4	5_sources
+2	7	1	0.14285714285714285	$\alpha$=0.05 (BH-adj)	2.0	data_4	5_sources
+3	11	2	0.18181818181818182	$\alpha$=0.05 (BH-adj)	3.0	data_4	5_sources
+4	14	4	0.2857142857142857	$\alpha$=0.05 (BH-adj)	4.0	data_4	5_sources
+5	18	6	0.3333333333333333	$\alpha$=0.05 (BH-adj)	5.0	data_4	5_sources
+6	22	9	0.4090909090909091	$\alpha$=0.05 (BH-adj)	6.0	data_4	5_sources
+7	25	10	0.4	$\alpha$=0.05 (BH-adj)	7.0	data_4	5_sources
+8	29	11	0.3793103448275862	$\alpha$=0.05 (BH-adj)	8.0	data_4	5_sources
+9	33	13	0.3939393939393939	$\alpha$=0.05 (BH-adj)	9.0	data_4	5_sources
+10	36	13	0.3611111111111111	$\alpha$=0.05 (BH-adj)	10.0	data_4	5_sources
+11	55	21	0.38181818181818183	$\alpha$=0.05 (BH-adj)	15.0	data_4	5_sources
+12	73	29	0.3972602739726027	$\alpha$=0.05 (BH-adj)	20.0	data_4	5_sources
+13	184	56	0.30434782608695654	$\alpha$=0.05 (BH-adj)	50.0	data_4	5_sources
+14	276	69	0.25	$\alpha$=0.05 (BH-adj)	75.0	data_4	5_sources
+15	369	82	0.2222222222222222	$\alpha$=0.05 (BH-adj)	100.0	data_4	5_sources
+0	2	0	0.0	unfiltered	0.5	data_4	5_sources
+1	5	0	0.0	unfiltered	1.0	data_4	5_sources
+2	11	2	0.18181818181818182	unfiltered	2.0	data_4	5_sources
+3	17	6	0.35294117647058826	unfiltered	3.0	data_4	5_sources
+4	23	10	0.43478260869565216	unfiltered	4.0	data_4	5_sources
+5	29	11	0.3793103448275862	unfiltered	5.0	data_4	5_sources
+6	35	13	0.37142857142857144	unfiltered	6.0	data_4	5_sources
+7	41	13	0.3170731707317073	unfiltered	7.0	data_4	5_sources
+8	47	17	0.3617021276595745	unfiltered	8.0	data_4	5_sources
+9	53	19	0.3584905660377358	unfiltered	9.0	data_4	5_sources
+10	59	24	0.4067796610169492	unfiltered	10.0	data_4	5_sources
+11	89	31	0.34831460674157305	unfiltered	15.0	data_4	5_sources
+12	119	39	0.3277310924369748	unfiltered	20.0	data_4	5_sources
+13	297	72	0.24242424242424243	unfiltered	50.0	data_4	5_sources
+14	446	93	0.2085201793721973	unfiltered	75.0	data_4	5_sources
+15	595	111	0.1865546218487395	unfiltered	100.0	data_4	5_sources
+0	2	0	0.0	$\alpha$=0.05	0.5	data_5	5_sources
+1	5	1	0.2	$\alpha$=0.05	1.0	data_5	5_sources
+2	10	1	0.1	$\alpha$=0.05	2.0	data_5	5_sources
+3	15	2	0.13333333333333333	$\alpha$=0.05	3.0	data_5	5_sources
+4	20	4	0.2	$\alpha$=0.05	4.0	data_5	5_sources
+5	25	7	0.28	$\alpha$=0.05	5.0	data_5	5_sources
+6	30	9	0.3	$\alpha$=0.05	6.0	data_5	5_sources
+7	36	11	0.3055555555555556	$\alpha$=0.05	7.0	data_5	5_sources
+8	41	13	0.3170731707317073	$\alpha$=0.05	8.0	data_5	5_sources
+9	46	15	0.32608695652173914	$\alpha$=0.05	9.0	data_5	5_sources
+10	51	17	0.3333333333333333	$\alpha$=0.05	10.0	data_5	5_sources
+11	77	23	0.2987012987012987	$\alpha$=0.05	15.0	data_5	5_sources
+12	103	30	0.2912621359223301	$\alpha$=0.05	20.0	data_5	5_sources
+13	257	60	0.23346303501945526	$\alpha$=0.05	50.0	data_5	5_sources
+14	386	84	0.21761658031088082	$\alpha$=0.05	75.0	data_5	5_sources
+15	515	104	0.20194174757281552	$\alpha$=0.05	100.0	data_5	5_sources
+0	2	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_5	5_sources
+1	5	1	0.2	$\alpha$=0.05 (BH-adj)	1.0	data_5	5_sources
+2	10	1	0.1	$\alpha$=0.05 (BH-adj)	2.0	data_5	5_sources
+3	15	2	0.13333333333333333	$\alpha$=0.05 (BH-adj)	3.0	data_5	5_sources
+4	20	4	0.2	$\alpha$=0.05 (BH-adj)	4.0	data_5	5_sources
+5	25	7	0.28	$\alpha$=0.05 (BH-adj)	5.0	data_5	5_sources
+6	30	9	0.3	$\alpha$=0.05 (BH-adj)	6.0	data_5	5_sources
+7	35	10	0.2857142857142857	$\alpha$=0.05 (BH-adj)	7.0	data_5	5_sources
+8	40	13	0.325	$\alpha$=0.05 (BH-adj)	8.0	data_5	5_sources
+9	45	15	0.3333333333333333	$\alpha$=0.05 (BH-adj)	9.0	data_5	5_sources
+10	50	16	0.32	$\alpha$=0.05 (BH-adj)	10.0	data_5	5_sources
+11	75	22	0.29333333333333333	$\alpha$=0.05 (BH-adj)	15.0	data_5	5_sources
+12	100	30	0.3	$\alpha$=0.05 (BH-adj)	20.0	data_5	5_sources
+13	250	58	0.232	$\alpha$=0.05 (BH-adj)	50.0	data_5	5_sources
+14	375	81	0.216	$\alpha$=0.05 (BH-adj)	75.0	data_5	5_sources
+15	500	103	0.206	$\alpha$=0.05 (BH-adj)	100.0	data_5	5_sources
+0	3	0	0.0	unfiltered	0.5	data_5	5_sources
+1	6	1	0.16666666666666666	unfiltered	1.0	data_5	5_sources
+2	13	2	0.15384615384615385	unfiltered	2.0	data_5	5_sources
+3	20	4	0.2	unfiltered	3.0	data_5	5_sources
+4	27	8	0.2962962962962963	unfiltered	4.0	data_5	5_sources
+5	34	9	0.2647058823529412	unfiltered	5.0	data_5	5_sources
+6	41	13	0.3170731707317073	unfiltered	6.0	data_5	5_sources
+7	48	15	0.3125	unfiltered	7.0	data_5	5_sources
+8	55	19	0.34545454545454546	unfiltered	8.0	data_5	5_sources
+9	62	21	0.3387096774193548	unfiltered	9.0	data_5	5_sources
+10	69	21	0.30434782608695654	unfiltered	10.0	data_5	5_sources
+11	104	31	0.2980769230769231	unfiltered	15.0	data_5	5_sources
+12	139	39	0.2805755395683453	unfiltered	20.0	data_5	5_sources
+13	347	78	0.22478386167146974	unfiltered	50.0	data_5	5_sources
+14	521	105	0.20153550863723607	unfiltered	75.0	data_5	5_sources
+15	695	123	0.17697841726618704	unfiltered	100.0	data_5	5_sources
+0	0	0	0.0	$\alpha$=0.05	0.5	data_6	5_sources
+1	0	0	0.0	$\alpha$=0.05	1.0	data_6	5_sources
+2	1	0	0.0	$\alpha$=0.05	2.0	data_6	5_sources
+3	1	0	0.0	$\alpha$=0.05	3.0	data_6	5_sources
+4	2	0	0.0	$\alpha$=0.05	4.0	data_6	5_sources
+5	2	0	0.0	$\alpha$=0.05	5.0	data_6	5_sources
+6	3	1	0.3333333333333333	$\alpha$=0.05	6.0	data_6	5_sources
+7	4	1	0.25	$\alpha$=0.05	7.0	data_6	5_sources
+8	4	1	0.25	$\alpha$=0.05	8.0	data_6	5_sources
+9	5	2	0.4	$\alpha$=0.05	9.0	data_6	5_sources
+10	5	2	0.4	$\alpha$=0.05	10.0	data_6	5_sources
+11	8	4	0.5	$\alpha$=0.05	15.0	data_6	5_sources
+12	11	5	0.45454545454545453	$\alpha$=0.05	20.0	data_6	5_sources
+13	29	8	0.27586206896551724	$\alpha$=0.05	50.0	data_6	5_sources
+14	44	10	0.22727272727272727	$\alpha$=0.05	75.0	data_6	5_sources
+15	59	12	0.2033898305084746	$\alpha$=0.05	100.0	data_6	5_sources
+0	0	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_6	5_sources
+1	0	0	0.0	$\alpha$=0.05 (BH-adj)	1.0	data_6	5_sources
+2	0	0	0.0	$\alpha$=0.05 (BH-adj)	2.0	data_6	5_sources
+3	1	0	0.0	$\alpha$=0.05 (BH-adj)	3.0	data_6	5_sources
+4	1	0	0.0	$\alpha$=0.05 (BH-adj)	4.0	data_6	5_sources
+5	2	0	0.0	$\alpha$=0.05 (BH-adj)	5.0	data_6	5_sources
+6	2	0	0.0	$\alpha$=0.05 (BH-adj)	6.0	data_6	5_sources
+7	3	1	0.3333333333333333	$\alpha$=0.05 (BH-adj)	7.0	data_6	5_sources
+8	3	1	0.3333333333333333	$\alpha$=0.05 (BH-adj)	8.0	data_6	5_sources
+9	4	1	0.25	$\alpha$=0.05 (BH-adj)	9.0	data_6	5_sources
+10	4	1	0.25	$\alpha$=0.05 (BH-adj)	10.0	data_6	5_sources
+11	6	3	0.5	$\alpha$=0.05 (BH-adj)	15.0	data_6	5_sources
+12	9	4	0.4444444444444444	$\alpha$=0.05 (BH-adj)	20.0	data_6	5_sources
+13	23	8	0.34782608695652173	$\alpha$=0.05 (BH-adj)	50.0	data_6	5_sources
+14	34	8	0.23529411764705882	$\alpha$=0.05 (BH-adj)	75.0	data_6	5_sources
+15	46	10	0.21739130434782608	$\alpha$=0.05 (BH-adj)	100.0	data_6	5_sources
+0	0	0	0.0	unfiltered	0.5	data_6	5_sources
+1	1	0	0.0	unfiltered	1.0	data_6	5_sources
+2	2	0	0.0	unfiltered	2.0	data_6	5_sources
+3	4	1	0.25	unfiltered	3.0	data_6	5_sources
+4	5	2	0.4	unfiltered	4.0	data_6	5_sources
+5	7	3	0.42857142857142855	unfiltered	5.0	data_6	5_sources
+6	8	4	0.5	unfiltered	6.0	data_6	5_sources
+7	10	4	0.4	unfiltered	7.0	data_6	5_sources
+8	11	5	0.45454545454545453	unfiltered	8.0	data_6	5_sources
+9	13	7	0.5384615384615384	unfiltered	9.0	data_6	5_sources
+10	14	7	0.5	unfiltered	10.0	data_6	5_sources
+11	21	8	0.38095238095238093	unfiltered	15.0	data_6	5_sources
+12	29	8	0.27586206896551724	unfiltered	20.0	data_6	5_sources
+13	72	12	0.16666666666666666	unfiltered	50.0	data_6	5_sources
+14	108	14	0.12962962962962962	unfiltered	75.0	data_6	5_sources
+15	145	17	0.11724137931034483	unfiltered	100.0	data_6	5_sources
+0	0	0	0.0	$\alpha$=0.05	0.5	data_7	5_sources
+1	1	1	1.0	$\alpha$=0.05	1.0	data_7	5_sources
+2	2	2	1.0	$\alpha$=0.05	2.0	data_7	5_sources
+3	3	3	1.0	$\alpha$=0.05	3.0	data_7	5_sources
+4	5	3	0.6	$\alpha$=0.05	4.0	data_7	5_sources
+5	6	3	0.5	$\alpha$=0.05	5.0	data_7	5_sources
+6	7	3	0.42857142857142855	$\alpha$=0.05	6.0	data_7	5_sources
+7	9	4	0.4444444444444444	$\alpha$=0.05	7.0	data_7	5_sources
+8	10	4	0.4	$\alpha$=0.05	8.0	data_7	5_sources
+9	11	5	0.45454545454545453	$\alpha$=0.05	9.0	data_7	5_sources
+10	13	6	0.46153846153846156	$\alpha$=0.05	10.0	data_7	5_sources
+11	19	8	0.42105263157894735	$\alpha$=0.05	15.0	data_7	5_sources
+12	26	9	0.34615384615384615	$\alpha$=0.05	20.0	data_7	5_sources
+13	66	17	0.25757575757575757	$\alpha$=0.05	50.0	data_7	5_sources
+14	99	21	0.21212121212121213	$\alpha$=0.05	75.0	data_7	5_sources
+15	132	27	0.20454545454545456	$\alpha$=0.05	100.0	data_7	5_sources
+0	0	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_7	5_sources
+1	0	0	0.0	$\alpha$=0.05 (BH-adj)	1.0	data_7	5_sources
+2	0	0	0.0	$\alpha$=0.05 (BH-adj)	2.0	data_7	5_sources
+3	0	0	0.0	$\alpha$=0.05 (BH-adj)	3.0	data_7	5_sources
+4	1	1	1.0	$\alpha$=0.05 (BH-adj)	4.0	data_7	5_sources
+5	1	1	1.0	$\alpha$=0.05 (BH-adj)	5.0	data_7	5_sources
+6	1	1	1.0	$\alpha$=0.05 (BH-adj)	6.0	data_7	5_sources
+7	2	2	1.0	$\alpha$=0.05 (BH-adj)	7.0	data_7	5_sources
+8	2	2	1.0	$\alpha$=0.05 (BH-adj)	8.0	data_7	5_sources
+9	2	2	1.0	$\alpha$=0.05 (BH-adj)	9.0	data_7	5_sources
+10	3	3	1.0	$\alpha$=0.05 (BH-adj)	10.0	data_7	5_sources
+11	4	3	0.75	$\alpha$=0.05 (BH-adj)	15.0	data_7	5_sources
+12	6	3	0.5	$\alpha$=0.05 (BH-adj)	20.0	data_7	5_sources
+13	16	8	0.5	$\alpha$=0.05 (BH-adj)	50.0	data_7	5_sources
+14	24	9	0.375	$\alpha$=0.05 (BH-adj)	75.0	data_7	5_sources
+15	32	10	0.3125	$\alpha$=0.05 (BH-adj)	100.0	data_7	5_sources
+0	1	1	1.0	unfiltered	0.5	data_7	5_sources
+1	3	3	1.0	unfiltered	1.0	data_7	5_sources
+2	7	3	0.42857142857142855	unfiltered	2.0	data_7	5_sources
+3	11	5	0.45454545454545453	unfiltered	3.0	data_7	5_sources
+4	15	8	0.5333333333333333	unfiltered	4.0	data_7	5_sources
+5	19	8	0.42105263157894735	unfiltered	5.0	data_7	5_sources
+6	23	9	0.391304347826087	unfiltered	6.0	data_7	5_sources
+7	27	10	0.37037037037037035	unfiltered	7.0	data_7	5_sources
+8	31	11	0.3548387096774194	unfiltered	8.0	data_7	5_sources
+9	35	11	0.3142857142857143	unfiltered	9.0	data_7	5_sources
+10	39	11	0.28205128205128205	unfiltered	10.0	data_7	5_sources
+11	59	16	0.2711864406779661	unfiltered	15.0	data_7	5_sources
+12	79	19	0.24050632911392406	unfiltered	20.0	data_7	5_sources
+13	197	40	0.20304568527918782	unfiltered	50.0	data_7	5_sources
+14	296	58	0.19594594594594594	unfiltered	75.0	data_7	5_sources
+15	395	69	0.17468354430379746	unfiltered	100.0	data_7	5_sources
+0	0	0	0.0	$\alpha$=0.05	0.5	data_8	5_sources
+1	0	0	0.0	$\alpha$=0.05	1.0	data_8	5_sources
+2	1	0	0.0	$\alpha$=0.05	2.0	data_8	5_sources
+3	2	0	0.0	$\alpha$=0.05	3.0	data_8	5_sources
+4	3	0	0.0	$\alpha$=0.05	4.0	data_8	5_sources
+5	4	1	0.25	$\alpha$=0.05	5.0	data_8	5_sources
+6	5	1	0.2	$\alpha$=0.05	6.0	data_8	5_sources
+7	6	1	0.16666666666666666	$\alpha$=0.05	7.0	data_8	5_sources
+8	6	1	0.16666666666666666	$\alpha$=0.05	8.0	data_8	5_sources
+9	7	1	0.14285714285714285	$\alpha$=0.05	9.0	data_8	5_sources
+10	8	1	0.125	$\alpha$=0.05	10.0	data_8	5_sources
+11	13	2	0.15384615384615385	$\alpha$=0.05	15.0	data_8	5_sources
+12	17	3	0.17647058823529413	$\alpha$=0.05	20.0	data_8	5_sources
+13	43	8	0.18604651162790697	$\alpha$=0.05	50.0	data_8	5_sources
+14	65	10	0.15384615384615385	$\alpha$=0.05	75.0	data_8	5_sources
+15	87	12	0.13793103448275862	$\alpha$=0.05	100.0	data_8	5_sources
+0	0	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_8	5_sources
+1	0	0	0.0	$\alpha$=0.05 (BH-adj)	1.0	data_8	5_sources
+2	0	0	0.0	$\alpha$=0.05 (BH-adj)	2.0	data_8	5_sources
+3	1	0	0.0	$\alpha$=0.05 (BH-adj)	3.0	data_8	5_sources
+4	1	0	0.0	$\alpha$=0.05 (BH-adj)	4.0	data_8	5_sources
+5	2	0	0.0	$\alpha$=0.05 (BH-adj)	5.0	data_8	5_sources
+6	2	0	0.0	$\alpha$=0.05 (BH-adj)	6.0	data_8	5_sources
+7	3	0	0.0	$\alpha$=0.05 (BH-adj)	7.0	data_8	5_sources
+8	3	0	0.0	$\alpha$=0.05 (BH-adj)	8.0	data_8	5_sources
+9	4	1	0.25	$\alpha$=0.05 (BH-adj)	9.0	data_8	5_sources
+10	4	1	0.25	$\alpha$=0.05 (BH-adj)	10.0	data_8	5_sources
+11	7	1	0.14285714285714285	$\alpha$=0.05 (BH-adj)	15.0	data_8	5_sources
+12	9	1	0.1111111111111111	$\alpha$=0.05 (BH-adj)	20.0	data_8	5_sources
+13	24	4	0.16666666666666666	$\alpha$=0.05 (BH-adj)	50.0	data_8	5_sources
+14	36	7	0.19444444444444445	$\alpha$=0.05 (BH-adj)	75.0	data_8	5_sources
+15	49	8	0.16326530612244897	$\alpha$=0.05 (BH-adj)	100.0	data_8	5_sources
+0	0	0	0.0	unfiltered	0.5	data_8	5_sources
+1	1	0	0.0	unfiltered	1.0	data_8	5_sources
+2	3	0	0.0	unfiltered	2.0	data_8	5_sources
+3	5	1	0.2	unfiltered	3.0	data_8	5_sources
+4	7	1	0.14285714285714285	unfiltered	4.0	data_8	5_sources
+5	9	1	0.1111111111111111	unfiltered	5.0	data_8	5_sources
+6	11	1	0.09090909090909091	unfiltered	6.0	data_8	5_sources
+7	13	2	0.15384615384615385	unfiltered	7.0	data_8	5_sources
+8	15	2	0.13333333333333333	unfiltered	8.0	data_8	5_sources
+9	17	3	0.17647058823529413	unfiltered	9.0	data_8	5_sources
+10	19	3	0.15789473684210525	unfiltered	10.0	data_8	5_sources
+11	29	5	0.1724137931034483	unfiltered	15.0	data_8	5_sources
+12	39	8	0.20512820512820512	unfiltered	20.0	data_8	5_sources
+13	97	14	0.14432989690721648	unfiltered	50.0	data_8	5_sources
+14	146	25	0.17123287671232876	unfiltered	75.0	data_8	5_sources
+15	195	29	0.14871794871794872	unfiltered	100.0	data_8	5_sources
+0	2	0	0.0	$\alpha$=0.05	0.5	data_9	5_sources
+1	4	1	0.25	$\alpha$=0.05	1.0	data_9	5_sources
+2	9	2	0.2222222222222222	$\alpha$=0.05	2.0	data_9	5_sources
+3	13	4	0.3076923076923077	$\alpha$=0.05	3.0	data_9	5_sources
+4	18	7	0.3888888888888889	$\alpha$=0.05	4.0	data_9	5_sources
+5	22	10	0.45454545454545453	$\alpha$=0.05	5.0	data_9	5_sources
+6	27	11	0.4074074074074074	$\alpha$=0.05	6.0	data_9	5_sources
+7	31	14	0.45161290322580644	$\alpha$=0.05	7.0	data_9	5_sources
+8	36	15	0.4166666666666667	$\alpha$=0.05	8.0	data_9	5_sources
+9	40	17	0.425	$\alpha$=0.05	9.0	data_9	5_sources
+10	45	19	0.4222222222222222	$\alpha$=0.05	10.0	data_9	5_sources
+11	68	27	0.39705882352941174	$\alpha$=0.05	15.0	data_9	5_sources
+12	91	35	0.38461538461538464	$\alpha$=0.05	20.0	data_9	5_sources
+13	227	78	0.3436123348017621	$\alpha$=0.05	50.0	data_9	5_sources
+14	341	89	0.26099706744868034	$\alpha$=0.05	75.0	data_9	5_sources
+15	455	98	0.2153846153846154	$\alpha$=0.05	100.0	data_9	5_sources
+0	2	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_9	5_sources
+1	4	1	0.25	$\alpha$=0.05 (BH-adj)	1.0	data_9	5_sources
+2	8	2	0.25	$\alpha$=0.05 (BH-adj)	2.0	data_9	5_sources
+3	12	3	0.25	$\alpha$=0.05 (BH-adj)	3.0	data_9	5_sources
+4	16	6	0.375	$\alpha$=0.05 (BH-adj)	4.0	data_9	5_sources
+5	20	9	0.45	$\alpha$=0.05 (BH-adj)	5.0	data_9	5_sources
+6	24	11	0.4583333333333333	$\alpha$=0.05 (BH-adj)	6.0	data_9	5_sources
+7	28	12	0.42857142857142855	$\alpha$=0.05 (BH-adj)	7.0	data_9	5_sources
+8	32	15	0.46875	$\alpha$=0.05 (BH-adj)	8.0	data_9	5_sources
+9	36	15	0.4166666666666667	$\alpha$=0.05 (BH-adj)	9.0	data_9	5_sources
+10	41	18	0.43902439024390244	$\alpha$=0.05 (BH-adj)	10.0	data_9	5_sources
+11	61	24	0.39344262295081966	$\alpha$=0.05 (BH-adj)	15.0	data_9	5_sources
+12	82	32	0.3902439024390244	$\alpha$=0.05 (BH-adj)	20.0	data_9	5_sources
+13	205	75	0.36585365853658536	$\alpha$=0.05 (BH-adj)	50.0	data_9	5_sources
+14	308	89	0.288961038961039	$\alpha$=0.05 (BH-adj)	75.0	data_9	5_sources
+15	411	96	0.23357664233576642	$\alpha$=0.05 (BH-adj)	100.0	data_9	5_sources
+0	3	1	0.3333333333333333	unfiltered	0.5	data_9	5_sources
+1	6	1	0.16666666666666666	unfiltered	1.0	data_9	5_sources
+2	13	4	0.3076923076923077	unfiltered	2.0	data_9	5_sources
+3	20	9	0.45	unfiltered	3.0	data_9	5_sources
+4	27	11	0.4074074074074074	unfiltered	4.0	data_9	5_sources
+5	34	15	0.4411764705882353	unfiltered	5.0	data_9	5_sources
+6	41	18	0.43902439024390244	unfiltered	6.0	data_9	5_sources
+7	48	21	0.4375	unfiltered	7.0	data_9	5_sources
+8	55	21	0.38181818181818183	unfiltered	8.0	data_9	5_sources
+9	62	24	0.3870967741935484	unfiltered	9.0	data_9	5_sources
+10	69	27	0.391304347826087	unfiltered	10.0	data_9	5_sources
+11	104	39	0.375	unfiltered	15.0	data_9	5_sources
+12	139	55	0.39568345323741005	unfiltered	20.0	data_9	5_sources
+13	347	91	0.2622478386167147	unfiltered	50.0	data_9	5_sources
+14	521	110	0.21113243761996162	unfiltered	75.0	data_9	5_sources
+15	695	134	0.19280575539568345	unfiltered	100.0	data_9	5_sources
+0	2	1	0.5	$\alpha$=0.05	0.5	data_0	10_sources
+1	4	1	0.25	$\alpha$=0.05	1.0	data_0	10_sources
+2	9	2	0.2222222222222222	$\alpha$=0.05	2.0	data_0	10_sources
+3	13	3	0.23076923076923078	$\alpha$=0.05	3.0	data_0	10_sources
+4	18	4	0.2222222222222222	$\alpha$=0.05	4.0	data_0	10_sources
+5	22	4	0.18181818181818182	$\alpha$=0.05	5.0	data_0	10_sources
+6	27	4	0.14814814814814814	$\alpha$=0.05	6.0	data_0	10_sources
+7	31	5	0.16129032258064516	$\alpha$=0.05	7.0	data_0	10_sources
+8	36	5	0.1388888888888889	$\alpha$=0.05	8.0	data_0	10_sources
+9	41	7	0.17073170731707318	$\alpha$=0.05	9.0	data_0	10_sources
+10	45	7	0.15555555555555556	$\alpha$=0.05	10.0	data_0	10_sources
+11	68	11	0.16176470588235295	$\alpha$=0.05	15.0	data_0	10_sources
+12	91	13	0.14285714285714285	$\alpha$=0.05	20.0	data_0	10_sources
+13	228	24	0.10526315789473684	$\alpha$=0.05	50.0	data_0	10_sources
+14	342	37	0.10818713450292397	$\alpha$=0.05	75.0	data_0	10_sources
+15	457	41	0.08971553610503283	$\alpha$=0.05	100.0	data_0	10_sources
+0	2	1	0.5	$\alpha$=0.05 (BH-adj)	0.5	data_0	10_sources
+1	4	1	0.25	$\alpha$=0.05 (BH-adj)	1.0	data_0	10_sources
+2	8	2	0.25	$\alpha$=0.05 (BH-adj)	2.0	data_0	10_sources
+3	12	3	0.25	$\alpha$=0.05 (BH-adj)	3.0	data_0	10_sources
+4	16	4	0.25	$\alpha$=0.05 (BH-adj)	4.0	data_0	10_sources
+5	20	4	0.2	$\alpha$=0.05 (BH-adj)	5.0	data_0	10_sources
+6	24	4	0.16666666666666666	$\alpha$=0.05 (BH-adj)	6.0	data_0	10_sources
+7	28	4	0.14285714285714285	$\alpha$=0.05 (BH-adj)	7.0	data_0	10_sources
+8	32	5	0.15625	$\alpha$=0.05 (BH-adj)	8.0	data_0	10_sources
+9	36	5	0.1388888888888889	$\alpha$=0.05 (BH-adj)	9.0	data_0	10_sources
+10	40	7	0.175	$\alpha$=0.05 (BH-adj)	10.0	data_0	10_sources
+11	60	11	0.18333333333333332	$\alpha$=0.05 (BH-adj)	15.0	data_0	10_sources
+12	80	12	0.15	$\alpha$=0.05 (BH-adj)	20.0	data_0	10_sources
+13	200	21	0.105	$\alpha$=0.05 (BH-adj)	50.0	data_0	10_sources
+14	300	33	0.11	$\alpha$=0.05 (BH-adj)	75.0	data_0	10_sources
+15	401	40	0.09975062344139651	$\alpha$=0.05 (BH-adj)	100.0	data_0	10_sources
+0	3	1	0.3333333333333333	unfiltered	0.5	data_0	10_sources
+1	7	2	0.2857142857142857	unfiltered	1.0	data_0	10_sources
+2	15	4	0.26666666666666666	unfiltered	2.0	data_0	10_sources
+3	23	4	0.17391304347826086	unfiltered	3.0	data_0	10_sources
+4	31	5	0.16129032258064516	unfiltered	4.0	data_0	10_sources
+5	39	6	0.15384615384615385	unfiltered	5.0	data_0	10_sources
+6	47	8	0.1702127659574468	unfiltered	6.0	data_0	10_sources
+7	55	10	0.18181818181818182	unfiltered	7.0	data_0	10_sources
+8	63	11	0.1746031746031746	unfiltered	8.0	data_0	10_sources
+9	71	12	0.16901408450704225	unfiltered	9.0	data_0	10_sources
+10	79	12	0.1518987341772152	unfiltered	10.0	data_0	10_sources
+11	118	14	0.11864406779661017	unfiltered	15.0	data_0	10_sources
+12	158	19	0.12025316455696203	unfiltered	20.0	data_0	10_sources
+13	395	39	0.09873417721518987	unfiltered	50.0	data_0	10_sources
+14	592	49	0.08277027027027027	unfiltered	75.0	data_0	10_sources
+15	790	58	0.07341772151898734	unfiltered	100.0	data_0	10_sources
+0	6	3	0.5	$\alpha$=0.05	0.5	data_1	10_sources
+1	12	5	0.4166666666666667	$\alpha$=0.05	1.0	data_1	10_sources
+2	24	9	0.375	$\alpha$=0.05	2.0	data_1	10_sources
+3	36	10	0.2777777777777778	$\alpha$=0.05	3.0	data_1	10_sources
+4	48	13	0.2708333333333333	$\alpha$=0.05	4.0	data_1	10_sources
+5	60	14	0.23333333333333334	$\alpha$=0.05	5.0	data_1	10_sources
+6	72	18	0.25	$\alpha$=0.05	6.0	data_1	10_sources
+7	84	21	0.25	$\alpha$=0.05	7.0	data_1	10_sources
+8	96	21	0.21875	$\alpha$=0.05	8.0	data_1	10_sources
+9	108	22	0.2037037037037037	$\alpha$=0.05	9.0	data_1	10_sources
+10	120	24	0.2	$\alpha$=0.05	10.0	data_1	10_sources
+11	181	39	0.2154696132596685	$\alpha$=0.05	15.0	data_1	10_sources
+12	241	48	0.1991701244813278	$\alpha$=0.05	20.0	data_1	10_sources
+13	604	87	0.14403973509933773	$\alpha$=0.05	50.0	data_1	10_sources
+14	906	114	0.12582781456953643	$\alpha$=0.05	75.0	data_1	10_sources
+15	1208	134	0.11092715231788079	$\alpha$=0.05	100.0	data_1	10_sources
+0	5	3	0.6	$\alpha$=0.05 (BH-adj)	0.5	data_1	10_sources
+1	11	4	0.36363636363636365	$\alpha$=0.05 (BH-adj)	1.0	data_1	10_sources
+2	23	8	0.34782608695652173	$\alpha$=0.05 (BH-adj)	2.0	data_1	10_sources
+3	35	10	0.2857142857142857	$\alpha$=0.05 (BH-adj)	3.0	data_1	10_sources
+4	47	12	0.2553191489361702	$\alpha$=0.05 (BH-adj)	4.0	data_1	10_sources
+5	58	14	0.2413793103448276	$\alpha$=0.05 (BH-adj)	5.0	data_1	10_sources
+6	70	17	0.24285714285714285	$\alpha$=0.05 (BH-adj)	6.0	data_1	10_sources
+7	82	21	0.25609756097560976	$\alpha$=0.05 (BH-adj)	7.0	data_1	10_sources
+8	94	21	0.22340425531914893	$\alpha$=0.05 (BH-adj)	8.0	data_1	10_sources
+9	106	22	0.20754716981132076	$\alpha$=0.05 (BH-adj)	9.0	data_1	10_sources
+10	117	24	0.20512820512820512	$\alpha$=0.05 (BH-adj)	10.0	data_1	10_sources
+11	176	37	0.21022727272727273	$\alpha$=0.05 (BH-adj)	15.0	data_1	10_sources
+12	235	47	0.2	$\alpha$=0.05 (BH-adj)	20.0	data_1	10_sources
+13	589	87	0.14770797962648557	$\alpha$=0.05 (BH-adj)	50.0	data_1	10_sources
+14	884	112	0.12669683257918551	$\alpha$=0.05 (BH-adj)	75.0	data_1	10_sources
+15	1179	131	0.1111111111111111	$\alpha$=0.05 (BH-adj)	100.0	data_1	10_sources
+0	7	3	0.42857142857142855	unfiltered	0.5	data_1	10_sources
+1	15	6	0.4	unfiltered	1.0	data_1	10_sources
+2	31	10	0.3225806451612903	unfiltered	2.0	data_1	10_sources
+3	47	12	0.2553191489361702	unfiltered	3.0	data_1	10_sources
+4	63	14	0.2222222222222222	unfiltered	4.0	data_1	10_sources
+5	79	20	0.25316455696202533	unfiltered	5.0	data_1	10_sources
+6	95	21	0.22105263157894736	unfiltered	6.0	data_1	10_sources
+7	111	22	0.1981981981981982	unfiltered	7.0	data_1	10_sources
+8	127	25	0.1968503937007874	unfiltered	8.0	data_1	10_sources
+9	143	28	0.1958041958041958	unfiltered	9.0	data_1	10_sources
+10	159	31	0.1949685534591195	unfiltered	10.0	data_1	10_sources
+11	238	47	0.19747899159663865	unfiltered	15.0	data_1	10_sources
+12	318	58	0.18238993710691823	unfiltered	20.0	data_1	10_sources
+13	795	102	0.12830188679245283	unfiltered	50.0	data_1	10_sources
+14	1192	132	0.11073825503355705	unfiltered	75.0	data_1	10_sources
+15	1590	150	0.09433962264150944	unfiltered	100.0	data_1	10_sources
+0	5	1	0.2	$\alpha$=0.05	0.5	data_2	10_sources
+1	11	1	0.09090909090909091	$\alpha$=0.05	1.0	data_2	10_sources
+2	22	4	0.18181818181818182	$\alpha$=0.05	2.0	data_2	10_sources
+3	33	5	0.15151515151515152	$\alpha$=0.05	3.0	data_2	10_sources
+4	44	7	0.1590909090909091	$\alpha$=0.05	4.0	data_2	10_sources
+5	55	8	0.14545454545454545	$\alpha$=0.05	5.0	data_2	10_sources
+6	66	11	0.16666666666666666	$\alpha$=0.05	6.0	data_2	10_sources
+7	77	15	0.19480519480519481	$\alpha$=0.05	7.0	data_2	10_sources
+8	88	17	0.19318181818181818	$\alpha$=0.05	8.0	data_2	10_sources
+9	99	17	0.1717171717171717	$\alpha$=0.05	9.0	data_2	10_sources
+10	111	19	0.17117117117117117	$\alpha$=0.05	10.0	data_2	10_sources
+11	166	23	0.13855421686746988	$\alpha$=0.05	15.0	data_2	10_sources
+12	222	30	0.13513513513513514	$\alpha$=0.05	20.0	data_2	10_sources
+13	555	76	0.13693693693693693	$\alpha$=0.05	50.0	data_2	10_sources
+14	832	97	0.11658653846153846	$\alpha$=0.05	75.0	data_2	10_sources
+15	1110	117	0.10540540540540541	$\alpha$=0.05	100.0	data_2	10_sources
+0	5	1	0.2	$\alpha$=0.05 (BH-adj)	0.5	data_2	10_sources
+1	10	1	0.1	$\alpha$=0.05 (BH-adj)	1.0	data_2	10_sources
+2	21	3	0.14285714285714285	$\alpha$=0.05 (BH-adj)	2.0	data_2	10_sources
+3	32	5	0.15625	$\alpha$=0.05 (BH-adj)	3.0	data_2	10_sources
+4	42	7	0.16666666666666666	$\alpha$=0.05 (BH-adj)	4.0	data_2	10_sources
+5	53	8	0.1509433962264151	$\alpha$=0.05 (BH-adj)	5.0	data_2	10_sources
+6	64	10	0.15625	$\alpha$=0.05 (BH-adj)	6.0	data_2	10_sources
+7	75	14	0.18666666666666668	$\alpha$=0.05 (BH-adj)	7.0	data_2	10_sources
+8	85	17	0.2	$\alpha$=0.05 (BH-adj)	8.0	data_2	10_sources
+9	96	17	0.17708333333333334	$\alpha$=0.05 (BH-adj)	9.0	data_2	10_sources
+10	107	19	0.17757009345794392	$\alpha$=0.05 (BH-adj)	10.0	data_2	10_sources
+11	161	22	0.13664596273291926	$\alpha$=0.05 (BH-adj)	15.0	data_2	10_sources
+12	214	29	0.13551401869158877	$\alpha$=0.05 (BH-adj)	20.0	data_2	10_sources
+13	537	74	0.1378026070763501	$\alpha$=0.05 (BH-adj)	50.0	data_2	10_sources
+14	805	94	0.11677018633540373	$\alpha$=0.05 (BH-adj)	75.0	data_2	10_sources
+15	1074	116	0.10800744878957169	$\alpha$=0.05 (BH-adj)	100.0	data_2	10_sources
+0	7	1	0.14285714285714285	unfiltered	0.5	data_2	10_sources
+1	15	2	0.13333333333333333	unfiltered	1.0	data_2	10_sources
+2	31	5	0.16129032258064516	unfiltered	2.0	data_2	10_sources
+3	47	7	0.14893617021276595	unfiltered	3.0	data_2	10_sources
+4	63	10	0.15873015873015872	unfiltered	4.0	data_2	10_sources
+5	79	16	0.20253164556962025	unfiltered	5.0	data_2	10_sources
+6	95	17	0.17894736842105263	unfiltered	6.0	data_2	10_sources
+7	111	19	0.17117117117117117	unfiltered	7.0	data_2	10_sources
+8	127	19	0.14960629921259844	unfiltered	8.0	data_2	10_sources
+9	143	20	0.13986013986013987	unfiltered	9.0	data_2	10_sources
+10	159	22	0.13836477987421383	unfiltered	10.0	data_2	10_sources
+11	238	35	0.14705882352941177	unfiltered	15.0	data_2	10_sources
+12	318	45	0.14150943396226415	unfiltered	20.0	data_2	10_sources
+13	795	94	0.11823899371069183	unfiltered	50.0	data_2	10_sources
+14	1192	126	0.10570469798657718	unfiltered	75.0	data_2	10_sources
+15	1590	153	0.09622641509433963	unfiltered	100.0	data_2	10_sources
+0	7	1	0.14285714285714285	$\alpha$=0.05	0.5	data_3	10_sources
+1	14	4	0.2857142857142857	$\alpha$=0.05	1.0	data_3	10_sources
+2	28	4	0.14285714285714285	$\alpha$=0.05	2.0	data_3	10_sources
+3	42	8	0.19047619047619047	$\alpha$=0.05	3.0	data_3	10_sources
+4	56	10	0.17857142857142858	$\alpha$=0.05	4.0	data_3	10_sources
+5	70	14	0.2	$\alpha$=0.05	5.0	data_3	10_sources
+6	84	16	0.19047619047619047	$\alpha$=0.05	6.0	data_3	10_sources
+7	98	18	0.1836734693877551	$\alpha$=0.05	7.0	data_3	10_sources
+8	112	19	0.16964285714285715	$\alpha$=0.05	8.0	data_3	10_sources
+9	126	21	0.16666666666666666	$\alpha$=0.05	9.0	data_3	10_sources
+10	140	25	0.17857142857142858	$\alpha$=0.05	10.0	data_3	10_sources
+11	210	37	0.1761904761904762	$\alpha$=0.05	15.0	data_3	10_sources
+12	280	46	0.16428571428571428	$\alpha$=0.05	20.0	data_3	10_sources
+13	701	94	0.1340941512125535	$\alpha$=0.05	50.0	data_3	10_sources
+14	1051	127	0.120837297811608	$\alpha$=0.05	75.0	data_3	10_sources
+15	1402	152	0.10841654778887304	$\alpha$=0.05	100.0	data_3	10_sources
+0	6	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_3	10_sources
+1	13	4	0.3076923076923077	$\alpha$=0.05 (BH-adj)	1.0	data_3	10_sources
+2	26	4	0.15384615384615385	$\alpha$=0.05 (BH-adj)	2.0	data_3	10_sources
+3	40	8	0.2	$\alpha$=0.05 (BH-adj)	3.0	data_3	10_sources
+4	53	9	0.16981132075471697	$\alpha$=0.05 (BH-adj)	4.0	data_3	10_sources
+5	66	12	0.18181818181818182	$\alpha$=0.05 (BH-adj)	5.0	data_3	10_sources
+6	80	16	0.2	$\alpha$=0.05 (BH-adj)	6.0	data_3	10_sources
+7	93	18	0.1935483870967742	$\alpha$=0.05 (BH-adj)	7.0	data_3	10_sources
+8	107	18	0.16822429906542055	$\alpha$=0.05 (BH-adj)	8.0	data_3	10_sources
+9	120	21	0.175	$\alpha$=0.05 (BH-adj)	9.0	data_3	10_sources
+10	133	23	0.17293233082706766	$\alpha$=0.05 (BH-adj)	10.0	data_3	10_sources
+11	200	35	0.175	$\alpha$=0.05 (BH-adj)	15.0	data_3	10_sources
+12	267	45	0.16853932584269662	$\alpha$=0.05 (BH-adj)	20.0	data_3	10_sources
+13	669	89	0.13303437967115098	$\alpha$=0.05 (BH-adj)	50.0	data_3	10_sources
+14	1004	119	0.11852589641434264	$\alpha$=0.05 (BH-adj)	75.0	data_3	10_sources
+15	1339	146	0.10903659447348768	$\alpha$=0.05 (BH-adj)	100.0	data_3	10_sources
+0	10	3	0.3	unfiltered	0.5	data_3	10_sources
+1	20	4	0.2	unfiltered	1.0	data_3	10_sources
+2	41	8	0.1951219512195122	unfiltered	2.0	data_3	10_sources
+3	62	11	0.1774193548387097	unfiltered	3.0	data_3	10_sources
+4	83	16	0.1927710843373494	unfiltered	4.0	data_3	10_sources
+5	104	18	0.17307692307692307	unfiltered	5.0	data_3	10_sources
+6	125	21	0.168	unfiltered	6.0	data_3	10_sources
+7	146	25	0.17123287671232876	unfiltered	7.0	data_3	10_sources
+8	167	27	0.16167664670658682	unfiltered	8.0	data_3	10_sources
+9	188	31	0.16489361702127658	unfiltered	9.0	data_3	10_sources
+10	209	37	0.17703349282296652	unfiltered	10.0	data_3	10_sources
+11	313	51	0.16293929712460065	unfiltered	15.0	data_3	10_sources
+12	418	64	0.15311004784688995	unfiltered	20.0	data_3	10_sources
+13	1045	125	0.11961722488038277	unfiltered	50.0	data_3	10_sources
+14	1567	161	0.10274409700063816	unfiltered	75.0	data_3	10_sources
+15	2090	193	0.0923444976076555	unfiltered	100.0	data_3	10_sources
+0	5	1	0.2	$\alpha$=0.05	0.5	data_4	10_sources
+1	10	2	0.2	$\alpha$=0.05	1.0	data_4	10_sources
+2	20	6	0.3	$\alpha$=0.05	2.0	data_4	10_sources
+3	30	6	0.2	$\alpha$=0.05	3.0	data_4	10_sources
+4	40	8	0.2	$\alpha$=0.05	4.0	data_4	10_sources
+5	50	10	0.2	$\alpha$=0.05	5.0	data_4	10_sources
+6	60	10	0.16666666666666666	$\alpha$=0.05	6.0	data_4	10_sources
+7	70	12	0.17142857142857143	$\alpha$=0.05	7.0	data_4	10_sources
+8	80	13	0.1625	$\alpha$=0.05	8.0	data_4	10_sources
+9	90	13	0.14444444444444443	$\alpha$=0.05	9.0	data_4	10_sources
+10	100	15	0.15	$\alpha$=0.05	10.0	data_4	10_sources
+11	150	20	0.13333333333333333	$\alpha$=0.05	15.0	data_4	10_sources
+12	200	26	0.13	$\alpha$=0.05	20.0	data_4	10_sources
+13	501	61	0.1217564870259481	$\alpha$=0.05	50.0	data_4	10_sources
+14	751	81	0.10785619174434088	$\alpha$=0.05	75.0	data_4	10_sources
+15	1002	99	0.09880239520958084	$\alpha$=0.05	100.0	data_4	10_sources
+0	4	1	0.25	$\alpha$=0.05 (BH-adj)	0.5	data_4	10_sources
+1	9	2	0.2222222222222222	$\alpha$=0.05 (BH-adj)	1.0	data_4	10_sources
+2	18	5	0.2777777777777778	$\alpha$=0.05 (BH-adj)	2.0	data_4	10_sources
+3	27	6	0.2222222222222222	$\alpha$=0.05 (BH-adj)	3.0	data_4	10_sources
+4	36	7	0.19444444444444445	$\alpha$=0.05 (BH-adj)	4.0	data_4	10_sources
+5	45	8	0.17777777777777778	$\alpha$=0.05 (BH-adj)	5.0	data_4	10_sources
+6	54	10	0.18518518518518517	$\alpha$=0.05 (BH-adj)	6.0	data_4	10_sources
+7	63	10	0.15873015873015872	$\alpha$=0.05 (BH-adj)	7.0	data_4	10_sources
+8	72	12	0.16666666666666666	$\alpha$=0.05 (BH-adj)	8.0	data_4	10_sources
+9	81	13	0.16049382716049382	$\alpha$=0.05 (BH-adj)	9.0	data_4	10_sources
+10	90	13	0.14444444444444443	$\alpha$=0.05 (BH-adj)	10.0	data_4	10_sources
+11	135	18	0.13333333333333333	$\alpha$=0.05 (BH-adj)	15.0	data_4	10_sources
+12	180	25	0.1388888888888889	$\alpha$=0.05 (BH-adj)	20.0	data_4	10_sources
+13	452	56	0.12389380530973451	$\alpha$=0.05 (BH-adj)	50.0	data_4	10_sources
+14	678	76	0.11209439528023599	$\alpha$=0.05 (BH-adj)	75.0	data_4	10_sources
+15	904	91	0.1006637168141593	$\alpha$=0.05 (BH-adj)	100.0	data_4	10_sources
+0	7	2	0.2857142857142857	unfiltered	0.5	data_4	10_sources
+1	15	3	0.2	unfiltered	1.0	data_4	10_sources
+2	31	6	0.1935483870967742	unfiltered	2.0	data_4	10_sources
+3	47	8	0.1702127659574468	unfiltered	3.0	data_4	10_sources
+4	63	10	0.15873015873015872	unfiltered	4.0	data_4	10_sources
+5	79	13	0.16455696202531644	unfiltered	5.0	data_4	10_sources
+6	95	13	0.1368421052631579	unfiltered	6.0	data_4	10_sources
+7	111	17	0.15315315315315314	unfiltered	7.0	data_4	10_sources
+8	127	18	0.14173228346456693	unfiltered	8.0	data_4	10_sources
+9	143	20	0.13986013986013987	unfiltered	9.0	data_4	10_sources
+10	159	22	0.13836477987421383	unfiltered	10.0	data_4	10_sources
+11	238	32	0.13445378151260504	unfiltered	15.0	data_4	10_sources
+12	318	42	0.1320754716981132	unfiltered	20.0	data_4	10_sources
+13	795	82	0.10314465408805032	unfiltered	50.0	data_4	10_sources
+14	1192	112	0.09395973154362416	unfiltered	75.0	data_4	10_sources
+15	1590	136	0.08553459119496855	unfiltered	100.0	data_4	10_sources
+0	7	3	0.42857142857142855	$\alpha$=0.05	0.5	data_5	10_sources
+1	15	4	0.26666666666666666	$\alpha$=0.05	1.0	data_5	10_sources
+2	30	7	0.23333333333333334	$\alpha$=0.05	2.0	data_5	10_sources
+3	46	10	0.21739130434782608	$\alpha$=0.05	3.0	data_5	10_sources
+4	61	13	0.21311475409836064	$\alpha$=0.05	4.0	data_5	10_sources
+5	77	16	0.2077922077922078	$\alpha$=0.05	5.0	data_5	10_sources
+6	92	18	0.1956521739130435	$\alpha$=0.05	6.0	data_5	10_sources
+7	108	20	0.18518518518518517	$\alpha$=0.05	7.0	data_5	10_sources
+8	123	25	0.2032520325203252	$\alpha$=0.05	8.0	data_5	10_sources
+9	139	27	0.19424460431654678	$\alpha$=0.05	9.0	data_5	10_sources
+10	154	31	0.2012987012987013	$\alpha$=0.05	10.0	data_5	10_sources
+11	232	45	0.1939655172413793	$\alpha$=0.05	15.0	data_5	10_sources
+12	309	53	0.1715210355987055	$\alpha$=0.05	20.0	data_5	10_sources
+13	774	99	0.12790697674418605	$\alpha$=0.05	50.0	data_5	10_sources
+14	1161	127	0.10938845822566753	$\alpha$=0.05	75.0	data_5	10_sources
+15	1549	165	0.1065203357004519	$\alpha$=0.05	100.0	data_5	10_sources
+0	7	3	0.42857142857142855	$\alpha$=0.05 (BH-adj)	0.5	data_5	10_sources
+1	14	4	0.2857142857142857	$\alpha$=0.05 (BH-adj)	1.0	data_5	10_sources
+2	29	7	0.2413793103448276	$\alpha$=0.05 (BH-adj)	2.0	data_5	10_sources
+3	44	10	0.22727272727272727	$\alpha$=0.05 (BH-adj)	3.0	data_5	10_sources
+4	58	12	0.20689655172413793	$\alpha$=0.05 (BH-adj)	4.0	data_5	10_sources
+5	73	15	0.2054794520547945	$\alpha$=0.05 (BH-adj)	5.0	data_5	10_sources
+6	88	17	0.19318181818181818	$\alpha$=0.05 (BH-adj)	6.0	data_5	10_sources
+7	102	19	0.18627450980392157	$\alpha$=0.05 (BH-adj)	7.0	data_5	10_sources
+8	117	22	0.18803418803418803	$\alpha$=0.05 (BH-adj)	8.0	data_5	10_sources
+9	132	25	0.1893939393939394	$\alpha$=0.05 (BH-adj)	9.0	data_5	10_sources
+10	147	28	0.19047619047619047	$\alpha$=0.05 (BH-adj)	10.0	data_5	10_sources
+11	220	42	0.19090909090909092	$\alpha$=0.05 (BH-adj)	15.0	data_5	10_sources
+12	294	52	0.17687074829931973	$\alpha$=0.05 (BH-adj)	20.0	data_5	10_sources
+13	735	94	0.12789115646258503	$\alpha$=0.05 (BH-adj)	50.0	data_5	10_sources
+14	1102	123	0.11161524500907441	$\alpha$=0.05 (BH-adj)	75.0	data_5	10_sources
+15	1470	154	0.10476190476190476	$\alpha$=0.05 (BH-adj)	100.0	data_5	10_sources
+0	10	4	0.4	unfiltered	0.5	data_5	10_sources
+1	21	6	0.2857142857142857	unfiltered	1.0	data_5	10_sources
+2	43	10	0.23255813953488372	unfiltered	2.0	data_5	10_sources
+3	65	13	0.2	unfiltered	3.0	data_5	10_sources
+4	87	17	0.19540229885057472	unfiltered	4.0	data_5	10_sources
+5	109	21	0.1926605504587156	unfiltered	5.0	data_5	10_sources
+6	131	25	0.19083969465648856	unfiltered	6.0	data_5	10_sources
+7	153	31	0.20261437908496732	unfiltered	7.0	data_5	10_sources
+8	175	35	0.2	unfiltered	8.0	data_5	10_sources
+9	197	39	0.19796954314720813	unfiltered	9.0	data_5	10_sources
+10	219	42	0.1917808219178082	unfiltered	10.0	data_5	10_sources
+11	328	56	0.17073170731707318	unfiltered	15.0	data_5	10_sources
+12	438	67	0.15296803652968036	unfiltered	20.0	data_5	10_sources
+13	1095	122	0.11141552511415526	unfiltered	50.0	data_5	10_sources
+14	1642	169	0.10292326431181487	unfiltered	75.0	data_5	10_sources
+15	2190	212	0.09680365296803653	unfiltered	100.0	data_5	10_sources
+0	4	1	0.25	$\alpha$=0.05	0.5	data_6	10_sources
+1	8	3	0.375	$\alpha$=0.05	1.0	data_6	10_sources
+2	17	4	0.23529411764705882	$\alpha$=0.05	2.0	data_6	10_sources
+3	25	5	0.2	$\alpha$=0.05	3.0	data_6	10_sources
+4	34	7	0.20588235294117646	$\alpha$=0.05	4.0	data_6	10_sources
+5	43	10	0.23255813953488372	$\alpha$=0.05	5.0	data_6	10_sources
+6	51	11	0.21568627450980393	$\alpha$=0.05	6.0	data_6	10_sources
+7	60	11	0.18333333333333332	$\alpha$=0.05	7.0	data_6	10_sources
+8	68	12	0.17647058823529413	$\alpha$=0.05	8.0	data_6	10_sources
+9	77	14	0.18181818181818182	$\alpha$=0.05	9.0	data_6	10_sources
+10	86	17	0.19767441860465115	$\alpha$=0.05	10.0	data_6	10_sources
+11	129	26	0.20155038759689922	$\alpha$=0.05	15.0	data_6	10_sources
+12	172	37	0.21511627906976744	$\alpha$=0.05	20.0	data_6	10_sources
+13	430	70	0.16279069767441862	$\alpha$=0.05	50.0	data_6	10_sources
+14	645	85	0.13178294573643412	$\alpha$=0.05	75.0	data_6	10_sources
+15	860	97	0.1127906976744186	$\alpha$=0.05	100.0	data_6	10_sources
+0	3	1	0.3333333333333333	$\alpha$=0.05 (BH-adj)	0.5	data_6	10_sources
+1	7	2	0.2857142857142857	$\alpha$=0.05 (BH-adj)	1.0	data_6	10_sources
+2	15	4	0.26666666666666666	$\alpha$=0.05 (BH-adj)	2.0	data_6	10_sources
+3	22	5	0.22727272727272727	$\alpha$=0.05 (BH-adj)	3.0	data_6	10_sources
+4	30	6	0.2	$\alpha$=0.05 (BH-adj)	4.0	data_6	10_sources
+5	37	8	0.21621621621621623	$\alpha$=0.05 (BH-adj)	5.0	data_6	10_sources
+6	45	10	0.2222222222222222	$\alpha$=0.05 (BH-adj)	6.0	data_6	10_sources
+7	52	11	0.21153846153846154	$\alpha$=0.05 (BH-adj)	7.0	data_6	10_sources
+8	60	11	0.18333333333333332	$\alpha$=0.05 (BH-adj)	8.0	data_6	10_sources
+9	67	12	0.1791044776119403	$\alpha$=0.05 (BH-adj)	9.0	data_6	10_sources
+10	75	13	0.17333333333333334	$\alpha$=0.05 (BH-adj)	10.0	data_6	10_sources
+11	112	22	0.19642857142857142	$\alpha$=0.05 (BH-adj)	15.0	data_6	10_sources
+12	150	31	0.20666666666666667	$\alpha$=0.05 (BH-adj)	20.0	data_6	10_sources
+13	376	62	0.16489361702127658	$\alpha$=0.05 (BH-adj)	50.0	data_6	10_sources
+14	564	82	0.1453900709219858	$\alpha$=0.05 (BH-adj)	75.0	data_6	10_sources
+15	752	89	0.11835106382978723	$\alpha$=0.05 (BH-adj)	100.0	data_6	10_sources
+0	7	2	0.2857142857142857	unfiltered	0.5	data_6	10_sources
+1	14	4	0.2857142857142857	unfiltered	1.0	data_6	10_sources
+2	29	6	0.20689655172413793	unfiltered	2.0	data_6	10_sources
+3	44	10	0.22727272727272727	unfiltered	3.0	data_6	10_sources
+4	59	11	0.1864406779661017	unfiltered	4.0	data_6	10_sources
+5	74	13	0.17567567567567569	unfiltered	5.0	data_6	10_sources
+6	89	17	0.19101123595505617	unfiltered	6.0	data_6	10_sources
+7	104	21	0.20192307692307693	unfiltered	7.0	data_6	10_sources
+8	119	23	0.19327731092436976	unfiltered	8.0	data_6	10_sources
+9	134	28	0.208955223880597	unfiltered	9.0	data_6	10_sources
+10	149	30	0.20134228187919462	unfiltered	10.0	data_6	10_sources
+11	223	47	0.21076233183856502	unfiltered	15.0	data_6	10_sources
+12	298	50	0.16778523489932887	unfiltered	20.0	data_6	10_sources
+13	745	92	0.12348993288590604	unfiltered	50.0	data_6	10_sources
+14	1117	125	0.11190689346463742	unfiltered	75.0	data_6	10_sources
+15	1490	141	0.09463087248322148	unfiltered	100.0	data_6	10_sources
+0	2	0	0.0	$\alpha$=0.05	0.5	data_7	10_sources
+1	5	0	0.0	$\alpha$=0.05	1.0	data_7	10_sources
+2	10	1	0.1	$\alpha$=0.05	2.0	data_7	10_sources
+3	15	1	0.06666666666666667	$\alpha$=0.05	3.0	data_7	10_sources
+4	20	2	0.1	$\alpha$=0.05	4.0	data_7	10_sources
+5	25	2	0.08	$\alpha$=0.05	5.0	data_7	10_sources
+6	30	3	0.1	$\alpha$=0.05	6.0	data_7	10_sources
+7	35	4	0.11428571428571428	$\alpha$=0.05	7.0	data_7	10_sources
+8	40	6	0.15	$\alpha$=0.05	8.0	data_7	10_sources
+9	45	6	0.13333333333333333	$\alpha$=0.05	9.0	data_7	10_sources
+10	50	6	0.12	$\alpha$=0.05	10.0	data_7	10_sources
+11	76	8	0.10526315789473684	$\alpha$=0.05	15.0	data_7	10_sources
+12	101	11	0.10891089108910891	$\alpha$=0.05	20.0	data_7	10_sources
+13	253	32	0.12648221343873517	$\alpha$=0.05	50.0	data_7	10_sources
+14	380	43	0.11315789473684211	$\alpha$=0.05	75.0	data_7	10_sources
+15	507	52	0.10256410256410256	$\alpha$=0.05	100.0	data_7	10_sources
+0	2	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_7	10_sources
+1	4	0	0.0	$\alpha$=0.05 (BH-adj)	1.0	data_7	10_sources
+2	9	1	0.1111111111111111	$\alpha$=0.05 (BH-adj)	2.0	data_7	10_sources
+3	14	1	0.07142857142857142	$\alpha$=0.05 (BH-adj)	3.0	data_7	10_sources
+4	19	2	0.10526315789473684	$\alpha$=0.05 (BH-adj)	4.0	data_7	10_sources
+5	23	2	0.08695652173913043	$\alpha$=0.05 (BH-adj)	5.0	data_7	10_sources
+6	28	3	0.10714285714285714	$\alpha$=0.05 (BH-adj)	6.0	data_7	10_sources
+7	33	4	0.12121212121212122	$\alpha$=0.05 (BH-adj)	7.0	data_7	10_sources
+8	38	5	0.13157894736842105	$\alpha$=0.05 (BH-adj)	8.0	data_7	10_sources
+9	43	6	0.13953488372093023	$\alpha$=0.05 (BH-adj)	9.0	data_7	10_sources
+10	47	6	0.1276595744680851	$\alpha$=0.05 (BH-adj)	10.0	data_7	10_sources
+11	71	7	0.09859154929577464	$\alpha$=0.05 (BH-adj)	15.0	data_7	10_sources
+12	95	10	0.10526315789473684	$\alpha$=0.05 (BH-adj)	20.0	data_7	10_sources
+13	239	30	0.12552301255230125	$\alpha$=0.05 (BH-adj)	50.0	data_7	10_sources
+14	358	39	0.10893854748603352	$\alpha$=0.05 (BH-adj)	75.0	data_7	10_sources
+15	478	51	0.10669456066945607	$\alpha$=0.05 (BH-adj)	100.0	data_7	10_sources
+0	3	0	0.0	unfiltered	0.5	data_7	10_sources
+1	7	1	0.14285714285714285	unfiltered	1.0	data_7	10_sources
+2	14	1	0.07142857142857142	unfiltered	2.0	data_7	10_sources
+3	21	2	0.09523809523809523	unfiltered	3.0	data_7	10_sources
+4	28	3	0.10714285714285714	unfiltered	4.0	data_7	10_sources
+5	35	4	0.11428571428571428	unfiltered	5.0	data_7	10_sources
+6	42	6	0.14285714285714285	unfiltered	6.0	data_7	10_sources
+7	49	6	0.12244897959183673	unfiltered	7.0	data_7	10_sources
+8	56	6	0.10714285714285714	unfiltered	8.0	data_7	10_sources
+9	63	6	0.09523809523809523	unfiltered	9.0	data_7	10_sources
+10	71	7	0.09859154929577464	unfiltered	10.0	data_7	10_sources
+11	106	12	0.11320754716981132	unfiltered	15.0	data_7	10_sources
+12	142	18	0.1267605633802817	unfiltered	20.0	data_7	10_sources
+13	355	39	0.10985915492957747	unfiltered	50.0	data_7	10_sources
+14	533	54	0.10131332082551595	unfiltered	75.0	data_7	10_sources
+15	711	62	0.08720112517580872	unfiltered	100.0	data_7	10_sources
+0	6	0	0.0	$\alpha$=0.05	0.5	data_8	10_sources
+1	12	1	0.08333333333333333	$\alpha$=0.05	1.0	data_8	10_sources
+2	24	3	0.125	$\alpha$=0.05	2.0	data_8	10_sources
+3	36	6	0.16666666666666666	$\alpha$=0.05	3.0	data_8	10_sources
+4	48	9	0.1875	$\alpha$=0.05	4.0	data_8	10_sources
+5	60	11	0.18333333333333332	$\alpha$=0.05	5.0	data_8	10_sources
+6	72	15	0.20833333333333334	$\alpha$=0.05	6.0	data_8	10_sources
+7	84	16	0.19047619047619047	$\alpha$=0.05	7.0	data_8	10_sources
+8	96	17	0.17708333333333334	$\alpha$=0.05	8.0	data_8	10_sources
+9	108	17	0.1574074074074074	$\alpha$=0.05	9.0	data_8	10_sources
+10	120	18	0.15	$\alpha$=0.05	10.0	data_8	10_sources
+11	180	27	0.15	$\alpha$=0.05	15.0	data_8	10_sources
+12	241	37	0.15352697095435686	$\alpha$=0.05	20.0	data_8	10_sources
+13	603	87	0.14427860696517414	$\alpha$=0.05	50.0	data_8	10_sources
+14	904	105	0.1161504424778761	$\alpha$=0.05	75.0	data_8	10_sources
+15	1206	129	0.10696517412935323	$\alpha$=0.05	100.0	data_8	10_sources
+0	5	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_8	10_sources
+1	11	1	0.09090909090909091	$\alpha$=0.05 (BH-adj)	1.0	data_8	10_sources
+2	22	3	0.13636363636363635	$\alpha$=0.05 (BH-adj)	2.0	data_8	10_sources
+3	34	5	0.14705882352941177	$\alpha$=0.05 (BH-adj)	3.0	data_8	10_sources
+4	45	9	0.2	$\alpha$=0.05 (BH-adj)	4.0	data_8	10_sources
+5	57	11	0.19298245614035087	$\alpha$=0.05 (BH-adj)	5.0	data_8	10_sources
+6	68	15	0.22058823529411764	$\alpha$=0.05 (BH-adj)	6.0	data_8	10_sources
+7	79	15	0.189873417721519	$\alpha$=0.05 (BH-adj)	7.0	data_8	10_sources
+8	91	16	0.17582417582417584	$\alpha$=0.05 (BH-adj)	8.0	data_8	10_sources
+9	102	17	0.16666666666666666	$\alpha$=0.05 (BH-adj)	9.0	data_8	10_sources
+10	114	17	0.14912280701754385	$\alpha$=0.05 (BH-adj)	10.0	data_8	10_sources
+11	171	27	0.15789473684210525	$\alpha$=0.05 (BH-adj)	15.0	data_8	10_sources
+12	228	35	0.15350877192982457	$\alpha$=0.05 (BH-adj)	20.0	data_8	10_sources
+13	570	83	0.1456140350877193	$\alpha$=0.05 (BH-adj)	50.0	data_8	10_sources
+14	855	102	0.11929824561403508	$\alpha$=0.05 (BH-adj)	75.0	data_8	10_sources
+15	1141	125	0.10955302366345311	$\alpha$=0.05 (BH-adj)	100.0	data_8	10_sources
+0	8	0	0.0	unfiltered	0.5	data_8	10_sources
+1	16	2	0.125	unfiltered	1.0	data_8	10_sources
+2	33	4	0.12121212121212122	unfiltered	2.0	data_8	10_sources
+3	50	10	0.2	unfiltered	3.0	data_8	10_sources
+4	67	14	0.208955223880597	unfiltered	4.0	data_8	10_sources
+5	84	16	0.19047619047619047	unfiltered	5.0	data_8	10_sources
+6	101	17	0.16831683168316833	unfiltered	6.0	data_8	10_sources
+7	118	18	0.15254237288135594	unfiltered	7.0	data_8	10_sources
+8	135	20	0.14814814814814814	unfiltered	8.0	data_8	10_sources
+9	152	24	0.15789473684210525	unfiltered	9.0	data_8	10_sources
+10	169	27	0.15976331360946747	unfiltered	10.0	data_8	10_sources
+11	253	40	0.15810276679841898	unfiltered	15.0	data_8	10_sources
+12	338	51	0.15088757396449703	unfiltered	20.0	data_8	10_sources
+13	845	102	0.12071005917159763	unfiltered	50.0	data_8	10_sources
+14	1267	130	0.1026045777426993	unfiltered	75.0	data_8	10_sources
+15	1690	162	0.09585798816568047	unfiltered	100.0	data_8	10_sources
+0	5	1	0.2	$\alpha$=0.05	0.5	data_9	10_sources
+1	11	4	0.36363636363636365	$\alpha$=0.05	1.0	data_9	10_sources
+2	23	8	0.34782608695652173	$\alpha$=0.05	2.0	data_9	10_sources
+3	35	12	0.34285714285714286	$\alpha$=0.05	3.0	data_9	10_sources
+4	47	15	0.3191489361702128	$\alpha$=0.05	4.0	data_9	10_sources
+5	59	19	0.3220338983050847	$\alpha$=0.05	5.0	data_9	10_sources
+6	71	22	0.30985915492957744	$\alpha$=0.05	6.0	data_9	10_sources
+7	83	24	0.2891566265060241	$\alpha$=0.05	7.0	data_9	10_sources
+8	95	27	0.28421052631578947	$\alpha$=0.05	8.0	data_9	10_sources
+9	107	32	0.29906542056074764	$\alpha$=0.05	9.0	data_9	10_sources
+10	119	35	0.29411764705882354	$\alpha$=0.05	10.0	data_9	10_sources
+11	179	48	0.2681564245810056	$\alpha$=0.05	15.0	data_9	10_sources
+12	239	65	0.2719665271966527	$\alpha$=0.05	20.0	data_9	10_sources
+13	597	103	0.17252931323283083	$\alpha$=0.05	50.0	data_9	10_sources
+14	896	124	0.13839285714285715	$\alpha$=0.05	75.0	data_9	10_sources
+15	1195	144	0.1205020920502092	$\alpha$=0.05	100.0	data_9	10_sources
+0	5	1	0.2	$\alpha$=0.05 (BH-adj)	0.5	data_9	10_sources
+1	11	4	0.36363636363636365	$\alpha$=0.05 (BH-adj)	1.0	data_9	10_sources
+2	22	8	0.36363636363636365	$\alpha$=0.05 (BH-adj)	2.0	data_9	10_sources
+3	33	11	0.3333333333333333	$\alpha$=0.05 (BH-adj)	3.0	data_9	10_sources
+4	44	14	0.3181818181818182	$\alpha$=0.05 (BH-adj)	4.0	data_9	10_sources
+5	55	18	0.32727272727272727	$\alpha$=0.05 (BH-adj)	5.0	data_9	10_sources
+6	66	22	0.3333333333333333	$\alpha$=0.05 (BH-adj)	6.0	data_9	10_sources
+7	77	24	0.3116883116883117	$\alpha$=0.05 (BH-adj)	7.0	data_9	10_sources
+8	88	26	0.29545454545454547	$\alpha$=0.05 (BH-adj)	8.0	data_9	10_sources
+9	99	28	0.2828282828282828	$\alpha$=0.05 (BH-adj)	9.0	data_9	10_sources
+10	110	32	0.2909090909090909	$\alpha$=0.05 (BH-adj)	10.0	data_9	10_sources
+11	165	46	0.2787878787878788	$\alpha$=0.05 (BH-adj)	15.0	data_9	10_sources
+12	220	58	0.2636363636363636	$\alpha$=0.05 (BH-adj)	20.0	data_9	10_sources
+13	551	101	0.18330308529945555	$\alpha$=0.05 (BH-adj)	50.0	data_9	10_sources
+14	826	121	0.14648910411622276	$\alpha$=0.05 (BH-adj)	75.0	data_9	10_sources
+15	1102	138	0.12522686025408347	$\alpha$=0.05 (BH-adj)	100.0	data_9	10_sources
+0	8	3	0.375	unfiltered	0.5	data_9	10_sources
+1	17	8	0.47058823529411764	unfiltered	1.0	data_9	10_sources
+2	35	12	0.34285714285714286	unfiltered	2.0	data_9	10_sources
+3	53	18	0.33962264150943394	unfiltered	3.0	data_9	10_sources
+4	71	22	0.30985915492957744	unfiltered	4.0	data_9	10_sources
+5	89	26	0.29213483146067415	unfiltered	5.0	data_9	10_sources
+6	107	32	0.29906542056074764	unfiltered	6.0	data_9	10_sources
+7	125	36	0.288	unfiltered	7.0	data_9	10_sources
+8	143	40	0.27972027972027974	unfiltered	8.0	data_9	10_sources
+9	161	45	0.2795031055900621	unfiltered	9.0	data_9	10_sources
+10	179	48	0.2681564245810056	unfiltered	10.0	data_9	10_sources
+11	268	67	0.25	unfiltered	15.0	data_9	10_sources
+12	358	82	0.22905027932960895	unfiltered	20.0	data_9	10_sources
+13	895	124	0.13854748603351955	unfiltered	50.0	data_9	10_sources
+14	1343	160	0.11913626209977662	unfiltered	75.0	data_9	10_sources
+15	1791	185	0.10329424902289223	unfiltered	100.0	data_9	10_sources
+0	19	0	0.0	$\alpha$=0.05	0.5	data_0	20_sources
+1	39	2	0.05128205128205128	$\alpha$=0.05	1.0	data_0	20_sources
+2	79	5	0.06329113924050633	$\alpha$=0.05	2.0	data_0	20_sources
+3	119	15	0.12605042016806722	$\alpha$=0.05	3.0	data_0	20_sources
+4	159	18	0.11320754716981132	$\alpha$=0.05	4.0	data_0	20_sources
+5	198	23	0.11616161616161616	$\alpha$=0.05	5.0	data_0	20_sources
+6	238	25	0.10504201680672269	$\alpha$=0.05	6.0	data_0	20_sources
+7	278	31	0.11151079136690648	$\alpha$=0.05	7.0	data_0	20_sources
+8	318	35	0.11006289308176101	$\alpha$=0.05	8.0	data_0	20_sources
+9	357	38	0.10644257703081232	$\alpha$=0.05	9.0	data_0	20_sources
+10	397	43	0.10831234256926953	$\alpha$=0.05	10.0	data_0	20_sources
+11	596	58	0.09731543624161074	$\alpha$=0.05	15.0	data_0	20_sources
+12	795	70	0.0880503144654088	$\alpha$=0.05	20.0	data_0	20_sources
+13	1987	152	0.07649723200805233	$\alpha$=0.05	50.0	data_0	20_sources
+14	2981	186	0.062395169406239515	$\alpha$=0.05	75.0	data_0	20_sources
+15	3975	220	0.055345911949685536	$\alpha$=0.05	100.0	data_0	20_sources
+0	18	0	0.0	$\alpha$=0.05 (BH-adj)	0.5	data_0	20_sources
+1	36	1	0.027777777777777776	$\alpha$=0.05 (BH-adj)	1.0	data_0	20_sources
+2	72	4	0.05555555555555555	$\alpha$=0.05 (BH-adj)	2.0	data_0	20_sources
+3	108	14	0.12962962962962962	$\alpha$=0.05 (BH-adj)	3.0	data_0	20_sources
+4	144	16	0.1111111111111111	$\alpha$=0.05 (BH-adj)	4.0	data_0	20_sources
+5	180	22	0.12222222222222222	$\alpha$=0.05 (BH-adj)	5.0	data_0	20_sources
+6	217	25	0.1152073732718894	$\alpha$=0.05 (BH-adj)	6.0	data_0	20_sources
+7	253	26	0.10276679841897234	$\alpha$=0.05 (BH-adj)	7.0	data_0	20_sources
+8	289	31	0.10726643598615918	$\alpha$=0.05 (BH-adj)	8.0	data_0	20_sources
+9	325	35	0.1076923076923077	$\alpha$=0.05 (BH-adj)	9.0	data_0	20_sources
+10	361	39	0.10803324099722991	$\alpha$=0.05 (BH-adj)	10.0	data_0	20_sources
+11	542	52	0.0959409594095941	$\alpha$=0.05 (BH-adj)	15.0	data_0	20_sources
+12	723	68	0.09405255878284924	$\alpha$=0.05 (BH-adj)	20.0	data_0	20_sources
+13	1809	147	0.0812603648424544	$\alpha$=0.05 (BH-adj)	50.0	data_0	20_sources
+14	2714	176	0.06484893146647015	$\alpha$=0.05 (BH-adj)	75.0	data_0	20_sources
+15	3619	209	0.057750759878419454	$\alpha$=0.05 (BH-adj)	100.0	data_0	20_sources
+0	29	0	0.0	unfiltered	0.5	data_0	20_sources
+1	59	2	0.03389830508474576	unfiltered	1.0	data_0	20_sources
+2	119	15	0.12605042016806722	unfiltered	2.0	data_0	20_sources
+3	179	22	0.12290502793296089	unfiltered	3.0	data_0	20_sources
+4	239	25	0.10460251046025104	unfiltered	4.0	data_0	20_sources
+5	298	32	0.10738255033557047	unfiltered	5.0	data_0	20_sources
+6	358	39	0.10893854748603352	unfiltered	6.0	data_0	20_sources
+7	418	45	0.1076555023923445	unfiltered	7.0	data_0	20_sources
+8	478	48	0.100418410041841	unfiltered	8.0	data_0	20_sources
+9	538	52	0.09665427509293681	unfiltered	9.0	data_0	20_sources
+10	597	58	0.09715242881072027	unfiltered	10.0	data_0	20_sources
+11	896	82	0.09151785714285714	unfiltered	15.0	data_0	20_sources
+12	1195	98	0.08200836820083682	unfiltered	20.0	data_0	20_sources
+13	2989	187	0.0625627300100368	unfiltered	50.0	data_0	20_sources
+14	4483	247	0.05509703323667187	unfiltered	75.0	data_0	20_sources
+15	5978	296	0.04951488792238207	unfiltered	100.0	data_0	20_sources
+0	15	2	0.13333333333333333	$\alpha$=0.05	0.5	data_1	20_sources
+1	30	3	0.1	$\alpha$=0.05	1.0	data_1	20_sources
+2	60	7	0.11666666666666667	$\alpha$=0.05	2.0	data_1	20_sources
+3	91	12	0.13186813186813187	$\alpha$=0.05	3.0	data_1	20_sources
+4	121	15	0.12396694214876033	$\alpha$=0.05	4.0	data_1	20_sources
+5	151	21	0.1390728476821192	$\alpha$=0.05	5.0	data_1	20_sources
+6	182	26	0.14285714285714285	$\alpha$=0.05	6.0	data_1	20_sources
+7	212	26	0.12264150943396226	$\alpha$=0.05	7.0	data_1	20_sources
+8	243	31	0.12757201646090535	$\alpha$=0.05	8.0	data_1	20_sources
+9	273	32	0.11721611721611722	$\alpha$=0.05	9.0	data_1	20_sources
+10	303	36	0.1188118811881188	$\alpha$=0.05	10.0	data_1	20_sources
+11	455	47	0.10329670329670329	$\alpha$=0.05	15.0	data_1	20_sources
+12	607	59	0.09719934102141681	$\alpha$=0.05	20.0	data_1	20_sources
+13	1519	115	0.07570770243581304	$\alpha$=0.05	50.0	data_1	20_sources
+14	2278	141	0.06189640035118525	$\alpha$=0.05	75.0	data_1	20_sources
+15	3038	172	0.05661619486504279	$\alpha$=0.05	100.0	data_1	20_sources
+0	12	2	0.16666666666666666	$\alpha$=0.05 (BH-adj)	0.5	data_1	20_sources
+1	25	3	0.12	$\alpha$=0.05 (BH-adj)	1.0	data_1	20_sources
+2	50	6	0.12	$\alpha$=0.05 (BH-adj)	2.0	data_1	20_sources
+3	76	9	0.11842105263157894	$\alpha$=0.05 (BH-adj)	3.0	data_1	20_sources
+4	101	12	0.1188118811881188	$\alpha$=0.05 (BH-adj)	4.0	data_1	20_sources
+5	127	15	0.11811023622047244	$\alpha$=0.05 (BH-adj)	5.0	data_1	20_sources
+6	152	21	0.13815789473684212	$\alpha$=0.05 (BH-adj)	6.0	data_1	20_sources
+7	178	26	0.14606741573033707	$\alpha$=0.05 (BH-adj)	7.0	data_1	20_sources
+8	203	26	0.12807881773399016	$\alpha$=0.05 (BH-adj)	8.0	data_1	20_sources
+9	228	29	0.12719298245614036	$\alpha$=0.05 (BH-adj)	9.0	data_1	20_sources
+10	254	31	0.1220472440944882	$\alpha$=0.05 (BH-adj)	10.0	data_1	20_sources
+11	381	45	0.11811023622047244	$\alpha$=0.05 (BH-adj)	15.0	data_1	20_sources
+12	508	51	0.10039370078740158	$\alpha$=0.05 (BH-adj)	20.0	data_1	20_sources
+13	1271	107	0.08418568056648308	$\alpha$=0.05 (BH-adj)	50.0	data_1	20_sources
+14	1907	129	0.06764551651809124	$\alpha$=0.05 (BH-adj)	75.0	data_1	20_sources
+15	2543	149	0.05859221392056626	$\alpha$=0.05 (BH-adj)	100.0	data_1	20_sources
+0	25	3	0.12	unfiltered	0.5	data_1	20_sources
+1	51	7	0.13725490196078433	unfiltered	1.0	data_1	20_sources
+2	103	13	0.1262135922330097	unfiltered	2.0	data_1	20_sources
+3	155	21	0.13548387096774195	unfiltered	3.0	data_1	20_sources
+4	207	26	0.12560386473429952	unfiltered	4.0	data_1	20_sources
+5	258	31	0.12015503875968993	unfiltered	5.0	data_1	20_sources
+6	310	37	0.11935483870967742	unfiltered	6.0	data_1	20_sources
+7	362	42	0.11602209944751381	unfiltered	7.0	data_1	20_sources
+8	414	45	0.10869565217391304	unfiltered	8.0	data_1	20_sources
+9	466	48	0.10300429184549356	unfiltered	9.0	data_1	20_sources
+10	517	51	0.09864603481624758	unfiltered	10.0	data_1	20_sources
+11	776	70	0.09020618556701031	unfiltered	15.0	data_1	20_sources
+12	1035	91	0.08792270531400966	unfiltered	20.0	data_1	20_sources
+13	2589	149	0.05755117806102742	unfiltered	50.0	data_1	20_sources
+14	3884	209	0.05381050463439753	unfiltered	75.0	data_1	20_sources
+15	5179	240	0.04634099246958873	unfiltered	100.0	data_1	20_sources
+0	15	3	0.2	$\alpha$=0.05	0.5	data_2	20_sources
+1	30	6	0.2	$\alpha$=0.05	1.0	data_2	20_sources
+2	60	13	0.21666666666666667	$\alpha$=0.05	2.0	data_2	20_sources
+3	90	17	0.18888888888888888	$\alpha$=0.05	3.0	data_2	20_sources
+4	121	21	0.17355371900826447	$\alpha$=0.05	4.0	data_2	20_sources
+5	151	23	0.152317880794702	$\alpha$=0.05	5.0	data_2	20_sources
+6	181	27	0.14917127071823205	$\alpha$=0.05	6.0	data_2	20_sources
+7	211	32	0.15165876777251186	$\alpha$=0.05	7.0	data_2	20_sources
+8	242	33	0.13636363636363635	$\alpha$=0.05	8.0	data_2	20_sources
+9	272	33	0.1213235294117647	$\alpha$=0.05	9.0	data_2	20_sources
+10	302	34	0.11258278145695365	$\alpha$=0.05	10.0	data_2	20_sources
+11	454	44	0.09691629955947137	$\alpha$=0.05	15.0	data_2	20_sources
+12	605	54	0.08925619834710743	$\alpha$=0.05	20.0	data_2	20_sources
+13	1513	95	0.06278916060806344	$\alpha$=0.05	50.0	data_2	20_sources
+14	2270	147	0.06475770925110132	$\alpha$=0.05	75.0	data_2	20_sources
+15	3027	188	0.06210769739015527	$\alpha$=0.05	100.0	data_2	20_sources
+0	10	2	0.2	$\alpha$=0.05 (BH-adj)	0.5	data_2	20_sources
+1	20	3	0.15	$\alpha$=0.05 (BH-adj)	1.0	data_2	20_sources
+2	41	7	0.17073170731707318	$\alpha$=0.05 (BH-adj)	2.0	data_2	20_sources
+3	62	13	0.20967741935483872	$\alpha$=0.05 (BH-adj)	3.0	data_2	20_sources
+4	83	16	0.1927710843373494	$\alpha$=0.05 (BH-adj)	4.0	data_2	20_sources
+5	104	20	0.19230769230769232	$\alpha$=0.05 (BH-adj)	5.0	data_2	20_sources
+6	125	21	0.168	$\alpha$=0.05 (BH-adj)	6.0	data_2	20_sources
+7	146	23	0.15753424657534246	$\alpha$=0.05 (BH-adj)	7.0	data_2	20_sources
+8	167	24	0.1437125748502994	$\alpha$=0.05 (BH-adj)	8.0	data_2	20_sources
+9	188	27	0.14361702127659576	$\alpha$=0.05 (BH-adj)	9.0	data_2	20_sources
+10	209	31	0.14832535885167464	$\alpha$=0.05 (BH-adj)	10.0	data_2	20_sources
+11	313	35	0.11182108626198083	$\alpha$=0.05 (BH-adj)	15.0	data_2	20_sources
+12	418	42	0.10047846889952153	$\alpha$=0.05 (BH-adj)	20.0	data_2	20_sources
+13	1045	80	0.07655502392344497	$\alpha$=0.05 (BH-adj)	50.0	data_2	20_sources
+14	1568	98	0.0625	$\alpha$=0.05 (BH-adj)	75.0	data_2	20_sources
+15	2091	135	0.06456241032998565	$\alpha$=0.05 (BH-adj)	100.0	data_2	20_sources
+0	33	6	0.18181818181818182	unfiltered	0.5	data_2	20_sources
+1	67	13	0.19402985074626866	unfiltered	1.0	data_2	20_sources
+2	135	23	0.17037037037037037	unfiltered	2.0	data_2	20_sources
+3	203	30	0.1477832512315271	unfiltered	3.0	data_2	20_sources
+4	270	33	0.12222222222222222	unfiltered	4.0	data_2	20_sources
+5	338	36	0.10650887573964497	unfiltered	5.0	data_2	20_sources
+6	406	41	0.10098522167487685	unfiltered	6.0	data_2	20_sources
+7	474	44	0.09282700421940929	unfiltered	7.0	data_2	20_sources
+8	541	47	0.08687615526802218	unfiltered	8.0	data_2	20_sources
+9	609	55	0.090311986863711	unfiltered	9.0	data_2	20_sources
+10	677	61	0.09010339734121123	unfiltered	10.0	data_2	20_sources
+11	1016	78	0.07677165354330709	unfiltered	15.0	data_2	20_sources
+12	1354	92	0.06794682422451995	unfiltered	20.0	data_2	20_sources
+13	3387	201	0.05934455270150576	unfiltered	50.0	data_2	20_sources
+14	5080	277	0.05452755905511811	unfiltered	75.0	data_2	20_sources
+15	6774	332	0.04901092412164157	unfiltered	100.0	data_2	20_sources
+0	17	4	0.23529411764705882	$\alpha$=0.05	0.5	data_3	20_sources
+1	34	6	0.17647058823529413	$\alpha$=0.05	1.0	data_3	20_sources
+2	69	8	0.11594202898550725	$\alpha$=0.05	2.0	data_3	20_sources
+3	103	13	0.1262135922330097	$\alpha$=0.05	3.0	data_3	20_sources
+4	138	18	0.13043478260869565	$\alpha$=0.05	4.0	data_3	20_sources
+5	173	21	0.12138728323699421	$\alpha$=0.05	5.0	data_3	20_sources
+6	207	25	0.12077294685990338	$\alpha$=0.05	6.0	data_3	20_sources
+7	242	34	0.14049586776859505	$\alpha$=0.05	7.0	data_3	20_sources
+8	276	35	0.12681159420289856	$\alpha$=0.05	8.0	data_3	20_sources
+9	311	39	0.12540192926045016	$\alpha$=0.05	9.0	data_3	20_sources
+10	346	46	0.1329479768786127	$\alpha$=0.05	10.0	data_3	20_sources
+11	519	63	0.12138728323699421	$\alpha$=0.05	15.0	data_3	20_sources
+12	692	80	0.11560693641618497	$\alpha$=0.05	20.0	data_3	20_sources
+13	1730	149	0.0861271676300578	$\alpha$=0.05	50.0	data_3	20_sources
+14	2595	185	0.07129094412331406	$\alpha$=0.05	75.0	data_3	20_sources
+15	3461	218	0.06298757584513147	$\alpha$=0.05	100.0	data_3	20_sources
+0	14	3	0.21428571428571427	$\alpha$=0.05 (BH-adj)	0.5	data_3	20_sources
+1	28	5	0.17857142857142858	$\alpha$=0.05 (BH-adj)	1.0	data_3	20_sources
+2	56	7	0.125	$\alpha$=0.05 (BH-adj)	2.0	data_3	20_sources
+3	84	10	0.11904761904761904	$\alpha$=0.05 (BH-adj)	3.0	data_3	20_sources
+4	113	13	0.11504424778761062	$\alpha$=0.05 (BH-adj)	4.0	data_3	20_sources
+5	141	18	0.1276595744680851	$\alpha$=0.05 (BH-adj)	5.0	data_3	20_sources
+6	169	21	0.1242603550295858	$\alpha$=0.05 (BH-adj)	6.0	data_3	20_sources
+7	198	24	0.12121212121212122	$\alpha$=0.05 (BH-adj)	7.0	data_3	20_sources
+8	226	29	0.12831858407079647	$\alpha$=0.05 (BH-adj)	8.0	data_3	20_sources
+9	254	34	0.13385826771653545	$\alpha$=0.05 (BH-adj)	9.0	data_3	20_sources
+10	283	36	0.127208480565371	$\alpha$=0.05 (BH-adj)	10.0	data_3	20_sources
+11	424	50	0.1179245283018868	$\alpha$=0.05 (BH-adj)	15.0	data_3	20_sources
+12	566	69	0.12190812720848057	$\alpha$=0.05 (BH-adj)	20.0	data_3	20_sources
+13	1416	130	0.09180790960451977	$\alpha$=0.05 (BH-adj)	50.0	data_3	20_sources
+14	2124	167	0.07862523540489642	$\alpha$=0.05 (BH-adj)	75.0	data_3	20_sources
+15	2832	198	0.06991525423728813	$\alpha$=0.05 (BH-adj)	100.0	data_3	20_sources
+0	32	6	0.1875	unfiltered	0.5	data_3	20_sources
+1	65	7	0.1076923076923077	unfiltered	1.0	data_3	20_sources
+2	131	18	0.13740458015267176	unfiltered	2.0	data_3	20_sources
+3	197	24	0.1218274111675127	unfiltered	3.0	data_3	20_sources
+4	263	34	0.12927756653992395	unfiltered	4.0	data_3	20_sources
+5	328	44	0.13414634146341464	unfiltered	5.0	data_3	20_sources
+6	394	49	0.12436548223350254	unfiltered	6.0	data_3	20_sources
+7	460	54	0.11739130434782609	unfiltered	7.0	data_3	20_sources
+8	526	64	0.12167300380228137	unfiltered	8.0	data_3	20_sources
+9	592	72	0.12162162162162163	unfiltered	9.0	data_3	20_sources
+10	657	77	0.1171993911719939	unfiltered	10.0	data_3	20_sources
+11	986	103	0.10446247464503043	unfiltered	15.0	data_3	20_sources
+12	1315	123	0.0935361216730038	unfiltered	20.0	data_3	20_sources
+13	3289	212	0.06445728184858619	unfiltered	50.0	data_3	20_sources
+14	4933	269	0.054530711534563146	unfiltered	75.0	data_3	20_sources
+15	6578	327	0.049711158406810584	unfiltered	100.0	data_3	20_sources
+0	11	1	0.09090909090909091	$\alpha$=0.05	0.5	data_4	20_sources
+1	22	1	0.045454545454545456	$\alpha$=0.05	1.0	data_4	20_sources
+2	45	5	0.1111111111111111	$\alpha$=0.05	2.0	data_4	20_sources
+3	67	9	0.13432835820895522	$\alpha$=0.05	3.0	data_4	20_sources
+4	90	11	0.12222222222222222	$\alpha$=0.05	4.0	data_4	20_sources
+5	112	12	0.10714285714285714	$\alpha$=0.05	5.0	data_4	20_sources
+6	135	13	0.0962962962962963	$\alpha$=0.05	6.0	data_4	20_sources
+7	157	15	0.09554140127388536	$\alpha$=0.05	7.0	data_4	20_sources
+8	180	18	0.1	$\alpha$=0.05	8.0	data_4	20_sources
+9	202	21	0.10396039603960396	$\alpha$=0.05	9.0	data_4	20_sources
+10	225	23	0.10222222222222223	$\alpha$=0.05	10.0	data_4	20_sources
+11	338	38	0.11242603550295859	$\alpha$=0.05	15.0	data_4	20_sources
+12	451	48	0.10643015521064302	$\alpha$=0.05	20.0	data_4	20_sources
+13	1127	84	0.07453416149068323	$\alpha$=0.05	50.0	data_4	20_sources
+14	1691	112	0.06623299822590184	$\alpha$=0.05	75.0	data_4	20_sources
+15	2255	134	0.05942350332594235	$\alpha$=0.05	100.0	data_4	20_sources
+0	8	1	0.125	$\alpha$=0.05 (BH-adj)	0.5	data_4	20_sources
+1	17	1	0.058823529411764705	$\alpha$=0.05 (BH-adj)	1.0	data_4	20_sources
+2	35	3	0.08571428571428572	$\alpha$=0.05 (BH-adj)	2.0	data_4	20_sources
+3	53	7	0.1320754716981132	$\alpha$=0.05 (BH-adj)	3.0	data_4	20_sources
+4	71	9	0.1267605633802817	$\alpha$=0.05 (BH-adj)	4.0	data_4	20_sources
+5	89	11	0.12359550561797752	$\alpha$=0.05 (BH-adj)	5.0	data_4	20_sources
+6	106	12	0.11320754716981132	$\alpha$=0.05 (BH-adj)	6.0	data_4	20_sources
+7	124	12	0.0967741935483871	$\alpha$=0.05 (BH-adj)	7.0	data_4	20_sources
+8	142	14	0.09859154929577464	$\alpha$=0.05 (BH-adj)	8.0	data_4	20_sources
+9	160	15	0.09375	$\alpha$=0.05 (BH-adj)	9.0	data_4	20_sources
+10	178	18	0.10112359550561797	$\alpha$=0.05 (BH-adj)	10.0	data_4	20_sources
+11	267	27	0.10112359550561797	$\alpha$=0.05 (BH-adj)	15.0	data_4	20_sources
+12	356	40	0.11235955056179775	$\alpha$=0.05 (BH-adj)	20.0	data_4	20_sources
+13	890	69	0.07752808988764046	$\alpha$=0.05 (BH-adj)	50.0	data_4	20_sources
+14	1335	100	0.0749063670411985	$\alpha$=0.05 (BH-adj)	75.0	data_4	20_sources
+15	1780	114	0.06404494382022471	$\alpha$=0.05 (BH-adj)	100.0	data_4	20_sources
+0	20	1	0.05	unfiltered	0.5	data_4	20_sources
+1	41	5	0.12195121951219512	unfiltered	1.0	data_4	20_sources
+2	83	11	0.13253012048192772	unfiltered	2.0	data_4	20_sources
+3	125	12	0.096	unfiltered	3.0	data_4	20_sources
+4	167	15	0.08982035928143713	unfiltered	4.0	data_4	20_sources
+5	208	21	0.10096153846153846	unfiltered	5.0	data_4	20_sources
+6	250	27	0.108	unfiltered	6.0	data_4	20_sources
+7	292	33	0.11301369863013698	unfiltered	7.0	data_4	20_sources
+8	334	38	0.11377245508982035	unfiltered	8.0	data_4	20_sources
+9	376	42	0.11170212765957446	unfiltered	9.0	data_4	20_sources
+10	417	46	0.11031175059952038	unfiltered	10.0	data_4	20_sources
+11	626	61	0.09744408945686901	unfiltered	15.0	data_4	20_sources
+12	835	68	0.081437125748503	unfiltered	20.0	data_4	20_sources
+13	2089	128	0.061273336524652944	unfiltered	50.0	data_4	20_sources
+14	3134	161	0.05137204850031908	unfiltered	75.0	data_4	20_sources
+15	4179	184	0.044029672170375685	unfiltered	100.0	data_4	20_sources
+0	15	2	0.13333333333333333	$\alpha$=0.05	0.5	data_5	20_sources
+1	30	4	0.13333333333333333	$\alpha$=0.05	1.0	data_5	20_sources
+2	60	11	0.18333333333333332	$\alpha$=0.05	2.0	data_5	20_sources
+3	91	17	0.18681318681318682	$\alpha$=0.05	3.0	data_5	20_sources
+4	121	23	0.19008264462809918	$\alpha$=0.05	4.0	data_5	20_sources
+5	151	32	0.2119205298013245	$\alpha$=0.05	5.0	data_5	20_sources
+6	182	35	0.19230769230769232	$\alpha$=0.05	6.0	data_5	20_sources
+7	212	37	0.17452830188679244	$\alpha$=0.05	7.0	data_5	20_sources
+8	242	40	0.1652892561983471	$\alpha$=0.05	8.0	data_5	20_sources
+9	273	42	0.15384615384615385	$\alpha$=0.05	9.0	data_5	20_sources
+10	303	44	0.14521452145214522	$\alpha$=0.05	10.0	data_5	20_sources
+11	455	65	0.14285714285714285	$\alpha$=0.05	15.0	data_5	20_sources
+12	607	84	0.13838550247116968	$\alpha$=0.05	20.0	data_5	20_sources
+13	1517	139	0.09162821357943308	$\alpha$=0.05	50.0	data_5	20_sources
+14	2276	171	0.07513181019332162	$\alpha$=0.05	75.0	data_5	20_sources
+15	3035	196	0.06457990115321252	$\alpha$=0.05	100.0	data_5	20_sources
+0	12	2	0.16666666666666666	$\alpha$=0.05 (BH-adj)	0.5	data_5	20_sources
+1	24	3	0.125	$\alpha$=0.05 (BH-adj)	1.0	data_5	20_sources
+2	49	8	0.16326530612244897	$\alpha$=0.05 (BH-adj)	2.0	data_5	20_sources
+3	73	15	0.2054794520547945	$\alpha$=0.05 (BH-adj)	3.0	data_5	20_sources
+4	98	20	0.20408163265306123	$\alpha$=0.05 (BH-adj)	4.0	data_5	20_sources
+5	123	23	0.18699186991869918	$\alpha$=0.05 (BH-adj)	5.0	data_5	20_sources
+6	147	30	0.20408163265306123	$\alpha$=0.05 (BH-adj)	6.0	data_5	20_sources
+7	172	34	0.19767441860465115	$\alpha$=0.05 (BH-adj)	7.0	data_5	20_sources
+8	197	37	0.18781725888324874	$\alpha$=0.05 (BH-adj)	8.0	data_5	20_sources
+9	221	37	0.167420814479638	$\alpha$=0.05 (BH-adj)	9.0	data_5	20_sources
+10	246	40	0.16260162601626016	$\alpha$=0.05 (BH-adj)	10.0	data_5	20_sources
+11	369	52	0.14092140921409213	$\alpha$=0.05 (BH-adj)	15.0	data_5	20_sources
+12	493	68	0.13793103448275862	$\alpha$=0.05 (BH-adj)	20.0	data_5	20_sources
+13	1233	131	0.10624493106244931	$\alpha$=0.05 (BH-adj)	50.0	data_5	20_sources
+14	1849	151	0.08166576527852894	$\alpha$=0.05 (BH-adj)	75.0	data_5	20_sources
+15	2466	170	0.0689375506893755	$\alpha$=0.05 (BH-adj)	100.0	data_5	20_sources
+0	28	4	0.14285714285714285	unfiltered	0.5	data_5	20_sources
+1	57	10	0.17543859649122806	unfiltered	1.0	data_5	20_sources
+2	115	23	0.2	unfiltered	2.0	data_5	20_sources
+3	173	34	0.19653179190751446	unfiltered	3.0	data_5	20_sources
+4	231	40	0.17316017316017315	unfiltered	4.0	data_5	20_sources
+5	288	43	0.14930555555555555	unfiltered	5.0	data_5	20_sources
+6	346	48	0.13872832369942195	unfiltered	6.0	data_5	20_sources
+7	404	57	0.14108910891089108	unfiltered	7.0	data_5	20_sources
+8	462	67	0.14502164502164502	unfiltered	8.0	data_5	20_sources
+9	519	71	0.13680154142581888	unfiltered	9.0	data_5	20_sources
+10	577	79	0.1369150779896014	unfiltered	10.0	data_5	20_sources
+11	866	111	0.12817551963048499	unfiltered	15.0	data_5	20_sources
+12	1155	127	0.10995670995670996	unfiltered	20.0	data_5	20_sources
+13	2888	196	0.06786703601108034	unfiltered	50.0	data_5	20_sources
+14	4332	243	0.05609418282548476	unfiltered	75.0	data_5	20_sources
+15	5777	294	0.05089146615890601	unfiltered	100.0	data_5	20_sources
+0	11	4	0.36363636363636365	$\alpha$=0.05	0.5	data_6	20_sources
+1	23	5	0.21739130434782608	$\alpha$=0.05	1.0	data_6	20_sources
+2	46	6	0.13043478260869565	$\alpha$=0.05	2.0	data_6	20_sources
+3	69	7	0.10144927536231885	$\alpha$=0.05	3.0	data_6	20_sources
+4	93	11	0.11827956989247312	$\alpha$=0.05	4.0	data_6	20_sources
+5	116	13	0.11206896551724138	$\alpha$=0.05	5.0	data_6	20_sources
+6	139	17	0.1223021582733813	$\alpha$=0.05	6.0	data_6	20_sources
+7	163	18	0.11042944785276074	$\alpha$=0.05	7.0	data_6	20_sources
+8	186	20	0.10752688172043011	$\alpha$=0.05	8.0	data_6	20_sources
+9	209	20	0.09569377990430622	$\alpha$=0.05	9.0	data_6	20_sources
+10	233	22	0.0944206008583691	$\alpha$=0.05	10.0	data_6	20_sources
+11	349	41	0.1174785100286533	$\alpha$=0.05	15.0	data_6	20_sources
+12	466	52	0.11158798283261803	$\alpha$=0.05	20.0	data_6	20_sources
+13	1165	89	0.07639484978540773	$\alpha$=0.05	50.0	data_6	20_sources
+14	1747	113	0.06468231253577561	$\alpha$=0.05	75.0	data_6	20_sources
+15	2330	131	0.056223175965665236	$\alpha$=0.05	100.0	data_6	20_sources
+0	8	4	0.5	$\alpha$=0.05 (BH-adj)	0.5	data_6	20_sources
+1	17	5	0.29411764705882354	$\alpha$=0.05 (BH-adj)	1.0	data_6	20_sources
+2	34	5	0.14705882352941177	$\alpha$=0.05 (BH-adj)	2.0	data_6	20_sources
+3	51	6	0.11764705882352941	$\alpha$=0.05 (BH-adj)	3.0	data_6	20_sources
+4	69	7	0.10144927536231885	$\alpha$=0.05 (BH-adj)	4.0	data_6	20_sources
+5	86	9	0.10465116279069768	$\alpha$=0.05 (BH-adj)	5.0	data_6	20_sources
+6	103	12	0.11650485436893204	$\alpha$=0.05 (BH-adj)	6.0	data_6	20_sources
+7	120	13	0.10833333333333334	$\alpha$=0.05 (BH-adj)	7.0	data_6	20_sources
+8	138	16	0.11594202898550725	$\alpha$=0.05 (BH-adj)	8.0	data_6	20_sources
+9	155	17	0.10967741935483871	$\alpha$=0.05 (BH-adj)	9.0	data_6	20_sources
+10	172	19	0.11046511627906977	$\alpha$=0.05 (BH-adj)	10.0	data_6	20_sources
+11	259	28	0.10810810810810811	$\alpha$=0.05 (BH-adj)	15.0	data_6	20_sources
+12	345	41	0.11884057971014493	$\alpha$=0.05 (BH-adj)	20.0	data_6	20_sources
+13	864	82	0.09490740740740741	$\alpha$=0.05 (BH-adj)	50.0	data_6	20_sources
+14	1296	94	0.07253086419753087	$\alpha$=0.05 (BH-adj)	75.0	data_6	20_sources
+15	1728	110	0.06365740740740741	$\alpha$=0.05 (BH-adj)	100.0	data_6	20_sources
+0	24	5	0.20833333333333334	unfiltered	0.5	data_6	20_sources
+1	49	6	0.12244897959183673	unfiltered	1.0	data_6	20_sources
+2	99	12	0.12121212121212122	unfiltered	2.0	data_6	20_sources
+3	149	17	0.11409395973154363	unfiltered	3.0	data_6	20_sources
+4	199	20	0.10050251256281408	unfiltered	4.0	data_6	20_sources
+5	249	26	0.10441767068273092	unfiltered	5.0	data_6	20_sources
+6	298	31	0.1040268456375839	unfiltered	6.0	data_6	20_sources
+7	348	41	0.11781609195402298	unfiltered	7.0	data_6	20_sources
+8	398	44	0.11055276381909548	unfiltered	8.0	data_6	20_sources
+9	448	52	0.11607142857142858	unfiltered	9.0	data_6	20_sources
+10	498	55	0.11044176706827309	unfiltered	10.0	data_6	20_sources
+11	747	77	0.10307898259705489	unfiltered	15.0	data_6	20_sources
+12	996	84	0.08433734939759036	unfiltered	20.0	data_6	20_sources
+13	2490	138	0.05542168674698795	unfiltered	50.0	data_6	20_sources
+14	3735	199	0.05327978580990629	unfiltered	75.0	data_6	20_sources
+15	4980	233	0.04678714859437751	unfiltered	100.0	data_6	20_sources
+0	14	1	0.07142857142857142	$\alpha$=0.05	0.5	data_7	20_sources
+1	29	4	0.13793103448275862	$\alpha$=0.05	1.0	data_7	20_sources
+2	59	8	0.13559322033898305	$\alpha$=0.05	2.0	data_7	20_sources
+3	89	12	0.1348314606741573	$\alpha$=0.05	3.0	data_7	20_sources
+4	119	17	0.14285714285714285	$\alpha$=0.05	4.0	data_7	20_sources
+5	149	21	0.14093959731543623	$\alpha$=0.05	5.0	data_7	20_sources
+6	179	26	0.1452513966480447	$\alpha$=0.05	6.0	data_7	20_sources
+7	209	30	0.14354066985645933	$\alpha$=0.05	7.0	data_7	20_sources
+8	238	34	0.14285714285714285	$\alpha$=0.05	8.0	data_7	20_sources
+9	268	35	0.13059701492537312	$\alpha$=0.05	9.0	data_7	20_sources
+10	298	39	0.13087248322147652	$\alpha$=0.05	10.0	data_7	20_sources
+11	448	55	0.12276785714285714	$\alpha$=0.05	15.0	data_7	20_sources
+12	597	67	0.11222780569514237	$\alpha$=0.05	20.0	data_7	20_sources
+13	1493	122	0.08171466845277964	$\alpha$=0.05	50.0	data_7	20_sources
+14	2240	151	0.06741071428571428	$\alpha$=0.05	75.0	data_7	20_sources
+15	2987	188	0.06293940408436559	$\alpha$=0.05	100.0	data_7	20_sources
+0	13	1	0.07692307692307693	$\alpha$=0.05 (BH-adj)	0.5	data_7	20_sources
+1	27	4	0.14814814814814814	$\alpha$=0.05 (BH-adj)	1.0	data_7	20_sources
+2	54	8	0.14814814814814814	$\alpha$=0.05 (BH-adj)	2.0	data_7	20_sources
+3	81	10	0.12345679012345678	$\alpha$=0.05 (BH-adj)	3.0	data_7	20_sources
+4	109	15	0.13761467889908258	$\alpha$=0.05 (BH-adj)	4.0	data_7	20_sources
+5	136	19	0.13970588235294118	$\alpha$=0.05 (BH-adj)	5.0	data_7	20_sources
+6	163	24	0.147239263803681	$\alpha$=0.05 (BH-adj)	6.0	data_7	20_sources
+7	190	27	0.14210526315789473	$\alpha$=0.05 (BH-adj)	7.0	data_7	20_sources
+8	218	30	0.13761467889908258	$\alpha$=0.05 (BH-adj)	8.0	data_7	20_sources
+9	245	34	0.13877551020408163	$\alpha$=0.05 (BH-adj)	9.0	data_7	20_sources
+10	272	35	0.12867647058823528	$\alpha$=0.05 (BH-adj)	10.0	data_7	20_sources
+11	409	50	0.12224938875305623	$\alpha$=0.05 (BH-adj)	15.0	data_7	20_sources
+12	545	66	0.12110091743119267	$\alpha$=0.05 (BH-adj)	20.0	data_7	20_sources
+13	1364	115	0.08431085043988269	$\alpha$=0.05 (BH-adj)	50.0	data_7	20_sources
+14	2046	139	0.06793743890518084	$\alpha$=0.05 (BH-adj)	75.0	data_7	20_sources
+15	2728	173	0.06341642228739003	$\alpha$=0.05 (BH-adj)	100.0	data_7	20_sources
+0	25	3	0.12	unfiltered	0.5	data_7	20_sources
+1	51	8	0.1568627450980392	unfiltered	1.0	data_7	20_sources
+2	102	14	0.13725490196078433	unfiltered	2.0	data_7	20_sources
+3	153	21	0.13725490196078433	unfiltered	3.0	data_7	20_sources
+4	204	30	0.14705882352941177	unfiltered	4.0	data_7	20_sources
+5	255	34	0.13333333333333333	unfiltered	5.0	data_7	20_sources
+6	306	40	0.13071895424836602	unfiltered	6.0	data_7	20_sources
+7	357	47	0.13165266106442577	unfiltered	7.0	data_7	20_sources
+8	408	50	0.12254901960784313	unfiltered	8.0	data_7	20_sources
+9	459	56	0.12200435729847495	unfiltered	9.0	data_7	20_sources
+10	511	64	0.12524461839530332	unfiltered	10.0	data_7	20_sources
+11	766	77	0.10052219321148825	unfiltered	15.0	data_7	20_sources
+12	1022	100	0.09784735812133072	unfiltered	20.0	data_7	20_sources
+13	2555	161	0.06301369863013699	unfiltered	50.0	data_7	20_sources
+14	3833	216	0.05635272632402818	unfiltered	75.0	data_7	20_sources
+15	5111	264	0.051653296810800234	unfiltered	100.0	data_7	20_sources
+0	16	3	0.1875	$\alpha$=0.05	0.5	data_8	20_sources
+1	32	4	0.125	$\alpha$=0.05	1.0	data_8	20_sources
+2	64	7	0.109375	$\alpha$=0.05	2.0	data_8	20_sources
+3	96	12	0.125	$\alpha$=0.05	3.0	data_8	20_sources
+4	128	17	0.1328125	$\alpha$=0.05	4.0	data_8	20_sources
+5	160	19	0.11875	$\alpha$=0.05	5.0	data_8	20_sources
+6	192	24	0.125	$\alpha$=0.05	6.0	data_8	20_sources
+7	224	28	0.125	$\alpha$=0.05	7.0	data_8	20_sources
+8	256	33	0.12890625	$\alpha$=0.05	8.0	data_8	20_sources
+9	288	37	0.1284722222222222	$\alpha$=0.05	9.0	data_8	20_sources
+10	320	38	0.11875	$\alpha$=0.05	10.0	data_8	20_sources
+11	480	53	0.11041666666666666	$\alpha$=0.05	15.0	data_8	20_sources
+12	640	73	0.1140625	$\alpha$=0.05	20.0	data_8	20_sources
+13	1600	128	0.08	$\alpha$=0.05	50.0	data_8	20_sources
+14	2400	161	0.06708333333333333	$\alpha$=0.05	75.0	data_8	20_sources
+15	3200	188	0.05875	$\alpha$=0.05	100.0	data_8	20_sources
+0	12	2	0.16666666666666666	$\alpha$=0.05 (BH-adj)	0.5	data_8	20_sources
+1	24	4	0.16666666666666666	$\alpha$=0.05 (BH-adj)	1.0	data_8	20_sources
+2	49	6	0.12244897959183673	$\alpha$=0.05 (BH-adj)	2.0	data_8	20_sources
+3	74	9	0.12162162162162163	$\alpha$=0.05 (BH-adj)	3.0	data_8	20_sources
+4	99	12	0.12121212121212122	$\alpha$=0.05 (BH-adj)	4.0	data_8	20_sources
+5	124	17	0.13709677419354838	$\alpha$=0.05 (BH-adj)	5.0	data_8	20_sources
+6	149	19	0.12751677852348994	$\alpha$=0.05 (BH-adj)	6.0	data_8	20_sources
+7	174	21	0.1206896551724138	$\alpha$=0.05 (BH-adj)	7.0	data_8	20_sources
+8	199	24	0.12060301507537688	$\alpha$=0.05 (BH-adj)	8.0	data_8	20_sources
+9	224	28	0.125	$\alpha$=0.05 (BH-adj)	9.0	data_8	20_sources
+10	248	32	0.12903225806451613	$\alpha$=0.05 (BH-adj)	10.0	data_8	20_sources
+11	373	40	0.10723860589812333	$\alpha$=0.05 (BH-adj)	15.0	data_8	20_sources
+12	497	55	0.11066398390342053	$\alpha$=0.05 (BH-adj)	20.0	data_8	20_sources
+13	1244	110	0.08842443729903537	$\alpha$=0.05 (BH-adj)	50.0	data_8	20_sources
+14	1866	138	0.07395498392282958	$\alpha$=0.05 (BH-adj)	75.0	data_8	20_sources
+15	2489	159	0.06388107673764563	$\alpha$=0.05 (BH-adj)	100.0	data_8	20_sources
+0	28	4	0.14285714285714285	unfiltered	0.5	data_8	20_sources
+1	57	7	0.12280701754385964	unfiltered	1.0	data_8	20_sources
+2	115	16	0.1391304347826087	unfiltered	2.0	data_8	20_sources
+3	173	20	0.11560693641618497	unfiltered	3.0	data_8	20_sources
+4	231	29	0.12554112554112554	unfiltered	4.0	data_8	20_sources
+5	288	37	0.1284722222222222	unfiltered	5.0	data_8	20_sources
+6	346	39	0.11271676300578035	unfiltered	6.0	data_8	20_sources
+7	404	43	0.10643564356435643	unfiltered	7.0	data_8	20_sources
+8	462	51	0.11038961038961038	unfiltered	8.0	data_8	20_sources
+9	519	59	0.11368015414258188	unfiltered	9.0	data_8	20_sources
+10	577	66	0.11438474870017332	unfiltered	10.0	data_8	20_sources
+11	866	86	0.09930715935334873	unfiltered	15.0	data_8	20_sources
+12	1155	103	0.08917748917748917	unfiltered	20.0	data_8	20_sources
+13	2887	178	0.06165569795635608	unfiltered	50.0	data_8	20_sources
+14	4331	239	0.05518356037866543	unfiltered	75.0	data_8	20_sources
+15	5775	288	0.04987012987012987	unfiltered	100.0	data_8	20_sources
+0	17	3	0.17647058823529413	$\alpha$=0.05	0.5	data_9	20_sources
+1	35	7	0.2	$\alpha$=0.05	1.0	data_9	20_sources
+2	71	12	0.16901408450704225	$\alpha$=0.05	2.0	data_9	20_sources
+3	107	16	0.14953271028037382	$\alpha$=0.05	3.0	data_9	20_sources
+4	142	17	0.11971830985915492	$\alpha$=0.05	4.0	data_9	20_sources
+5	178	17	0.09550561797752809	$\alpha$=0.05	5.0	data_9	20_sources
+6	214	22	0.102803738317757	$\alpha$=0.05	6.0	data_9	20_sources
+7	250	29	0.116	$\alpha$=0.05	7.0	data_9	20_sources
+8	285	31	0.10877192982456141	$\alpha$=0.05	8.0	data_9	20_sources
+9	321	34	0.1059190031152648	$\alpha$=0.05	9.0	data_9	20_sources
+10	357	36	0.10084033613445378	$\alpha$=0.05	10.0	data_9	20_sources
+11	535	53	0.09906542056074766	$\alpha$=0.05	15.0	data_9	20_sources
+12	714	73	0.10224089635854341	$\alpha$=0.05	20.0	data_9	20_sources
+13	1786	125	0.06998880179171332	$\alpha$=0.05	50.0	data_9	20_sources
+14	2679	162	0.060470324748040316	$\alpha$=0.05	75.0	data_9	20_sources
+15	3573	201	0.056255247691015954	$\alpha$=0.05	100.0	data_9	20_sources
+0	15	3	0.2	$\alpha$=0.05 (BH-adj)	0.5	data_9	20_sources
+1	30	6	0.2	$\alpha$=0.05 (BH-adj)	1.0	data_9	20_sources
+2	60	10	0.16666666666666666	$\alpha$=0.05 (BH-adj)	2.0	data_9	20_sources
+3	90	12	0.13333333333333333	$\alpha$=0.05 (BH-adj)	3.0	data_9	20_sources
+4	120	16	0.13333333333333333	$\alpha$=0.05 (BH-adj)	4.0	data_9	20_sources
+5	151	17	0.11258278145695365	$\alpha$=0.05 (BH-adj)	5.0	data_9	20_sources
+6	181	17	0.09392265193370165	$\alpha$=0.05 (BH-adj)	6.0	data_9	20_sources
+7	211	22	0.10426540284360189	$\alpha$=0.05 (BH-adj)	7.0	data_9	20_sources
+8	241	28	0.11618257261410789	$\alpha$=0.05 (BH-adj)	8.0	data_9	20_sources
+9	272	31	0.11397058823529412	$\alpha$=0.05 (BH-adj)	9.0	data_9	20_sources
+10	302	32	0.10596026490066225	$\alpha$=0.05 (BH-adj)	10.0	data_9	20_sources
+11	453	46	0.10154525386313466	$\alpha$=0.05 (BH-adj)	15.0	data_9	20_sources
+12	604	60	0.09933774834437085	$\alpha$=0.05 (BH-adj)	20.0	data_9	20_sources
+13	1511	112	0.07412309728656519	$\alpha$=0.05 (BH-adj)	50.0	data_9	20_sources
+14	2267	146	0.06440229378032643	$\alpha$=0.05 (BH-adj)	75.0	data_9	20_sources
+15	3023	178	0.058881905391994706	$\alpha$=0.05 (BH-adj)	100.0	data_9	20_sources
+0	31	6	0.1935483870967742	unfiltered	0.5	data_9	20_sources
+1	63	10	0.15873015873015872	unfiltered	1.0	data_9	20_sources
+2	127	16	0.12598425196850394	unfiltered	2.0	data_9	20_sources
+3	191	19	0.09947643979057591	unfiltered	3.0	data_9	20_sources
+4	255	29	0.11372549019607843	unfiltered	4.0	data_9	20_sources
+5	318	34	0.1069182389937107	unfiltered	5.0	data_9	20_sources
+6	382	38	0.09947643979057591	unfiltered	6.0	data_9	20_sources
+7	446	46	0.1031390134529148	unfiltered	7.0	data_9	20_sources
+8	510	51	0.1	unfiltered	8.0	data_9	20_sources
+9	573	56	0.09773123909249563	unfiltered	9.0	data_9	20_sources
+10	637	63	0.0989010989010989	unfiltered	10.0	data_9	20_sources
+11	956	88	0.09205020920502092	unfiltered	15.0	data_9	20_sources
+12	1275	108	0.08470588235294117	unfiltered	20.0	data_9	20_sources
+13	3188	181	0.056775407779171894	unfiltered	50.0	data_9	20_sources
+14	4782	243	0.05081555834378921	unfiltered	75.0	data_9	20_sources
+15	6377	303	0.04751450525325388	unfiltered	100.0	data_9	20_sources
