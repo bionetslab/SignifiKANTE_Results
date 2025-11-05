@@ -28,8 +28,17 @@ np.random.seed(12)
 random.seed(12)
 
 
+def precision_recall(top_n, ground_truth_set):
+    true_positives = sum(
+            tuple((row['TF'], row['target'])) in ground_truth_set
+            for _, row in top_n.iterrows())
+    precision = true_positives / top_n.shape[0] if top_n.shape[0] > 0 else 0
+    recall = true_positives / len(ground_truth_set) if top_n.shape[0] > 0 else 0
+    return precision, recall, true_positives
 
 def compute_precision(ranked_df: pd.DataFrame, thresholds: List[int], ground_truth_set: set, absolute=False) -> pd.DataFrame:
+
+    ranked_df = ranked_df.sort_values(by='importance', ascending=False)
     results = []
     if not absolute:
         absolute_thresholds = [int(t/100 * ranked_df.shape[0]) for t in thresholds]
@@ -39,17 +48,15 @@ def compute_precision(ranked_df: pd.DataFrame, thresholds: List[int], ground_tru
         mythresholds = thresholds
         mythresholds = [ranked_df.shape[0]]+mythresholds
     
-    for n in mythresholds:
-        top_n = ranked_df.head(n)
-        true_positives = sum(
-            tuple((row['TF'], row['target'])) in ground_truth_set
-            for _, row in top_n.iterrows()
-        )
-        precision = true_positives / top_n.shape[0] if n > 0 else 0
-        results.append({'Top N Predictions': n, 'True Positives': true_positives, 'Precision': precision})
-        #i = i+1
-    return pd.DataFrame(results), mythresholds
-
+    for t in range(len(mythresholds)):
+        subnet = ranked_df.iloc[0:mythresholds[t]]
+        precision, recall,true_positives = precision_recall(subnet, ground_truth_set)
+        results.append({'Top N Predictions': mythresholds[t], 'thresholds': thresholds[t], 'True Positives': true_positives, 'Precision': precision, 'Recall': recall, 'comparison': 'GRNBoost2'})
+        precision, recall,true_positives = precision_recall(subnet[subnet.pvalue<0.05], ground_truth_set)
+        results.append({'Top N Predictions': mythresholds[t], 'thresholds': thresholds[t],'True Positives': true_positives, 'Precision': precision, 'Recall': recall, 'comparison': 'SignifiKANTE'})
+        precision, recall,true_positives = precision_recall(subnet[subnet.p_adj<0.05], ground_truth_set)
+        results.append({'Top N Predictions': mythresholds[t],'thresholds': thresholds[t], 'True Positives': true_positives, 'Precision': precision, 'Recall': recall, 'comparison': 'SignifiKANTE (BH)'})
+    return pd.DataFrame(results)
 
 
 def compute_metrics(orig_net, fdr_net, groundtruth, data_trial = 'data', p_cutoff=0.05):
@@ -60,41 +67,10 @@ def compute_metrics(orig_net, fdr_net, groundtruth, data_trial = 'data', p_cutof
 
     results = []
 
-
-    ranked_fdr_grn =  fdr_net[fdr_net['pvalue'] < p_cutoff].reset_index(drop=True).sort_values(by='importance', ascending=False)
-
-    ranked_fdr_adj_grn = fdr_net[fdr_net['p_adj'] < p_cutoff].reset_index(drop=True).sort_values(by='importance', ascending=False)
-
-    ranked_network2 = orig_net.sort_values(by='importance', ascending=False)
-
-
     thresholds: List[int] = [0.5,1,2,3,4, 5,6,7,8,9, 10, 15, 20, 50, 75, 100]
     thresholds = list(np.sort(thresholds))
 
-
-
-    if ranked_fdr_grn.shape[0]>0:
-        precision_fdr_grn, mythresholds = compute_precision(ranked_fdr_grn, thresholds, ground_truth_set, absolute=False)
-        precision_fdr_grn['comparison'] = r"$\alpha$"+f'={p_cutoff}'
-        precision_fdr_grn['thresholds'] = thresholds
-        results.append(precision_fdr_grn)
-
-    if ranked_fdr_adj_grn.shape[0]>0:
-        precision_fdr_adj_grn, mythresholds = compute_precision(ranked_fdr_adj_grn, thresholds, ground_truth_set,  absolute=False)
-        precision_fdr_adj_grn['comparison'] = r"$\alpha$"+f'={p_cutoff} (BH-adj)'
-        precision_fdr_adj_grn['thresholds'] = thresholds
-
-        results.append(precision_fdr_adj_grn)
-
-    if ranked_network2.shape[0]>0:
-        precision_network2, mythresholds = compute_precision(ranked_network2, thresholds, ground_truth_set)
-        precision_network2['comparison'] = 'unfiltered'
-        precision_network2['thresholds'] = thresholds
-        results.append(precision_network2)
-
-
-    precision_all = pd.concat(results)
-
+    precision_all = compute_precision(orig_net, thresholds, ground_truth_set)
     precision_all['dataset'] = data_trial
     return precision_all
 
@@ -241,3 +217,4 @@ if __name__ == '__main__':
     myjac = pd.concat(myjac_collector)
 
     myjac.to_csv(f'/data/bionets/og86asub/SignifiKANTE_Results/results/sc_simulated_data/jaccard_indices.tsv')
+# %%
