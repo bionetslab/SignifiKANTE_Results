@@ -79,9 +79,20 @@ def compute_approximate_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
     grn_path = os.path.join(results_dir, tissue_name, config['input_grn_filename'])
     input_grn = pd.read_csv(grn_path)
 
+    # Set GRN inference mode.
+    if "genie3" in config['input_grn_filename']:
+        grn_mode = "genie3"
+    elif "xgboost" in config['input_grn_filename']:
+        grn_mode = "xgboost"
+    elif "lasso" in config['input_grn_filename']:
+        grn_mode = "lasso"
+    else:
+        grn_mode = "grnboost2"
+
 
     num_clusters_non_tfs = config['num_clusters_non_tfs']
     num_clusters_tfs = config['num_clusters_tfs']
+    #num_run = config['num_run']
 
     if verbosity > 0:
         print(
@@ -91,7 +102,7 @@ def compute_approximate_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
 
     # Create subdir for saving
     fdr_mode = 'random'
-    save_dir = os.path.join(results_dir, tissue_name, f'approximate_fdr_grns_{fdr_mode}')
+    save_dir = os.path.join(results_dir, tissue_name, f'random_targets_genie3')
     os.makedirs(save_dir, exist_ok=True)
 
     emissions_file = os.path.join(save_dir, f'emissions_nontf_{num_clusters_non_tfs}_numtf_{num_clusters_tfs}.csv')
@@ -104,7 +115,7 @@ def compute_approximate_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
         fdr_grn = grnboost2_fdr(
             expression_data=expression_mat,
             cluster_representative_mode=fdr_mode,
-            num_non_tf_clusters=num_clusters_non_tfs,
+            num_target_clusters=num_clusters_non_tfs,
             num_tf_clusters=num_clusters_tfs,
             input_grn=input_grn,
             tf_names=None,
@@ -113,7 +124,9 @@ def compute_approximate_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
             seed=42,
             verbose=False,
             num_permutations=1000,
-            output_dir=None
+            output_dir=None,
+            scale_for_tf_sampling=True,
+            inference_mode=grn_mode
         )
         et = time.time()
 

@@ -12,10 +12,13 @@ import time
 import pandas as pd
 
 from codecarbon import OfflineEmissionsTracker
-from arboreto.algo import grnboost2, grnboost2_fdr
+from arboreto.algo import grnboost2, grnboost2_fdr, genie3, extra_trees, xgboost
 
 
-def compute_input_grns(gtex_dir: str, results_dir: str | None, verbosity: int = 0):
+def compute_input_grns(gtex_dir: str, results_dir: str | None, verbosity: int = 1,
+                       selected_tissues = ['Breast', 'Kidney', 'Testis'],
+                       grn_inference : str = "grnboost2",
+                       num_run : int = 0):
 
     if results_dir is None:
         results_dir = os.path.join(os.getcwd(), 'results')
@@ -24,6 +27,9 @@ def compute_input_grns(gtex_dir: str, results_dir: str | None, verbosity: int = 
     tissue_dirs = sorted(os.listdir(gtex_dir))
 
     for tissue_dir in tissue_dirs:
+
+        if not tissue_dir in selected_tissues:
+            continue
 
         if verbosity > 0:
             print(f'# ### Computing GRN for tissue: {tissue_dir}')
@@ -41,18 +47,48 @@ def compute_input_grns(gtex_dir: str, results_dir: str | None, verbosity: int = 
         target_df = pd.read_csv(os.path.join(tissue_dir_path, target_filename), index_col=0)
         tf_list = set(all_genes) - set(target_df['target_gene'])
 
-        input_grn = grnboost2(
-            expression_data=expression_mat,
-            gene_names=None,
-            tf_names=tf_list,
-            seed=42,
-            verbose=False,
-        )
+        if grn_inference == "genie3":
+            input_grn = genie3(
+                expression_data=expression_mat,
+                gene_names=None,
+                tf_names=tf_list,
+                seed=42,
+                verbose=False,
+            )
+        elif grn_inference == "grnboost2":
+            input_grn = grnboost2(
+                expression_data=expression_mat,
+                gene_names=None,
+                tf_names=tf_list,
+                seed=42+num_run,
+                verbose=False,
+            )
+        elif grn_inference == "extra_trees":
+            input_grn = extra_trees(
+                expression_data=expression_mat,
+                gene_names=None,
+                tf_names=tf_list,
+                seed=42,
+                verbose=False,
+            )
+        elif grn_inference == "xgboost":
+            input_grn = xgboost(
+                expression_data=expression_mat,
+                gene_names=None,
+                tf_names=tf_list,
+                seed=42,
+                verbose=False,
+            )   
+        else:
+            raise ValueError(f"Unknown GRN inference mode: {grn_inference}!")
 
         output_dir_path = os.path.join(results_dir, tissue_dir)
         os.makedirs(output_dir_path, exist_ok=True)
 
-        input_grn.to_csv(os.path.join(output_dir_path, f'{tissue_dir}_input_grn.csv'), index=False)
+        if grn_inference == "grnboost2":
+            input_grn.to_csv(os.path.join(output_dir_path, f'{tissue_dir}_input_grn_{num_run}.csv'), index=False)
+        else:
+            input_grn.to_csv(os.path.join(output_dir_path, f'{tissue_dir}_{grn_inference}_input_grn.csv'), index=False)
 
 
 def generate_batch_configs(
@@ -60,7 +96,9 @@ def generate_batch_configs(
         batch_size: int,
         config_dir: str | None,
         results_dir: str | None,
-        verbosity: int = 0
+        tissue_subset = ["Kidney", "Ovary", "Vagina", "Liver"],
+        verbosity: int = 0,
+        tool : str = "grnboost2"
 ) -> None:
 
     if config_dir is None:
@@ -76,13 +114,16 @@ def generate_batch_configs(
 
     for tissue_dir in tissue_dirs:
 
+        if tissue_dir not in tissue_subset:
+            continue
+        
         if verbosity > 0:
             print(f'# ###### Tissue {tissue_dir} ###### #')
 
         tissue_dir_path = os.path.join(gtex_dir, tissue_dir)
 
         expression_mat_filename = f'{tissue_dir}.tsv'
-        input_grn_filename = f'{tissue_dir}_input_grn.csv'
+        input_grn_filename = f'{tissue_dir}_{tool}_input_grn.csv'
 
         config['tissue_name'] = tissue_dir
         config['tissue_data_path'] = tissue_dir_path
@@ -123,7 +164,7 @@ def _batch_genes(genes: list[str], batch_size: int) -> list[list[str]]:
     return batch_list
 
 
-def compute_classical_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
+def compute_classical_fdr(config: dict, num_run : str, verbosity: int = 0) -> pd.DataFrame:
 
     # Load the expression data
     tissue_name = config['tissue_name']  # Same as tissue_dir
@@ -138,6 +179,16 @@ def compute_classical_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
     grn_path = os.path.join(results_dir, tissue_name, config['input_grn_filename'])
     input_grn = pd.read_csv(grn_path)
 
+    grn_mode = "grnboost2"
+    # Set GRN inference tool to use.
+    if "genie3" in config['input_grn_filename']:
+        grn_mode = "genie3"
+    elif "xgboost" in config['input_grn_filename']:
+        grn_mode = "xgboost"
+    elif "lasso" in config['input_grn_filename']:
+        grn_mode = "lasso"
+
+    print("Running full FDR with ", grn_mode)
     # Get the targets
     targets = config['targets']  # List of gene names ['gene0', 'gene1', ...]
 
@@ -149,7 +200,7 @@ def compute_classical_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
 
 
     # Create subdir for saving
-    save_dir = os.path.join(results_dir, tissue_name, 'batch_wise_fdr_grns')
+    save_dir = os.path.join(results_dir, tissue_name, f'groundtruth_genie3')
     os.makedirs(save_dir, exist_ok=True)
 
     emissions_file = os.path.join(save_dir, f'emissions_batch_{batch_id}.csv')
@@ -162,7 +213,7 @@ def compute_classical_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
         fdr_grn = grnboost2_fdr(
             expression_data=expression_mat,
             cluster_representative_mode='all_genes',
-            num_non_tf_clusters=-1,
+            num_target_clusters=-1,
             num_tf_clusters=-1,
             input_grn=input_grn,
             tf_names=None,
@@ -171,7 +222,9 @@ def compute_classical_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
             seed=42,
             verbose=False,
             num_permutations=1000,
-            output_dir=None
+            output_dir=None,
+            scale_for_tf_sampling=True,
+            inference_mode=grn_mode
         )
         et = time.time()
 
@@ -193,23 +246,32 @@ if __name__ == '__main__':
     fdr = True
 
     if not fdr:
+        
+        parser = argparse.ArgumentParser(description="Process a config file from the command line.")
 
-        gtex_path = './data/gtex_tissues_preprocessed'
+        # Add the file argument
+        parser.add_argument('-t', type=str, help='The GRN inference tool to use')
+        args = parser.parse_args()
+
+        tool = args.t
+
+        gtex_path = '/home/woody/iwbn/iwbn106h/gtex'
         alternate_gtex_path = f'/home/woody/iwbn/iwbn107h/gtex'
 
         if not os.path.exists(gtex_path):
             gtex_path = alternate_gtex_path
 
-        res_dir = './results'
+        res_dir = "/home/woody/iwbn/iwbn106h/gtex_fdr_results"
 
         # Compute the input GRNs
-        compute_input_grns(gtex_dir=gtex_path, results_dir=res_dir, verbosity=1)
+        for i in range(1,10):
+            compute_input_grns(gtex_dir=gtex_path, results_dir=res_dir, verbosity=1, grn_inference=tool, num_run=i)
 
         # Generate the config files
-        cfg_dir = './config'
-        bs = 100
+        #cfg_dir = './configs_groundtruth_genie3_size30'
+        #bs = 30
 
-        generate_batch_configs(gtex_dir=gtex_path, batch_size=bs, config_dir=cfg_dir, results_dir=res_dir, verbosity=1)
+        #generate_batch_configs(gtex_dir=gtex_path, batch_size=bs, config_dir=cfg_dir, results_dir=res_dir, verbosity=1, tool=tool)
 
         print('done')
 
@@ -218,6 +280,8 @@ if __name__ == '__main__':
 
         # Add the file argument
         parser.add_argument('-f', type=str, help='The config file to process')
+        parser.add_argument('-n', type=str, help='ID of current run')
+
 
         # Parse the arguments
         args = parser.parse_args()
@@ -225,4 +289,6 @@ if __name__ == '__main__':
         with open(args.f, 'r') as f:
             cfg = yaml.safe_load(f)
 
-        compute_classical_fdr(config=cfg, verbosity=1)
+        num_run = args.n
+
+        compute_classical_fdr(config=cfg, num_run=num_run, verbosity=1)
