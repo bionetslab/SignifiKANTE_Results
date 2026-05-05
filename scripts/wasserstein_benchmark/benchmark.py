@@ -104,8 +104,8 @@ def generate_results():
     compute_wasserstein_distance_matrix(expression_mat=data_mat, num_threads=-1)
 
     # Define params
-    num_cells = [10, 20, 30]  # [1000, 5000, 10000]
-    num_genes = [100, 200, 300, 400]  # [1000, 2000, 5000, 10000, 15000, 20000, 25000, 30000]
+    num_cells = [1000, 5000, 10000]
+    num_genes = [1000, 2000, 5000, 10000, 15000, 20000, 25000, 30000]
     num_trials = 10
 
     # Run benchmark
