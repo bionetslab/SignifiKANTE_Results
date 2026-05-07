@@ -1,0 +1,5 @@
+data_path: ./data/processed/dc.csv
+dataset_name: dc
+grn_path: ./input_grns/grn_dc_00.csv
+result_dir: ./results_ground_truth
+run_id: 1
