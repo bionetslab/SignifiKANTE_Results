@@ -111,7 +111,7 @@ def compute_input_grns():
 
 def generate_configs_ground_truth():
     """
-    Generate the config files for the groundtruth computation.
+    Generate the config files for the groundtruth computation for each dataset, for each input GRN.
     """
 
     import os
@@ -146,14 +146,16 @@ def generate_configs_ground_truth():
 
 def generate_configs_approx():
     """
-    Generate the config files for the approximate FDR computation.
+    Generate the config files for the approximate FDR computation
+    for each dataset, for each input GRN, and for each number of clusters.
     """
 
     import os
     import yaml
 
-    num_clusters = list(range(1, 11)) + list(range(20, 101, 10))
+    num_grns = 10
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
+    num_clusters = list(range(1, 11)) + list(range(20, 101, 10))
 
     config_dir = './configs_approx'
     os.makedirs(config_dir, exist_ok=True)
@@ -163,20 +165,22 @@ def generate_configs_approx():
     results_dir = './results_approx'
 
     for sub_population in sub_populations:
-        for l in num_clusters:
+        for grn_id in range(num_grns):
+            for l in num_clusters:
 
-            config = {
-                'dataset_name': sub_population,
-                'num_clusters': l,
-                'data_path': os.path.join(data_dir, sub_population + '.csv'),
-                'grn_path': os.path.join(grn_dir, f'grn_{sub_population}_00.csv'),
-                'result_dir': results_dir,
-            }
+                config = {
+                    'dataset_name': sub_population,
+                    'grn_id': grn_id,
+                    'num_clusters': l,
+                    'data_path': os.path.join(data_dir, sub_population + '.csv'),
+                    'grn_path': os.path.join(grn_dir, f'grn_{sub_population}_{grn_id:02d}.csv'),
+                    'result_dir': results_dir,
+                }
 
-            config_fn = f'config_{sub_population}_{l:03d}.yaml'
+                config_fn = f'config_{sub_population}_num_clust_{l:03d}_grn_id_{grn_id:02d}.yaml'
 
-            with open(os.path.join(config_dir, config_fn), 'w') as f:
-                yaml.dump(config, f)
+                with open(os.path.join(config_dir, config_fn), 'w') as f:
+                    yaml.dump(config, f)
 
 
 if __name__ == '__main__':
@@ -189,7 +193,7 @@ if __name__ == '__main__':
 
     # generate_configs_ground_truth()
 
-    # generate_configs_approx()
+    generate_configs_approx()
 
     print('done')
 
