@@ -1,0 +1,6 @@
+data_path: ./data/processed/nk_cells.csv
+dataset_name: nk_cells
+grn_id: 7
+grn_path: ./input_grns/grn_nk_cells_07.csv
+num_clusters: 30
+result_dir: ./results_approx
