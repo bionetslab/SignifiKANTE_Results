@@ -32,6 +32,6 @@ CONFIG_FILE=${CONFIG_FILES[$((SLURM_ARRAY_TASK_ID - 1))]}
 
 # run
 echo "Running approximate FDR for: $CONFIG_FILE"
-srun python ./approx_computation.py -f "$CONFIG_FILE"
+srun python ./computation_approx.py -f "$CONFIG_FILE"
 
 

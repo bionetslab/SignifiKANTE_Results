@@ -32,7 +32,7 @@ CONFIG_FILE=${CONFIG_FILES[$((SLURM_ARRAY_TASK_ID - 1))]}
 
 # run
 echo "Running classical FDR for: $CONFIG_FILE"
-srun python ./ground_truth_computation.py -f "$CONFIG_FILE"
+srun python ./computation_ground_truth.py -f "$CONFIG_FILE"
 
 
 
