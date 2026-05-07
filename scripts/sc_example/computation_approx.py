@@ -16,6 +16,7 @@ def compute_approx_fdr(config: Dict):
     """
 
     dataset_name = config['dataset_name']
+    grn_id = config['grn_id']
     num_clusters = config['num_clusters']
     data_path = config['data_path']
     grn_path = config['grn_path']
@@ -50,7 +51,10 @@ def compute_approx_fdr(config: Dict):
 
         return grn_fdr
 
-    fn_emissions = os.path.join(result_dir, f'emissions_{dataset_name}_{num_clusters:03d}.csv')
+    fn_emissions = os.path.join(
+        result_dir,
+        f'emissions_{dataset_name}_num_clust_{num_clusters:03d}_grn_id_{grn_id:02d}.csv'
+    )
 
     with OfflineEmissionsTracker(
             country_iso_code='DEU', output_file=fn_emissions, log_level='error', measure_power_secs=600
@@ -60,7 +64,10 @@ def compute_approx_fdr(config: Dict):
             function=run, function_params=None, tracking_interval=0.1
         )
 
-        grn.to_csv(os.path.join(result_dir, f'grn_{dataset_name}_{num_clusters:03d}.csv'), index=False)
+        grn.to_csv(
+            os.path.join(result_dir, f'grn_{dataset_name}_num_clust_{num_clusters:03d}_grn_id_{grn_id:02d}.csv'),
+            index=False
+        )
 
         mem_peak = max(mem_samples)
         num_samples = len(mem_samples)
@@ -74,7 +81,10 @@ def compute_approx_fdr(config: Dict):
             'mem_avg': mem_avg,
             'num_samples': num_samples,
         }])
-        tracking_df.to_csv(os.path.join(result_dir, f'tracking_{dataset_name}_{num_clusters:03d}.csv'), index=False)
+        tracking_df.to_csv(
+            os.path.join(result_dir, f'tracking_{dataset_name}_num_clust_{num_clusters:03d}_grn_id_{grn_id:02d}.csv'),
+            index=False
+        )
 
 
 if __name__ == '__main__':
