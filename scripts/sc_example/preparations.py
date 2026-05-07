@@ -193,7 +193,7 @@ if __name__ == '__main__':
 
     # generate_configs_ground_truth()
 
-    generate_configs_approx()
+    # generate_configs_approx()
 
     print('done')
 
