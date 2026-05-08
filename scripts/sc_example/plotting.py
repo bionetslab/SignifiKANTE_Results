@@ -111,9 +111,12 @@ def plot_performance():
         palette=cmap,
         ax=ax,
     )
-    ax.legend(fontsize=legend_fontsize, loc='upper left', title=None)
-    ax.set_xlabel('Alpha')
+    ax.legend(fontsize=legend_fontsize, loc='lower right', title=None)
+    ax.set_xlabel(r'FDR threshold ($\alpha$)')
     ax.set_ylabel('Pairwise Jaccard similarity')
+    ax.tick_params(axis='x', labelrotation=20)
+    for label in ax.get_xticklabels():
+        label.set_ha('right')
 
     for label, ax in axd.items():
         trans = mtransforms.ScaledTranslation(-20 / 72, 7 / 72, fig.dpi_scale_trans)
@@ -129,6 +132,120 @@ def plot_performance():
         )
 
     fig.savefig('./results/fig_performance.png', dpi=fig.dpi)
+
+
+def plot_robustness():
+    """
+        4 Panels:
+            - MAE
+            - F1 @ alpha
+            - GT vs GT
+            - Robustness
+        """
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    import seaborn as sns
+    import matplotlib.transforms as mtransforms
+
+    fig, axd = plt.subplot_mosaic(
+        '''
+        ABL
+        ''',
+        figsize=(8, 3),
+        dpi=300,
+        constrained_layout=True,
+    )
+
+    # Load results
+    res_df_robustness = pd.read_csv('./results/robustness.csv')
+    res_df_robustness2 = pd.read_csv('./results/robustness2.csv')
+    res_df_robustness2.rename(columns={'alpha': r'FDR thresh. ($\alpha$)'}, inplace=True)
+
+    # Define cmap
+    colors = sns.color_palette('rocket', 3)
+    cmap = dict(zip(res_df_robustness['dataset'].unique(), colors))
+
+    legend_fontsize = 8
+
+    ax = axd['A']
+    sns.boxplot(
+        data=res_df_robustness,
+        x='alpha',
+        y='jaccard_similarity',
+        hue='dataset',
+        palette=cmap,
+        ax=ax,
+    )
+    ax.legend(fontsize=legend_fontsize, loc='lower right', title=None)
+    ax.set_xlabel(r'FDR threshold ($\alpha$)')
+    ax.set_ylabel('Pairwise Jaccard similarity')
+    ax.tick_params(axis='x', labelrotation=20)
+    for label in ax.get_xticklabels():
+        label.set_ha('right')
+    ax.set_title('Top 50 targets (SCENIC)\n' + r'and FDR$\leq\alpha$')
+
+    ax = axd['B']
+    sns.scatterplot(
+        data=res_df_robustness2,
+        x='jaccard_similarity_importance_based',
+        y='jaccard_similarity_fdr_based',
+        hue=r'FDR thresh. ($\alpha$)',
+        palette='viridis',
+        style='dataset',
+        ax=ax,
+    )
+
+    # extract legend info
+    handles, labels = ax.get_legend_handles_labels()
+
+    # remove legend from B
+    ax.legend_.remove()
+
+    # add legend to L
+    axd['L'].legend(
+        handles,
+        labels,
+        fontsize=legend_fontsize,
+        loc='center',
+    )
+    ax.set_xlabel('Pairwise Jacc sim Imp-based')
+    ax.set_ylabel('Pairwise Jacc sim FDR-based')
+
+    min_val = min(
+        res_df_robustness2['jaccard_similarity_importance_based'].min(),
+        res_df_robustness2['jaccard_similarity_fdr_based'].min()
+    )
+    max_val = max(
+        res_df_robustness2['jaccard_similarity_importance_based'].max(),
+        res_df_robustness2['jaccard_similarity_fdr_based'].max()
+    )
+    ax.plot(
+        [min_val, max_val],
+        [min_val, max_val],
+        color='grey',
+        linestyle='-',
+        linewidth=1,
+        zorder=0,
+    )
+
+    # optional: hide empty legend axis
+    axd['L'].axis('off')
+
+    for label, ax in axd.items():
+        if not label in  ['L', ]:
+            trans = mtransforms.ScaledTranslation(-20 / 72, 7 / 72, fig.dpi_scale_trans)
+            ax.text(
+                -0.02,
+                1.02,
+                label,
+                transform=ax.transAxes + trans,
+                fontsize=14,
+                va='bottom',
+                fontfamily='sans-serif',
+                fontweight='bold'
+            )
+
+    fig.savefig('./results/fig_robustness.png', dpi=fig.dpi)
 
 
 def plot_resources():
@@ -175,6 +292,8 @@ def plot_resources():
 if __name__ == '__main__':
 
     # plot_performance()
+
+    # plot_robustness()
 
     print('done')
 
