@@ -305,7 +305,7 @@ def robustness_analysis():
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
     num_grns = 10
     num_clusters = 100
-    alphas = [0.01, 0.05, 0.1]
+    alphas = [0.01, 0.05, 0.1, 0.15, 0.2]
 
     def jaccard_similarity(g1: pd.DataFrame, g2: pd.DataFrame) -> float:
         edges1 = set(zip(g1['TF'], g1['target']))
@@ -332,17 +332,33 @@ def robustness_analysis():
 
             print(id1, id2)
 
-            grn1 = grn_id_to_grn[id1].loc[:, ['TF', 'target', 'pvalue']].copy()
-            grn2 = grn_id_to_grn[id2].loc[:, ['TF', 'target', 'pvalue']].copy()
+            grn1 = grn_id_to_grn[id1].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy()
+            grn2 = grn_id_to_grn[id2].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy()
 
-            js = jaccard_similarity(grn1, grn2)
+            grn1_top50 = (
+                grn1.sort_values('importance', ascending=False)
+                .groupby('TF', group_keys=False)
+                .head(50)
+                .reset_index(drop=True)
+            )
+
+            grn2_top50 = (
+                grn2.sort_values('importance', ascending=False)
+                .groupby('TF', group_keys=False)
+                .head(50)
+                .reset_index(drop=True)
+            )
+
+            js = jaccard_similarity(grn1_top50, grn2_top50)
 
             rows.append({
                 'dataset': sub_population,
                 'grn1_id': id1,
                 'grn2_id': id2,
-                'alpha': 1.0,
+                'alpha': 'scenic',
                 'jaccard_similarity': js,
+                'grn1_size': grn1_top50.shape[0],
+                'grn2_size': grn2_top50.shape[0],
             })
 
             for alpha in alphas:
@@ -355,12 +371,84 @@ def robustness_analysis():
                     'dataset': sub_population,
                     'grn1_id': id1,
                     'grn2_id': id2,
-                    'alpha': alpha,
+                    'alpha': str(alpha),
                     'jaccard_similarity': js,
+                    'grn1_size': grn1_sub.shape[0],
+                    'grn2_size': grn2_sub.shape[0],
                 })
 
     res_df = pd.DataFrame(rows)
     res_df.to_csv('./results/robustness.csv', index=False)
+
+
+def robustness_analysis2():
+    """
+    For 10 different input GRNs (computed with grnboost2) analyze whether robustness increases for FDR controlled GRNs.
+    """
+
+    import os
+    import pandas as pd
+    from itertools import combinations
+
+    save_path = './results'
+    os.makedirs(save_path, exist_ok=True)
+
+    sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
+    num_grns = 10
+    num_clusters = 100
+    alphas = [0.01, 0.05, 0.1, 0.15, 0.2]
+
+    def jaccard_similarity(g1: pd.DataFrame, g2: pd.DataFrame) -> float:
+        edges1 = set(zip(g1['TF'], g1['target']))
+        edges2 = set(zip(g2['TF'], g2['target']))
+        intersection = len(edges1 & edges2)
+        union = len(edges1 | edges2)
+        jaccard = intersection / union if union > 0 else 0.0
+        return jaccard
+
+    rows = []
+    for sub_population in sub_populations:
+
+        # Load the GRNs
+        grn_id_to_grn = dict()
+        for grn_id in range(num_grns):
+            grn = pd.read_csv(os.path.join(
+                './results_approx',
+                f'grn_{sub_population}_num_clust_{num_clusters:03d}_grn_id_{grn_id:02d}.csv'
+            ))
+            grn_id_to_grn[grn_id] = grn
+
+        # Iterate over pairs of GRNs
+        for id1, id2 in combinations(sorted(grn_id_to_grn.keys()), 2):
+
+            print(id1, id2)
+
+            grn1 = grn_id_to_grn[id1].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy().sort_values('importance', ascending=False).reset_index(drop=True)
+            grn2 = grn_id_to_grn[id2].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy().sort_values('importance', ascending=False).reset_index(drop=True)
+
+            for alpha in alphas:
+                grn1_sub = grn1[grn1['pvalue'] <= alpha].copy()
+                grn2_sub = grn2[grn2['pvalue'] <= alpha].copy()
+
+                grn1_sub_importance_base = grn1.iloc[0:grn1_sub.shape[0], :].copy()
+                grn2_sub_importance_base = grn2.iloc[0:grn2_sub.shape[0], :].copy()
+
+                js = jaccard_similarity(grn1_sub, grn2_sub)
+                js_importance_base = jaccard_similarity(grn1_sub_importance_base, grn2_sub_importance_base)
+
+                rows.append({
+                    'dataset': sub_population,
+                    'grn1_id': id1,
+                    'grn2_id': id2,
+                    'alpha': str(alpha),
+                    'jaccard_similarity_fdr_based': js,
+                    'jaccard_similarity_importance_based': js_importance_base,
+                    'grn1_size': grn1_sub.shape[0],
+                    'grn2_size': grn2_sub.shape[0],
+                })
+
+    res_df = pd.DataFrame(rows)
+    res_df.to_csv('./results/robustness2.csv', index=False)
 
 
 
@@ -374,5 +462,7 @@ if __name__ == '__main__':
     # compute_performance_gt_vs_gt()
 
     # robustness_analysis()
+
+    # robustness_analysis2()
 
     print('done')
