@@ -18,6 +18,7 @@ def compute_approx_fdr(config: Dict):
     dataset_name = config['dataset_name']
     grn_id = config['grn_id']
     num_clusters = config['num_clusters']
+    k = config['num_permutations']
     data_path = config['data_path']
     grn_path = config['grn_path']
     result_dir = config['result_dir']
@@ -41,7 +42,7 @@ def compute_approx_fdr(config: Dict):
             client_or_address='local',
             seed=42 + num_clusters,
             verbose=False,
-            num_permutations=1000,
+            num_permutations=k,
             output_dir=None,
             scale_for_tf_sampling=True,
             inference_mode='grnboost2',
@@ -53,7 +54,7 @@ def compute_approx_fdr(config: Dict):
 
     fn_emissions = os.path.join(
         result_dir,
-        f'emissions_{dataset_name}_num_clust_{num_clusters:03d}_grn_id_{grn_id:02d}.csv'
+        f'emissions_{dataset_name}_num_clust_{num_clusters:03d}_num_permut_{k:05d}_grn_id_{grn_id:02d}.csv'
     )
 
     with OfflineEmissionsTracker(
@@ -65,7 +66,10 @@ def compute_approx_fdr(config: Dict):
         )
 
         grn.to_csv(
-            os.path.join(result_dir, f'grn_{dataset_name}_num_clust_{num_clusters:03d}_grn_id_{grn_id:02d}.csv'),
+            os.path.join(
+                result_dir,
+                f'grn_{dataset_name}_num_clust_{num_clusters:03d}_num_permut_{k:05d}_grn_id_{grn_id:02d}.csv'
+            ),
             index=False
         )
 
@@ -82,7 +86,10 @@ def compute_approx_fdr(config: Dict):
             'num_samples': num_samples,
         }])
         tracking_df.to_csv(
-            os.path.join(result_dir, f'tracking_{dataset_name}_num_clust_{num_clusters:03d}_grn_id_{grn_id:02d}.csv'),
+            os.path.join(
+                result_dir,
+                f'tracking_{dataset_name}_num_clust_{num_clusters:03d}_num_permut_{k:05d}_grn_id_{grn_id:02d}.csv'
+            ),
             index=False
         )
 

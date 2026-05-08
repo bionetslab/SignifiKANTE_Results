@@ -1,6 +1,0 @@
-data_path: ./data/processed/dc.csv
-dataset_name: dc
-grn_id: 1
-grn_path: ./input_grns/grn_dc_01.csv
-num_clusters: 100
-result_dir: ./results_approx
