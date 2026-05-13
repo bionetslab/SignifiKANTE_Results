@@ -285,6 +285,7 @@ def compute_performance_gt_vs_gt():
 
                             rows.append({
                                 'dataset': sub_population,
+                                'num_permutations': num_permut,
                                 'grn1_id': id1,
                                 'grn2_id': id2,
                                 'mode': mode,
@@ -471,14 +472,14 @@ def robustness_analysis2():
 
 if __name__ == '__main__':
 
-    summarize_resource_usage()
-
-    compute_performance_metrics()
-
-    compute_performance_gt_vs_gt()
-
-    robustness_analysis()
-
-    robustness_analysis2()
+    # summarize_resource_usage()
+    #
+    # compute_performance_metrics()
+    #
+    # compute_performance_gt_vs_gt()
+    #
+    # robustness_analysis()
+    #
+    # robustness_analysis2()
 
     print('done')
