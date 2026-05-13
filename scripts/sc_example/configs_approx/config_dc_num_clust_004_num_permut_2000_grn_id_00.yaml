@@ -1,0 +1,7 @@
+data_path: ./data/processed/dc.csv
+dataset_name: dc
+grn_id: 0
+grn_path: ./input_grns/grn_dc_00.csv
+num_clusters: 4
+num_permutations: 2000
+result_dir: ./results_approx

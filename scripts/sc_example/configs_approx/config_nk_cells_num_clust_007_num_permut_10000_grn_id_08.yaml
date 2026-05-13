@@ -1,7 +1,0 @@
-data_path: ./data/processed/nk_cells.csv
-dataset_name: nk_cells
-grn_id: 8
-grn_path: ./input_grns/grn_nk_cells_08.csv
-num_clusters: 7
-num_permutations: 10000
-result_dir: ./results_approx
