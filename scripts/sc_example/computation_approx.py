@@ -35,7 +35,6 @@ def compute_approx_fdr(config: Dict):
         n_workers=n_workers,
         threads_per_worker=1,
         processes=True,
-        diagnostics_port=None,
     )
     client = Client(local_cluster)
 
