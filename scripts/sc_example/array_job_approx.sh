@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=30
 #SBATCH --time=24:00:00
 #SBATCH --export=NONE
-#SBATCH --array=1-2280%100
+#SBATCH --array=1-2850%100
 #SBATCH --output=logs_approx/slurm_%A_%a.out
 #SBATCH --error=logs_approx/slurm_%A_%a.err
 

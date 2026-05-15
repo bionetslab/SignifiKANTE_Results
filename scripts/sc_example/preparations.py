@@ -119,7 +119,7 @@ def generate_configs_ground_truth():
 
     num_runs = 10
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
-    num_permutations = [1000, 2000, 3000, 4000]
+    num_permutations = [1000, 3000, 5000, 7000, 10000]
 
     config_dir = './configs_ground_truth'
     os.makedirs(config_dir, exist_ok=True)
@@ -141,7 +141,7 @@ def generate_configs_ground_truth():
                     'result_dir': results_dir,
                 }
 
-                config_fn = f'config_{sub_population}_num_permut_{k:04d}_{run_id:02d}.yaml'
+                config_fn = f'config_{sub_population}_num_permut_{k:05d}_{run_id:02d}.yaml'
 
                 with open(os.path.join(config_dir, config_fn), 'w') as f:
                     yaml.dump(config, f)
@@ -159,7 +159,7 @@ def generate_configs_approx():
     num_grns = 10
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
     num_clusters = list(range(1, 11)) + list(range(20, 101, 10))
-    num_permutations = [1000, 2000, 3000, 4000]
+    num_permutations = [1000, 3000, 5000, 7000, 10000]
 
     config_dir = './configs_approx'
     os.makedirs(config_dir, exist_ok=True)
@@ -182,7 +182,7 @@ def generate_configs_approx():
                         'result_dir': results_dir,
                     }
 
-                    config_fn = f'config_{sub_population}_num_clust_{l:03d}_num_permut_{k:04d}_grn_id_{grn_id:02d}.yaml'
+                    config_fn = f'config_{sub_population}_num_clust_{l:03d}_num_permut_{k:05d}_grn_id_{grn_id:02d}.yaml'
 
                     with open(os.path.join(config_dir, config_fn), 'w') as f:
                         yaml.dump(config, f)

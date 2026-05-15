@@ -1,7 +1,0 @@
-data_path: ./data/processed/cd8+_tcells.csv
-dataset_name: cd8+_tcells
-grn_id: 7
-grn_path: ./input_grns/grn_cd8+_tcells_07.csv
-num_clusters: 4
-num_permutations: 4000
-result_dir: ./results_approx
