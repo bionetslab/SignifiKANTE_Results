@@ -61,7 +61,7 @@ def compute_classical_fdr(config: Dict):
         )
         return grn_fdr
 
-    fn_emissions = os.path.join(result_dir, f'emissions_{dataset_name}_num_permut_{k:04d}_{run_id:02d}.csv')
+    fn_emissions = os.path.join(result_dir, f'emissions_{dataset_name}_num_permut_{k:05d}_{run_id:02d}.csv')
 
     try:
 
@@ -73,7 +73,7 @@ def compute_classical_fdr(config: Dict):
                 function=run, function_params=None, tracking_interval=0.1
             )
 
-            grn.to_csv(os.path.join(result_dir, f'grn_{dataset_name}_num_permut_{k:04d}_{run_id:02d}.csv'), index=False)
+            grn.to_csv(os.path.join(result_dir, f'grn_{dataset_name}_num_permut_{k:05d}_{run_id:02d}.csv'), index=False)
 
             mem_peak = max(mem_samples)
             num_samples = len(mem_samples)
@@ -88,7 +88,7 @@ def compute_classical_fdr(config: Dict):
                 'mem_avg': mem_avg,
                 'num_samples': num_samples,
             }])
-            tracking_df.to_csv(os.path.join(result_dir, f'tracking_{dataset_name}_num_permut_{k:04d}_{run_id:02d}.csv'), index=False)
+            tracking_df.to_csv(os.path.join(result_dir, f'tracking_{dataset_name}_num_permut_{k:05d}_{run_id:02d}.csv'), index=False)
 
     finally:
         client.close()

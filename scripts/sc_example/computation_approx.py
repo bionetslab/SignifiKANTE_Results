@@ -70,7 +70,7 @@ def compute_approx_fdr(config: Dict):
 
     fn_emissions = os.path.join(
         result_dir,
-        f'emissions_{dataset_name}_num_clust_{num_clusters:03d}_num_permut_{k:04d}_grn_id_{grn_id:02d}.csv'
+        f'emissions_{dataset_name}_num_clust_{num_clusters:03d}_num_permut_{k:05d}_grn_id_{grn_id:02d}.csv'
     )
 
     try:
@@ -85,7 +85,7 @@ def compute_approx_fdr(config: Dict):
             grn.to_csv(
                 os.path.join(
                     result_dir,
-                    f'grn_{dataset_name}_num_clust_{num_clusters:03d}_num_permut_{k:04d}_grn_id_{grn_id:02d}.csv'
+                    f'grn_{dataset_name}_num_clust_{num_clusters:03d}_num_permut_{k:05d}_grn_id_{grn_id:02d}.csv'
                 ),
                 index=False
             )
