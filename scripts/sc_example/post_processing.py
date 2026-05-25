@@ -8,7 +8,7 @@ def summarize_resource_usage():
     import os
     import pandas as pd
 
-    save_path = 'results_old'
+    save_path = 'results'
     os.makedirs(save_path, exist_ok=True)
 
     num_clusters = list(range(1, 11)) + list(range(20, 101, 10))
@@ -20,7 +20,7 @@ def summarize_resource_usage():
         for num_permut in num_permutations:
 
             # Load ground truth results
-            df_time_mem = pd.read_csv(os.path.join('./results_ground_truth', f'tracking_{sub_population}_num_permut_{num_permut:05d}_grn_id_00.csv'))
+            df_time_mem = pd.read_csv(os.path.join('./results_ground_truth', f'tracking_{sub_population}_num_permut_{num_permut:05d}_00.csv'))
             df_em = pd.read_csv(os.path.join('./results_ground_truth', f'emissions_{sub_population}_num_permut_{num_permut:05d}_00.csv'))
 
             time_gt = df_time_mem['wall_time'].iloc[0]
@@ -503,14 +503,19 @@ def robustness_analysis2():
 
 if __name__ == '__main__':
 
+    print('# Summarizing resource usage ...')
     summarize_resource_usage()
-
+    
+    print('# Computing performace metrics ...')
     compute_performance_metrics()
-
+    
+    print('# Computing performance metrics (gt vs gt) ...')
     compute_performance_gt_vs_gt()
-
+    
+    print('# Robusteness 0 ...')
     robustness_analysis()
-
+    
+    print('# Robustness 1 ...')
     robustness_analysis2()
 
     print('done')
