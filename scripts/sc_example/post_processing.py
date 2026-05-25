@@ -349,8 +349,8 @@ def robustness_analysis():
 
                 print(id1, id2)
 
-                grn1 = grn_id_to_grn[id1].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy()
-                grn2 = grn_id_to_grn[id2].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy()
+                grn1 = grn_id_to_grn[id1].copy()
+                grn2 = grn_id_to_grn[id2].copy()
 
                 grn1_top50 = (
                     grn1.sort_values('importance', ascending=False)
@@ -458,8 +458,8 @@ def robustness_analysis2():
 
                 print(id1, id2)
 
-                grn1 = grn_id_to_grn[id1].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy().sort_values('importance', ascending=False).reset_index(drop=True)
-                grn2 = grn_id_to_grn[id2].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy().sort_values('importance', ascending=False).reset_index(drop=True)
+                grn1 = grn_id_to_grn[id1].copy().sort_values('importance', ascending=False).reset_index(drop=True)
+                grn2 = grn_id_to_grn[id2].copy().sort_values('importance', ascending=False).reset_index(drop=True)
 
                 for pval_mode in ['pvalue', 'pvalue_bh', 'pvalue_westfall_young']:
 
