@@ -96,13 +96,14 @@ def compute_performance_metrics():
     rows = []
     for sub_population in sub_populations:
 
-        # Load ground truth results (used input GRN 00 for ground truth and)
-        grn_gt = pd.read_csv(os.path.join('./results_ground_truth', f'grn_{sub_population}_00.csv'))
-
-        # Subset to relevant columns
-        grn_gt = grn_gt.loc[:, ['TF', 'target', 'pvalue', 'pvalue_bh']].copy()
-
         for num_permut in num_permutations:
+
+            # Load ground truth results
+            grn_gt = pd.read_csv(os.path.join('./results_ground_truth', f'grn_{sub_population}_num_permut_{num_permut:05d}_00.csv'))
+
+            # Subset to relevant columns
+            grn_gt = grn_gt.loc[:, ['TF', 'target', 'pvalue', 'pvalue_bh']].copy()
+
             for l in num_clusters:
 
                 # Load the approximation results
@@ -149,12 +150,14 @@ def compute_performance_metrics():
                         'num_clusters': l,
                         'metric': 'mae',
                         'score': mae,
+                        'num_sig': -1,
+                        'num_sig_approx': -1,
                     })
 
                     for alpha in alphas:
 
-                        y_true = pvals <= alpha
-                        y_pred = pvals_approx <= alpha
+                        y_true = (pvals <= alpha).astype(int)
+                        y_pred = (pvals_approx <= alpha).astype(int)
 
                         print(
                             f'# dataset: {sub_population}, num clust: {l}, mode: {mode}, alpha: {alpha}'
@@ -175,6 +178,8 @@ def compute_performance_metrics():
                                 'num_clusters': l,
                                 'metric': metric,
                                 'score': score,
+                                'num_sig': y_true.sum(),
+                                'num_sig_approx': y_pred.sum(),
                             })
 
     res_df = pd.DataFrame(rows)
@@ -223,7 +228,7 @@ def compute_performance_gt_vs_gt():
             grn_id_to_grn = dict()
             for run_id in range(num_runs):
 
-                grn_gt = pd.read_csv(os.path.join('./results_ground_truth', f'grn_{sub_population}_{run_id:02d}.csv'))
+                grn_gt = pd.read_csv(os.path.join('./results_ground_truth', f'grn_{sub_population}_num_permut_{num_permut:05d}_{run_id:02d}.csv'))
                 grn_gt = grn_gt.loc[:, ['TF', 'target', 'pvalue', 'pvalue_bh']].copy()
 
                 grn_id_to_grn[run_id] = grn_gt
