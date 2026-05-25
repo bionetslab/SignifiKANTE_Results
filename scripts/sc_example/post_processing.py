@@ -12,7 +12,7 @@ def summarize_resource_usage():
     os.makedirs(save_path, exist_ok=True)
 
     num_clusters = list(range(1, 11)) + list(range(20, 101, 10))
-    num_permutations = [1000, 10000]
+    num_permutations = [1000, 3000, 5000, 7000, 10000]
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
 
     dfs = []
@@ -82,7 +82,7 @@ def compute_performance_metrics():
     os.makedirs(save_path, exist_ok=True)
 
     num_clusters = list(range(1, 11)) + list(range(20, 101, 10))
-    num_permutations = [1000, 10000]
+    num_permutations = [1000, 3000, 5000, 7000, 10000]
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
 
     alphas = [0.01, 0.05]
@@ -200,7 +200,7 @@ def compute_performance_gt_vs_gt():
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
     num_runs = 10
     num_clusters = 10
-    num_permutations = [1000, 10000]
+    num_permutations = [1000, 3000, 5000, 7000, 10000]
     alphas = [0.01, 0.05]
 
     metric_to_score_fct = {
@@ -314,7 +314,7 @@ def robustness_analysis():
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
     num_grns = 10
     num_clusters = 10
-    num_permutations = [1000, 10000]
+    num_permutations = [1000, 3000, 5000, 7000, 10000]
     alphas = [0.01, 0.05, 0.1, 0.15, 0.2]
 
     def jaccard_similarity(g1: pd.DataFrame, g2: pd.DataFrame) -> float:
@@ -374,22 +374,36 @@ def robustness_analysis():
                     'grn2_size': grn2_top50.shape[0],
                 })
 
-                for alpha in alphas:
-                    grn1_sub = grn1[grn1['pvalue'] <= alpha].copy()
-                    grn2_sub = grn2[grn2['pvalue'] <= alpha].copy()
+                for pval_mode in ['pvalue', 'pvalue_bh', 'pvalue_westfall_young']:
 
-                    js = jaccard_similarity(grn1_sub, grn2_sub)
+                    pvals_1 = grn1[pval_mode].to_numpy().flatten()
+                    pvals_2 = grn2[pval_mode].to_numpy().flatten()
 
-                    rows.append({
-                        'dataset': sub_population,
-                        'num_permutations': num_permut,
-                        'grn1_id': id1,
-                        'grn2_id': id2,
-                        'alpha': str(alpha),
-                        'jaccard_similarity': js,
-                        'grn1_size': grn1_sub.shape[0],
-                        'grn2_size': grn2_sub.shape[0],
-                    })
+                    for alpha in alphas:
+
+                        grn1_sub = grn1[pvals_1 <= alpha].copy()
+                        grn2_sub = grn2[pvals_2 <= alpha].copy()
+
+                        if grn1_sub.shape[0] > 0 and grn2_sub.shape[0] > 0:
+                            js = jaccard_similarity(grn1_sub, grn2_sub)
+                        elif (
+                                (grn1_sub.shape[0] > 0 and grn2_sub.shape[0] == 0)
+                                or (grn1_sub.shape[0] == 0 and grn2_sub.shape[0] > 0)
+                        ):
+                            js = 0
+                        else:
+                            js = 1
+
+                        rows.append({
+                            'dataset': sub_population,
+                            'num_permutations': num_permut,
+                            'grn1_id': id1,
+                            'grn2_id': id2,
+                            'alpha': str(alpha),
+                            'jaccard_similarity': js,
+                            'grn1_size': grn1_sub.shape[0],
+                            'grn2_size': grn2_sub.shape[0],
+                        })
 
         res_df = pd.DataFrame(rows)
         res_df.to_csv('./results/robustness.csv', index=False)
@@ -410,7 +424,7 @@ def robustness_analysis2():
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
     num_grns = 10
     num_clusters = 10
-    num_permutations = [1000, 10000]
+    num_permutations = [1000, 3000, 5000, 7000, 10000]
     alphas = [0.01, 0.05, 0.1, 0.15, 0.2]
 
     def jaccard_similarity(g1: pd.DataFrame, g2: pd.DataFrame) -> float:
@@ -442,44 +456,61 @@ def robustness_analysis2():
                 grn1 = grn_id_to_grn[id1].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy().sort_values('importance', ascending=False).reset_index(drop=True)
                 grn2 = grn_id_to_grn[id2].loc[:, ['TF', 'target', 'importance', 'pvalue']].copy().sort_values('importance', ascending=False).reset_index(drop=True)
 
-                for alpha in alphas:
-                    grn1_sub = grn1[grn1['pvalue'] <= alpha].copy()
-                    grn2_sub = grn2[grn2['pvalue'] <= alpha].copy()
+                for pval_mode in ['pvalue', 'pvalue_bh', 'pvalue_westfall_young']:
 
-                    grn1_sub_importance_base = grn1.iloc[0:grn1_sub.shape[0], :].copy()
-                    grn2_sub_importance_base = grn2.iloc[0:grn2_sub.shape[0], :].copy()
+                    pvals_1 = grn1[pval_mode].to_numpy().flatten()
+                    pvals_2 = grn2[pval_mode].to_numpy().flatten()
 
-                    js = jaccard_similarity(grn1_sub, grn2_sub)
-                    js_importance_base = jaccard_similarity(grn1_sub_importance_base, grn2_sub_importance_base)
+                    for alpha in alphas:
+                        grn1_sub = grn1[pvals_1 <= alpha].copy()
+                        grn2_sub = grn2[pvals_2 <= alpha].copy()
 
-                    rows.append({
-                        'dataset': sub_population,
-                        'num_permutations': num_permut,
-                        'grn1_id': id1,
-                        'grn2_id': id2,
-                        'alpha': str(alpha),
-                        'jaccard_similarity_fdr_based': js,
-                        'jaccard_similarity_importance_based': js_importance_base,
-                        'grn1_size': grn1_sub.shape[0],
-                        'grn2_size': grn2_sub.shape[0],
-                    })
+                        num_selected_edges_1 = grn1_sub.shape[0]
+                        num_selected_edges_2 = grn2_sub.shape[0]
+
+                        grn1_sub_importance_base = grn1.iloc[0:num_selected_edges_1, :].copy()
+                        grn2_sub_importance_base = grn2.iloc[0:num_selected_edges_2, :].copy()
+
+                        if num_selected_edges_1 > 0 and num_selected_edges_2 > 0:
+                            js = jaccard_similarity(grn1_sub, grn2_sub)
+                            js_importance_base = jaccard_similarity(grn1_sub_importance_base, grn2_sub_importance_base)
+                        elif (
+                                (num_selected_edges_1 > 0 and num_selected_edges_2 == 0)
+                                or (num_selected_edges_1 == 0 and num_selected_edges_2 > 0)
+                        ):
+                            js = 0
+                            js_importance_base = 0
+                        else:
+                            js = 1
+                            js_importance_base = 1
+
+                        rows.append({
+                            'dataset': sub_population,
+                            'num_permutations': num_permut,
+                            'grn1_id': id1,
+                            'grn2_id': id2,
+                            'alpha': str(alpha),
+                            'pval_mode': pval_mode,
+                            'jaccard_similarity_fdr_based': js,
+                            'jaccard_similarity_importance_based': js_importance_base,
+                            'grn1_size': grn1_sub.shape[0],
+                            'grn2_size': grn2_sub.shape[0],
+                        })
 
         res_df = pd.DataFrame(rows)
         res_df.to_csv('./results/robustness2.csv', index=False)
 
 
-
-
 if __name__ == '__main__':
 
-    # summarize_resource_usage()
-    #
-    # compute_performance_metrics()
-    #
-    # compute_performance_gt_vs_gt()
-    #
-    # robustness_analysis()
-    #
-    # robustness_analysis2()
+    summarize_resource_usage()
+
+    compute_performance_metrics()
+
+    compute_performance_gt_vs_gt()
+
+    robustness_analysis()
+
+    robustness_analysis2()
 
     print('done')
