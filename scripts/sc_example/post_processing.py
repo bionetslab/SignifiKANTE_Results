@@ -20,8 +20,8 @@ def summarize_resource_usage():
         for num_permut in num_permutations:
 
             # Load ground truth results
-            df_time_mem = pd.read_csv(os.path.join('./results_ground_truth', f'tracking_{sub_population}_00.csv'))
-            df_em = pd.read_csv(os.path.join('./results_ground_truth', f'emissions_{sub_population}_00.csv'))
+            df_time_mem = pd.read_csv(os.path.join('./results_ground_truth', f'tracking_{sub_population}_num_permut_{num_permut:05d}_grn_id_00.csv'))
+            df_em = pd.read_csv(os.path.join('./results_ground_truth', f'emissions_{sub_population}_num_permut_{num_permut:05d}_00.csv'))
 
             time_gt = df_time_mem['wall_time'].iloc[0]
             peak_mem_gt = df_time_mem['mem_peak'].iloc[0]
