@@ -304,7 +304,7 @@ def compute_performance_gt_vs_gt():
         res_df.to_csv('./results/gt_vs_gt.csv', index=False)
 
 
-def robustness_analysis():
+def robustness_analysis0():
     """
     For 10 different input GRNs (computed with grnboost2) analyze whether robustness increases for FDR controlled GRNs.
     """
@@ -413,10 +413,10 @@ def robustness_analysis():
                         })
 
         res_df = pd.DataFrame(rows)
-        res_df.to_csv('./results/robustness.csv', index=False)
+        res_df.to_csv('./results/robustness0.csv', index=False)
 
 
-def robustness_analysis2():
+def robustness_analysis1():
     """
     For 10 different input GRNs (computed with grnboost2) analyze whether robustness increases for FDR controlled GRNs.
     """
@@ -505,24 +505,92 @@ def robustness_analysis2():
                         })
 
         res_df = pd.DataFrame(rows)
-        res_df.to_csv('./results/robustness2.csv', index=False)
+        res_df.to_csv('./results/robustness1.csv', index=False)
 
+
+def num_sig_edges():
+    """
+    Retrieve the number of significant edges at FDR threshold = alpha
+    """
+
+    import os
+    import pandas as pd
+
+    save_path = './results'
+    os.makedirs(save_path, exist_ok=True)
+
+    num_clusters = list(range(1, 11)) + list(range(20, 101, 10))
+    num_permutations = [1000, 3000, 5000, 7000, 10000]
+    sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
+
+    alphas = [0.01, 0.05]
+
+    rows = []
+    for sub_population in sub_populations:
+        for alpha in alphas:
+            for num_permut in num_permutations:
+                for mode in ['gt', 'approx']:
+
+                    if mode == 'gt':
+                        # Load ground truth results
+                        grn = pd.read_csv(os.path.join(
+                            './results_ground_truth',
+                            f'grn_{sub_population}_num_permut_{num_permut:05d}_00.csv')
+                        )
+                        for pval_mode in ['pvalue', 'pvalue_bh']:
+                            pvals = grn[pval_mode].to_numpy().flatten()
+                            num_sig = (pvals <= alpha).astype(int).sum()
+                            rows.append({
+                                'dataset': sub_population,
+                                'mode': mode,
+                                'alpha': alpha,
+                                'num_permutations': num_permut,
+                                'pval_mode': pval_mode,
+                                'num_clusters': -1,
+                                'num_sig': num_sig,
+                            })
+
+                    else:
+                        for l in num_clusters:
+                            # Load the approximation results
+                            grn = pd.read_csv(os.path.join(
+                                './results_approx',
+                                f'grn_{sub_population}_num_clust_{l:03d}_num_permut_{num_permut:05d}_grn_id_00.csv')
+                            )
+                            for pval_mode in ['pvalue', 'pvalue_bh', 'pvalue_westfall_young']:
+                                pvals = grn[pval_mode].to_numpy().flatten()
+                                num_sig = (pvals <= alpha).astype(int).sum()
+                                rows.append({
+                                    'dataset': sub_population,
+                                    'mode': mode,
+                                    'alpha': alpha,
+                                    'num_permutations': num_permut,
+                                    'pval_mode': pval_mode,
+                                    'num_clusters': l,
+                                    'num_sig': num_sig,
+                                })
+
+    res_df = pd.DataFrame(rows)
+    res_df.to_csv(os.path.join(save_path, 'num_sig_edges.csv'), index=False)
 
 if __name__ == '__main__':
 
-    print('# Summarizing resource usage ...')
-    summarize_resource_usage()
-    
-    print('# Computing performace metrics ...')
-    compute_performance_metrics()
-    
-    print('# Computing performance metrics (gt vs gt) ...')
-    compute_performance_gt_vs_gt()
-    
-    print('# Robusteness 0 ...')
-    robustness_analysis()
-    
-    print('# Robustness 1 ...')
-    robustness_analysis2()
+    # print('# Summarizing resource usage ...')
+    # summarize_resource_usage()
+    #
+    # print('# Computing performance metrics ...')
+    # compute_performance_metrics()
+    #
+    # print('# Computing performance metrics (gt vs gt) ...')
+    # compute_performance_gt_vs_gt()
+    #
+    # print('# Robusteness 0 ...')
+    # robustness_analysis0()
+    #
+    # print('# Robustness 1 ...')
+    # robustness_analysis1()
+
+    print('# Computing number of significant edges ...')
+    num_sig_edges()
 
     print('done')
