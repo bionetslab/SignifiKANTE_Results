@@ -204,7 +204,7 @@ def compute_performance_gt_vs_gt():
 
     sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
     num_runs = 10
-    num_clusters = 10
+    num_clusters = 100
     num_permutations = [1000, 3000, 5000, 7000, 10000]
     alphas = [0.01, 0.05]
 
@@ -304,210 +304,6 @@ def compute_performance_gt_vs_gt():
         res_df.to_csv('./results/gt_vs_gt.csv', index=False)
 
 
-def robustness_analysis0():
-    """
-    For 10 different input GRNs (computed with grnboost2) analyze whether robustness increases for FDR controlled GRNs.
-    """
-
-    import os
-    import pandas as pd
-    from itertools import combinations
-
-    save_path = './results'
-    os.makedirs(save_path, exist_ok=True)
-
-    sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
-    num_grns = 10
-    num_clusters = 10
-    num_permutations = [1000, 3000, 5000, 7000, 10000]
-    alphas = [0.01, 0.05, 0.1, 0.15, 0.2]
-
-    def jaccard_similarity(g1: pd.DataFrame, g2: pd.DataFrame) -> float:
-        edges1 = set(zip(g1['TF'], g1['target']))
-        edges2 = set(zip(g2['TF'], g2['target']))
-        intersection = len(edges1 & edges2)
-        union = len(edges1 | edges2)
-        jaccard = intersection / union if union > 0 else 0.0
-        return jaccard
-
-    rows = []
-    for sub_population in sub_populations:
-
-        for num_permut in num_permutations:
-
-            # Load the GRNs
-            grn_id_to_grn = dict()
-            for grn_id in range(num_grns):
-                grn = pd.read_csv(os.path.join(
-                    './results_approx',
-                    f'grn_{sub_population}_num_clust_{num_clusters:03d}_num_permut_{num_permut:05d}_grn_id_{grn_id:02d}.csv'
-                ))
-                grn_id_to_grn[grn_id] = grn
-
-            # Iterate over pairs of GRNs
-            for id1, id2 in combinations(sorted(grn_id_to_grn.keys()), 2):
-
-                print(id1, id2)
-
-                grn1 = grn_id_to_grn[id1].copy()
-                grn2 = grn_id_to_grn[id2].copy()
-
-                grn1_top50 = (
-                    grn1.sort_values('importance', ascending=False)
-                    .groupby('TF', group_keys=False)
-                    .head(50)
-                    .reset_index(drop=True)
-                )
-
-                grn2_top50 = (
-                    grn2.sort_values('importance', ascending=False)
-                    .groupby('TF', group_keys=False)
-                    .head(50)
-                    .reset_index(drop=True)
-                )
-
-                js = jaccard_similarity(grn1_top50, grn2_top50)
-
-                rows.append({
-                    'dataset': sub_population,
-                    'num_permutations': num_permut,
-                    'grn1_id': id1,
-                    'grn2_id': id2,
-                    'alpha': 'scenic',
-                    'pval_mode': 'scenic',
-                    'jaccard_similarity': js,
-                    'grn1_size': grn1_top50.shape[0],
-                    'grn2_size': grn2_top50.shape[0],
-                })
-
-                for pval_mode in ['pvalue', 'pvalue_bh', 'pvalue_westfall_young']:
-
-                    pvals_1 = grn1[pval_mode].to_numpy().flatten()
-                    pvals_2 = grn2[pval_mode].to_numpy().flatten()
-
-                    for alpha in alphas:
-
-                        grn1_sub = grn1[pvals_1 <= alpha].copy()
-                        grn2_sub = grn2[pvals_2 <= alpha].copy()
-
-                        if grn1_sub.shape[0] > 0 and grn2_sub.shape[0] > 0:
-                            js = jaccard_similarity(grn1_sub, grn2_sub)
-                        elif (
-                                (grn1_sub.shape[0] > 0 and grn2_sub.shape[0] == 0)
-                                or (grn1_sub.shape[0] == 0 and grn2_sub.shape[0] > 0)
-                        ):
-                            js = 0
-                        else:
-                            js = 1
-
-                        rows.append({
-                            'dataset': sub_population,
-                            'num_permutations': num_permut,
-                            'grn1_id': id1,
-                            'grn2_id': id2,
-                            'alpha': str(alpha),
-                            'pval_mode': pval_mode,
-                            'jaccard_similarity': js,
-                            'grn1_size': grn1_sub.shape[0],
-                            'grn2_size': grn2_sub.shape[0],
-                        })
-
-        res_df = pd.DataFrame(rows)
-        res_df.to_csv('./results/robustness0.csv', index=False)
-
-
-def robustness_analysis1():
-    """
-    For 10 different input GRNs (computed with grnboost2) analyze whether robustness increases for FDR controlled GRNs.
-    """
-
-    import os
-    import pandas as pd
-    from itertools import combinations
-
-    save_path = './results'
-    os.makedirs(save_path, exist_ok=True)
-
-    sub_populations = ['nk_cells', 'dc', 'cd8+_tcells']
-    num_grns = 10
-    num_clusters = 10
-    num_permutations = [1000, 3000, 5000, 7000, 10000]
-    alphas = [0.01, 0.05, 0.1, 0.15, 0.2]
-
-    def jaccard_similarity(g1: pd.DataFrame, g2: pd.DataFrame) -> float:
-        edges1 = set(zip(g1['TF'], g1['target']))
-        edges2 = set(zip(g2['TF'], g2['target']))
-        intersection = len(edges1 & edges2)
-        union = len(edges1 | edges2)
-        jaccard = intersection / union if union > 0 else 0.0
-        return jaccard
-
-    rows = []
-    for sub_population in sub_populations:
-        for num_permut in num_permutations:
-
-            # Load the GRNs
-            grn_id_to_grn = dict()
-            for grn_id in range(num_grns):
-                grn = pd.read_csv(os.path.join(
-                    './results_approx',
-                    f'grn_{sub_population}_num_clust_{num_clusters:03d}_num_permut_{num_permut:05d}_grn_id_{grn_id:02d}.csv'
-                ))
-                grn_id_to_grn[grn_id] = grn
-
-            # Iterate over pairs of GRNs
-            for id1, id2 in combinations(sorted(grn_id_to_grn.keys()), 2):
-
-                print(id1, id2)
-
-                grn1 = grn_id_to_grn[id1].copy().sort_values('importance', ascending=False).reset_index(drop=True)
-                grn2 = grn_id_to_grn[id2].copy().sort_values('importance', ascending=False).reset_index(drop=True)
-
-                for pval_mode in ['pvalue', 'pvalue_bh', 'pvalue_westfall_young']:
-
-                    pvals_1 = grn1[pval_mode].to_numpy().flatten()
-                    pvals_2 = grn2[pval_mode].to_numpy().flatten()
-
-                    for alpha in alphas:
-                        grn1_sub = grn1[pvals_1 <= alpha].copy()
-                        grn2_sub = grn2[pvals_2 <= alpha].copy()
-
-                        num_selected_edges_1 = grn1_sub.shape[0]
-                        num_selected_edges_2 = grn2_sub.shape[0]
-
-                        grn1_sub_importance_base = grn1.iloc[0:num_selected_edges_1, :].copy()
-                        grn2_sub_importance_base = grn2.iloc[0:num_selected_edges_2, :].copy()
-
-                        if num_selected_edges_1 > 0 and num_selected_edges_2 > 0:
-                            js = jaccard_similarity(grn1_sub, grn2_sub)
-                            js_importance_base = jaccard_similarity(grn1_sub_importance_base, grn2_sub_importance_base)
-                        elif (
-                                (num_selected_edges_1 > 0 and num_selected_edges_2 == 0)
-                                or (num_selected_edges_1 == 0 and num_selected_edges_2 > 0)
-                        ):
-                            js = 0
-                            js_importance_base = 0
-                        else:
-                            js = 1
-                            js_importance_base = 1
-
-                        rows.append({
-                            'dataset': sub_population,
-                            'num_permutations': num_permut,
-                            'grn1_id': id1,
-                            'grn2_id': id2,
-                            'alpha': str(alpha),
-                            'pval_mode': pval_mode,
-                            'jaccard_similarity_fdr_based': js,
-                            'jaccard_similarity_importance_based': js_importance_base,
-                            'grn1_size': grn1_sub.shape[0],
-                            'grn2_size': grn2_sub.shape[0],
-                        })
-
-        res_df = pd.DataFrame(rows)
-        res_df.to_csv('./results/robustness1.csv', index=False)
-
-
 def num_sig_edges():
     """
     Retrieve the number of significant edges at FDR threshold = alpha
@@ -573,22 +369,17 @@ def num_sig_edges():
     res_df = pd.DataFrame(rows)
     res_df.to_csv(os.path.join(save_path, 'num_sig_edges.csv'), index=False)
 
+
 if __name__ == '__main__':
 
-    # print('# Summarizing resource usage ...')
-    # summarize_resource_usage()
-    #
-    # print('# Computing performance metrics ...')
-    # compute_performance_metrics()
-    #
-    # print('# Computing performance metrics (gt vs gt) ...')
-    # compute_performance_gt_vs_gt()
-    #
-    # print('# Robusteness 0 ...')
-    # robustness_analysis0()
-    #
-    # print('# Robustness 1 ...')
-    # robustness_analysis1()
+    print('# Summarizing resource usage ...')
+    summarize_resource_usage()
+
+    print('# Computing performance metrics ...')
+    compute_performance_metrics()
+
+    print('# Computing performance metrics (gt vs gt) ...')
+    compute_performance_gt_vs_gt()
 
     print('# Computing number of significant edges ...')
     num_sig_edges()
