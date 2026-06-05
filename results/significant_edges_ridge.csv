@@ -1,0 +1,9 @@
+tissue,method,num_permutations,significant_bh,significant_wy,ratio_bh,ratio_wy
+Bladder,ridge,1000,0,29,0.0,1.1390364890339261e-06
+Bladder,ridge,3000,0,33,0.0,1.296144970279985e-06
+Cervix_Uteri,ridge,1000,0,6,0.0,2.4156014032228553e-07
+Cervix_Uteri,ridge,3000,0,6,0.0,2.4156014032228553e-07
+Fallopian_Tube,ridge,1000,0,125,0.0,5.008237147801733e-06
+Fallopian_Tube,ridge,3000,0,124,0.0,4.968171250619319e-06
+Kidney,ridge,1000,0,29,0.0,1.1286467793655503e-06
+Uterus,ridge,1000,0,136,0.0,5.482597590237106e-06
