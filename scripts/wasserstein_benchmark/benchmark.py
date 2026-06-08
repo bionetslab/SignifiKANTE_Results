@@ -6,13 +6,17 @@ import os
 import time
 import threading
 import psutil
+import matplotlib
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.transforms as mtransforms
 
 from typing import Tuple, List, Dict, Callable, Any, Union
 from signifikante.fdr_utils import compute_wasserstein_distance_matrix
+
+matplotlib.use('Agg')
 
 
 def get_cpu_memory_mb(process: psutil.Process) -> float:
@@ -105,16 +109,16 @@ def generate_results():
 
     # Define params
     num_cells = [1000, 5000, 10000]
-    num_genes = [1000, 2000, 5000, 10000, 15000, 20000, 25000, 30000]
+    num_genes = [1000, 2000, 5000, 10000, 20000, 30000]
     num_trials = 10
 
     # Run benchmark
     rows = []
-    for nc in num_cells:
-        for ng in num_genes:
-            for trial in range(num_trials):
+    for trial in range(num_trials):
+        for nc in num_cells:
+            for ng in num_genes:
 
-                print(f'# --- num cells: {nc}, num genes: {ng}, trial: {trial} ---')
+                print(f'# --- trial: {trial}, num cells: {nc}, num genes: {ng} ---')
 
                 # Generate random data matrix
                 data_mat = pd.DataFrame(data=np.random.rand(nc, ng), columns=[f'gene_{i}' for i in range(ng)])
@@ -138,18 +142,31 @@ def generate_results():
                     'num_samples': num_samples,
                 })
 
-            res_df = pd.DataFrame(rows)
-            res_df.to_csv('results.csv', index=False)
+                res_df = pd.DataFrame(rows)
+                res_df.to_csv('results.csv', index=False)
 
 def plot():
 
     res_df = pd.read_csv('results.csv')
 
+    res_df_agg = (
+        res_df
+        .groupby(['num_cells', 'num_genes'], as_index=False)
+        .mean(numeric_only=True)
+    )
+
+    print('# Bulk:\n', res_df_agg.loc[(res_df_agg['num_cells'] == 1000) & (res_df_agg['num_genes'] == 20000), :])
+
+    print('# Single cell:\n', res_df_agg.loc[(res_df_agg['num_cells'] == 10000) & (res_df_agg['num_genes'] == 2000), :])
+
+    # Convert MiB into GiB
+    res_df['mem_peak'] /= 1024
+
     fig, axd = plt.subplot_mosaic(
         '''
         AB
         ''',
-        figsize=(8, 4),
+        figsize=(6.5, 3),
         dpi=300,
         constrained_layout=True,
     )
@@ -160,11 +177,13 @@ def plot():
         x='num_genes',
         y='wall_time',
         hue='num_cells',
+        marker='o',
+        errorbar=None,
         ax=ax,
     )
     ax.set_xlabel('Number of genes')
     ax.set_ylabel('Wall time [s]')
-    ax.get_legend().set_title('Number of cells')
+    ax.get_legend().set_title('Number of samples')
 
     ax = axd['B']
     sns.lineplot(
@@ -172,19 +191,34 @@ def plot():
         x='num_genes',
         y='mem_peak',
         hue='num_cells',
+        marker='o',
+        errorbar=None,
         ax=ax,
     )
     ax.set_xlabel('Number of genes')
-    ax.set_ylabel('Peak memory [MB]')
-    ax.get_legend().set_title('Number of cells')
+    ax.set_ylabel('Peak memory [GiB]')
+    ax.get_legend().set_title('Number of samples')
 
-    fig.savefig('results.png', dpi=300)
+    for label, ax in axd.items():
+        trans = mtransforms.ScaledTranslation(-20 / 72, 7 / 72, fig.dpi_scale_trans)
+        ax.text(
+            - 0.05,
+            0.92,
+            label,
+            transform=ax.transAxes + trans,
+            fontsize=16,
+            va='bottom',
+            fontfamily='sans-serif',
+            fontweight='bold'
+        )
+
+    fig.savefig('wasserstein_benchmark.pdf', dpi=300)
 
 
 if __name__ == '__main__':
 
-    generate_results()
+    # generate_results()
 
-    plot()
+    # plot()
 
     print('done')
