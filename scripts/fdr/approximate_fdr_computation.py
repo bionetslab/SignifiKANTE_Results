@@ -7,7 +7,7 @@ import time
 import pandas as pd
 
 from codecarbon import OfflineEmissionsTracker
-from arboreto.algo import grnboost2_fdr
+from signifikante.algo import signifikante_fdr
 
 
 def generate_configs(
@@ -16,7 +16,8 @@ def generate_configs(
         num_clusters_tfs: list[int] | None = None,
         config_dir: str | None = None,
         results_dir: str | None = None,
-        verbosity: int = 0
+        verbosity: int = 0,
+        tool: str = 'grnboost2'
 ) -> None:
 
     if config_dir is None:
@@ -35,13 +36,16 @@ def generate_configs(
 
     for tissue_dir in tissue_dirs:
 
+        if not tissue_dir in ["Fallopian_Tube", "Cervix_Uteri", "Bladder", "Kidney", "Uterus"]:
+            continue
+        
         if verbosity > 0:
             print(f'# ###### Tissue {tissue_dir} ###### #')
 
         tissue_dir_path = os.path.join(gtex_dir, tissue_dir)
 
         expression_mat_filename = f'{tissue_dir}.tsv'
-        input_grn_filename = f'{tissue_dir}_input_grn.csv'
+        input_grn_filename = f'{tissue_dir}_{tool}_input_grn.csv'
 
         config['tissue_name'] = tissue_dir
         config['tissue_data_path'] = tissue_dir_path
@@ -64,7 +68,8 @@ def generate_configs(
                     yaml.dump(param_combination_config, f, default_flow_style=False)
 
 
-def compute_approximate_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
+def compute_approximate_fdr(config: dict, verbosity: int, num_run : str = "0",
+                            clustering : str = 'wasserstein', permutations : int = 1000) -> pd.DataFrame:
 
     # Load the expression data
     tissue_name = config['tissue_name']  # Same as tissue_dir
@@ -86,6 +91,10 @@ def compute_approximate_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
         grn_mode = "xgboost"
     elif "lasso" in config['input_grn_filename']:
         grn_mode = "lasso"
+    elif "elastic" in config['input_grn_filename']:
+        grn_mode = "elastic"
+    elif "ridge" in config['input_grn_filename']:
+        grn_mode = "ridge"
     else:
         grn_mode = "grnboost2"
 
@@ -102,7 +111,8 @@ def compute_approximate_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
 
     # Create subdir for saving
     fdr_mode = 'random'
-    save_dir = os.path.join(results_dir, tissue_name, f'random_targets_genie3')
+    tissue_subdir = f'random_targets_{grn_mode}_{permutations}'
+    save_dir = os.path.join(results_dir, tissue_name, tissue_subdir)
     os.makedirs(save_dir, exist_ok=True)
 
     emissions_file = os.path.join(save_dir, f'emissions_nontf_{num_clusters_non_tfs}_numtf_{num_clusters_tfs}.csv')
@@ -112,7 +122,7 @@ def compute_approximate_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
     ) as tracker:
 
         st = time.time()
-        fdr_grn = grnboost2_fdr(
+        fdr_grn = signifikante_fdr(
             expression_data=expression_mat,
             cluster_representative_mode=fdr_mode,
             num_target_clusters=num_clusters_non_tfs,
@@ -121,12 +131,16 @@ def compute_approximate_fdr(config: dict, verbosity: int = 0) -> pd.DataFrame:
             tf_names=None,
             target_subset=None,
             client_or_address = 'local',
-            seed=42,
+            seed=42+int(num_run),
             verbose=False,
-            num_permutations=1000,
+            num_permutations=permutations,
             output_dir=None,
             scale_for_tf_sampling=True,
-            inference_mode=grn_mode
+            inference_mode=grn_mode,
+            normalize_gene_expression=False,
+            apply_bh_correction=True,
+            target_cluster_mode=clustering,
+            apply_westfall_young=True
         )
         et = time.time()
 
@@ -152,7 +166,7 @@ if __name__ == '__main__':
 
     if not fdr:
 
-        gtex_path = './data/gtex_tissues_preprocessed'
+        gtex_path = '/home/woody/iwbn/iwbn106h/gtex'
         alternate_gtex_path = f'/home/woody/iwbn/iwbn106h/gtex'
 
         if not os.path.exists(gtex_path):
@@ -161,9 +175,9 @@ if __name__ == '__main__':
         res_dir = '/home/woody/iwbn/iwbn106h/gtex_fdr_results'
 
         # Generate the config files
-        cfg_dir = '/home/woody/iwbn/iwbn106h/configs_approx_fdr'
+        cfg_dir = '/home/woody/iwbn/iwbn106h/config_files/configs_approx_ridge_smallest'
 
-        nc_non_tfs = list(range(1200, 4001, 200))
+        nc_non_tfs = list(range(1, 11)) + list(range(20, 101, 10))
         nc_tfs = [-1]
 
         generate_configs(
@@ -172,7 +186,8 @@ if __name__ == '__main__':
             num_clusters_tfs=nc_tfs,
             config_dir=cfg_dir,
             results_dir=res_dir,
-            verbosity=1
+            verbosity=1,
+            tool='ridge'
         )
 
         print('done')
@@ -182,11 +197,21 @@ if __name__ == '__main__':
 
         # Add the file argument
         parser.add_argument('-f', type=str, help='The config file to process')
+        parser.add_argument('-n', type=str, help="ID of current run")
+        parser.add_argument('-p', type=str, help="How many permutation to run")
 
         # Parse the arguments
         args = parser.parse_args()
 
         with open(args.f, 'r') as f:
             cfg = yaml.safe_load(f)
-
-        compute_approximate_fdr(config=cfg, verbosity=1)
+        
+        num_run = args.n
+        num_permutations = int(args.p)
+        
+        # Clustering needs to be one of: 'wasserstein', 'wasserstein-kmedoids', 'wasserstein-spectral'.
+        compute_approximate_fdr(config=cfg, 
+                                verbosity=1, 
+                                num_run=num_run,
+                                permutations=num_permutations
+                                )

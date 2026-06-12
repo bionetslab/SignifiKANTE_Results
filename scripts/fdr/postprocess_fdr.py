@@ -6,6 +6,43 @@ import pickle
 from statsmodels.stats.multitest import multipletests
 from sklearn.metrics import confusion_matrix
 
+def count_significant_edges(root_dir : str,
+                            tissue_list : list,
+                            methods : list,
+                            permutation_list : list):
+    result_dict = {'tissue': [], 'method': [], 'num_permutations': [], 'significant_bh': [], 'significant_wy': [], 'ratio_bh': [], 'ratio_wy': []}
+    # Iterate over selected tissues in root directory.
+    for subdir in os.listdir(root_dir):
+        subdir_path = os.path.join(root_dir, subdir)
+    
+        # Check if it's a directory
+        if os.path.isdir(subdir_path) and subdir in tissue_list:
+            print("Processing tissue ", subdir)
+            
+            for method in methods:
+                for num_permutations in permutation_list:
+                    method_dir = os.path.join(subdir_path, f'random_targets_{method}_{num_permutations}')
+                    if os.path.isdir(method_dir):
+                        grn_file = "fdr_grn_nontf_100_numtf_-1.csv"
+                        grn_path = os.path.join(method_dir, grn_file)
+                        if os.path.exists(grn_path):
+                            print(f"Processing directory: {method_dir}")
+                            grn_df = pd.read_csv(grn_path)
+                            num_significant_bh = (grn_df['pvalue_bh'] <= 0.05).sum()
+                            num_significant_wy = (grn_df['pvalue_westfall_young'] <= 0.05).sum()
+                            ratio_bh = num_significant_bh / len(grn_df)
+                            ratio_wy = num_significant_wy / len(grn_df)
+                            
+                            result_dict['tissue'].append(subdir)
+                            result_dict['method'].append(method)
+                            result_dict['num_permutations'].append(num_permutations)
+                            result_dict['significant_bh'].append(num_significant_bh)
+                            result_dict['significant_wy'].append(num_significant_wy)
+                            result_dict['ratio_bh'].append(ratio_bh)
+                            result_dict['ratio_wy'].append(ratio_wy)
+    result_df = pd.DataFrame(result_dict)
+    result_df.to_csv('significant_edges_ridge.csv', index=False)        
+
 def aggregate_groundtruth_results(root_dir : str,
                                   tissue_list : list,
                                   groundtruth_name : str
@@ -42,33 +79,33 @@ def aggregate_groundtruth_results(root_dir : str,
                 combined_df.to_csv(combined_df_path, index=False)
             
                 # Iterate over all runtimes txt files and compute total runtime.
-                #total_runtime = 0.0
-                #for file in os.listdir(batch_dir):
-                #    if file.startswith("time"):
-                #        time_file = os.path.join(batch_dir, file)
-                #        #print(f"  Reading file: {time_file}")
-                #        # Read runtime from batch file.
-                #        with open(time_file, "r") as f:
-                #            runtime = float(f.read().strip())
-                #            total_runtime += runtime
-                #runtime_out_file = os.path.join(batch_dir, "groundtruth_runtime.txt")
-                #with open(runtime_out_file, "w") as f:
-                #    f.write(f'{total_runtime}\n')
+                total_runtime = 0.0
+                for file in os.listdir(batch_dir):
+                    if file.startswith("time"):
+                        time_file = os.path.join(batch_dir, file)
+                        #print(f"  Reading file: {time_file}")
+                        # Read runtime from batch file.
+                        with open(time_file, "r") as f:
+                            runtime = float(f.read().strip())
+                            total_runtime += runtime
+                runtime_out_file = os.path.join(batch_dir, "groundtruth_runtime.txt")
+                with open(runtime_out_file, "w") as f:
+                    f.write(f'{total_runtime}\n')
             
                 # Iterate over all emissions csv files and compute total emission.
-                #total_emissions = 0.0
-                #for file in os.listdir(batch_dir):
-                #    if file.startswith("emissions"):
-                #        em_file = os.path.join(batch_dir, file)
-                #        print(f"  Reading file: {em_file}")
-                #        # Read runtime from batch file.
-                #        em_df = pd.read_csv(em_file)
-                #        if len(em_df) > 1:
-                #            print("Warning: emissions df has more than one row!")
-                #        total_emissions += em_df['emissions'][0]
-                #em_file_out = os.path.join(batch_dir, "groundtruth_emissions.txt")
-                #with open(em_file_out, "w") as f:
-                #    f.write(f'{total_emissions}\n')
+                total_emissions = 0.0
+                for file in os.listdir(batch_dir):
+                    if file.startswith("emissions"):
+                        em_file = os.path.join(batch_dir, file)
+                        print(f"  Reading file: {em_file}")
+                        # Read runtime from batch file.
+                        em_df = pd.read_csv(em_file)
+                        if len(em_df) > 1:
+                            print("Warning: emissions df has more than one row!")
+                        total_emissions += em_df['emissions'][0]
+                em_file_out = os.path.join(batch_dir, "groundtruth_emissions.txt")
+                with open(em_file_out, "w") as f:
+                    f.write(f'{total_emissions}\n')
 
 def compute_approx_fdr_metrics(root_dir : str,
                                tissue_list : list,
@@ -262,15 +299,20 @@ if __name__ == "__main__":
     "Prostate", "Salivary_Gland", "Skin", "Small_Intestine", "Spleen",
     "Stomach", "Testis", "Thyroid", "Uterus", "Vagina"
     ]
-    
-    sub_tissue_list = ["Breast", "Kidney", "Testis"]
-    root_dir = "gtex_fdr_results"
-    groundtruth_name = ""
+    five_tissues = ["Uterus", "Cervix_Uteri", "Fallopian_Tube", "Kidney", "Bladder"]
+
+    count_significant_edges(root_dir,
+                            five_tissues,
+                            methods=["ridge"],
+                            permutation_list=[1000, 3000, 5000])
+    quit()
+    #root_dir = "gtex_fdr_results"
+    groundtruth_name = "groundtruth_ridge"
 
     ### Version 1 ###
     # Code for aggreagting groundtruth results - only needs to be done once.
     #aggregate_groundtruth_results(root_dir,
-    #                              sub_tissue_list,
+    #                              five_tissues,
     #                              groundtruth_name)
     #print("Aggregated GT results!")
     #quit()
@@ -282,16 +324,16 @@ if __name__ == "__main__":
     tf_list = [-1]
     # From which results directory in respective tissue directory to take approximate P-value results.
     #approx_dir_name = "approximate_fdr_grns_random"
-    approx_dir_name = "random_targets_wasserstein_with_shuffled_occurences"
+    approx_dir_name = "random_100_targets_ridge"
     # From which directory in respective tissue directory to take groundtruth P-value results from.
     #groundtruth_dir = "batch_wise_fdr_grns"
-    groundtruth_dir = "groundtruth_with_shuffled_occurences"
+    groundtruth_dir = "groundtruth_ridge"
     # Whether or not scale empirical counts for number of actual occurences of edge in permuted GRN.
-    adjust_pvalues = True 
+    adjust_pvalues = False 
     # Whether or not to apply BH-correction on both groundtruth and approximate P-values.
-    use_bh = False
+    use_bh = True
     res = compute_approx_fdr_metrics(root_dir,
-                                     sub_tissue_list,
+                                     five_tissues,
                                      non_tf_list, 
                                      tf_list,
                                      approx_dir_name,
@@ -300,9 +342,9 @@ if __name__ == "__main__":
                                      apply_benjamini_hb=use_bh)
     
     # Name of results file.
-    out_file_name = "random_targets_wasserstein_no-benjamini_occurence-adjusted.csv"
+    out_file_name = "random_targets_ridge_with_bh_results.csv"
     pickle_results_to_df(root_dir,
-                         sub_tissue_list,
+                         five_tissues,
                          approx_dir_name,
                          out_file_name)
     

@@ -4,7 +4,7 @@
 #SBATCH --cpus-per-task=30
 #SBATCH --time=24:00:00
 #SBATCH --export=NONE
-#SBATCH --array=1-255%100  # Upper limit; will be adjusted dynamically
+#SBATCH --array=1-81%100  # Upper limit; will be adjusted dynamically
 
 unset SLURM_EXPORT_ENV
 
@@ -17,14 +17,14 @@ echo "SRUN CPUs per task: $SRUN_CPUS_PER_TASK"
 # Load modules
 module purge
 source /home/woody/iwbn/iwbn106h/software/miniforge3/etc/profile.d/conda.sh
-conda activate grn2
+conda activate signif
 
 # Change to working directory
 cd $WORK
 
 # Get the list of YAML files dynamically
-CONFIG_DIR="$WORK/configs_groundtruth_genie3_kidney"
-PROCESSED_DIR="$WORK/configs_groundtruth_genie3_processed"
+CONFIG_DIR="$WORK/config_files/configs_groundtruth_ridge_kidney"
+PROCESSED_DIR="$WORK/config_files/configs_groundtruth_ridge_kidney_processed_9"
 mkdir -p $PROCESSED_DIR  # Ensure the processed folder exists
 
 TISSUES=($(ls $CONFIG_DIR/*.yaml | xargs -n 1 basename | sed 's/.yaml//'))
@@ -47,7 +47,7 @@ TISSUE=$(echo "$TISSUE_FILE" | sed 's/_[0-9]*$//')
 echo "Processing tissue: $TISSUE (from file: $TISSUE_FILE.yaml)"
 
 # Run the Python script for the specific YAML file
-srun python /home/hpc/iwbn/iwbn106h/Projects/GRN-FinDeR.git/classical_fdr_computation.py -f $CONFIG_DIR/${TISSUE_FILE}.yaml -n 0
+srun python /home/hpc/iwbn/iwbn106h/Projects/SignifiKANTE.git/classical_fdr_computation.py -f $CONFIG_DIR/${TISSUE_FILE}.yaml -n 9
 
 # Ensure the output directory is based on the tissue name (without the index)
 mkdir -p grn_finder_results/${TISSUE}

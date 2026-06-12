@@ -4,19 +4,19 @@
 #SBATCH --cpus-per-task=30
 #SBATCH --time=24:00:00
 #SBATCH --export=NONE
-#SBATCH --array=1-5%10  # Adjust manually or with a helper script
+#SBATCH --array=1-30%100  # Adjust manually or with a helper script
 
 unset SLURM_EXPORT_ENV
 
 module purge 
 source /home/woody/iwbn/iwbn106h/software/miniforge3/etc/profile.d/conda.sh
-conda activate grn2
+conda activate signif
 
 export OMP_NUM_THREADS=$SLURM_CPUS_PER_TASK
 cd "$WORK"
 
-CONFIG_DIR="$WORK/configs_random_genie3"
-PROCESSED_DIR="$WORK/configs_random_genie3_processed"
+CONFIG_DIR="$WORK/config_files/configs_lasso_all_tissues_100"
+PROCESSED_DIR="$WORK/config_files/configs_lasso_all_tissues_100_processed_1000"
 mkdir -p "$PROCESSED_DIR"
 
 # Dynamically build list of config files (sorted for consistency)
@@ -42,7 +42,7 @@ echo "Processing config: $CONFIG_FILE"
 #echo "Processing tissue: $TISSUE"
 
 # Run your processing
-srun python /home/hpc/iwbn/iwbn106h/Projects/GRN-FinDeR.git/approximate_fdr_computation.py -f "$CONFIG_FILE"
+srun python /home/hpc/iwbn/iwbn106h/Projects/SignifiKANTE.git/approximate_fdr_computation.py -f "$CONFIG_FILE" -n 0 -p 1000
 
 # Copy results
 #mkdir -p "grn_finder_results/${TISSUE}"
